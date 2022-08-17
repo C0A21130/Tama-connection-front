@@ -1,4 +1,5 @@
 import * as React from "react";
+import "../static/css/index.scss"
 
 const App: React.VFC = () =>{
     return(
