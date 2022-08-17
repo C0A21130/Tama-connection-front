@@ -1,0 +1,33 @@
+{
+  "name": "fronted",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.tsx",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack server --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/C0A21130/frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/C0A21130/frontend/issues"
+  },
+  "homepage": "https://github.com/C0A21130/frontend#readme",
+  "devDependencies": {
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.7.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.10.0"
+  },
+  "dependencies": {
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
