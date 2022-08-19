@@ -1,63 +1,6 @@
 // スマホ表示
 @media screen and (max-width: 415px) {
-    body {
-        .user-block {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            text-align: center;
-
-            #user-icon {
-                font-size: 0.5rem;
-                text-align: center;
-                line-height: 40px;
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                border: 2px solid black;
-            }
-
-            #search {
-                align-self: center;
-                width: 200px;
-
-                input {
-                    height: 40px
-                }
-            }
-
-            button {
-                align-self: center;
-                height: 40px;
-            }
-        }
-
-        .page-menu-block {
-            ul {
-                display: flex;
-                padding: 0;
-
-                li {
-                    list-style-type: none;
-                    width: 530px;
-                    height: 70px;
-                    margin: 0 1px;
-                    border: 2px solid black;
-                    background-color: #eeeeee;
-
-                    div {
-                        height: 70%;
-                        background-color: aqua;
-                    }
-
-                    p {
-                        margin: 0;
-                        text-align: center;
-                    }
-                }
-            }
-        }
-
+    .home {
         .tag-menu-block {
             ul {
                 display: flex;

@@ -43,32 +43,26 @@ const Home: React.FC = ()=>{
 
 
     return(
-        <div id="Home">
-            <section>
-                <div className="tag-menu-block">
-                    <ul>
-                        <li><div></div><p>観光地</p></li>
-                        <li><div></div><p>グルメ</p></li>
-                        <li><div></div><p>たまさんぽ</p></li>
-                        <li><div></div><p>お土産</p></li>
-                    </ul>
-                </div>
-            </section>
-            <section>
-                <div className="pictures-blck">
-                    <ul>
-                        <li>画像1</li>
-                        <li>画像2</li>
-                    </ul>
-                </div>
-            </section>
-            <section>
-                <div className="pages-block">
-                    {page_names.map((page: Page) =>
-                        <Page image={page.image} title={page.title} text={page.text} />
-                    )}
-                </div>
-            </section>
+        <div className="home">
+            <div className="tag-menu-block">
+                <ul>
+                    <li><div></div><p>観光地</p></li>
+                    <li><div></div><p>グルメ</p></li>
+                    <li><div></div><p>たまさんぽ</p></li>
+                    <li><div></div><p>お土産</p></li>
+                </ul>
+            </div>
+            <div className="pictures-blck">
+                <ul>
+                    <li>画像1</li>
+                    <li>画像2</li>
+                </ul>
+            </div>
+            <div className="pages-block">
+                {page_names.map((page: Page) =>
+                    <Page image={page.image} title={page.title} text={page.text} />
+                )}
+            </div>
         </div>
     )
 }
