@@ -1,0 +1,134 @@
+// スマホ表示
+@media screen and (max-width: 415px) {
+    body {
+        .user-block {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+
+            #user-icon {
+                font-size: 0.5rem;
+                text-align: center;
+                line-height: 40px;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                border: 2px solid black;
+            }
+
+            #search {
+                align-self: center;
+                width: 200px;
+
+                input {
+                    height: 40px
+                }
+            }
+
+            button {
+                align-self: center;
+                height: 40px;
+            }
+        }
+
+        .page-menu-block {
+            ul {
+                display: flex;
+                padding: 0;
+
+                li {
+                    list-style-type: none;
+                    width: 530px;
+                    height: 70px;
+                    margin: 0 1px;
+                    border: 2px solid black;
+                    background-color: #eeeeee;
+
+                    div {
+                        height: 70%;
+                        background-color: aqua;
+                    }
+
+                    p {
+                        margin: 0;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        .tag-menu-block {
+            ul {
+                display: flex;
+                padding: 0;
+                justify-content: space-around;
+
+                li {
+                    list-style-type: none;
+                    width: 80px;
+                    height: 100px;
+
+                    div {
+                        width: 80%;
+                        height: 60%;
+                        margin: 0 auto;
+                        background-color: blue;
+                    }
+
+                    p {
+                        text-align: center;
+                        margin: 0;
+                    }
+
+                    p::after {
+                        content: "";
+                        width: 85%;
+                        height: 2px;
+                        display: inline-block;
+                        position: relative;
+                        bottom: 15px;
+                        background-color: black;
+                    }
+                }
+            }
+        }
+
+        .pictures-blck {
+            ul {
+                display: flex;
+                padding: 0;
+                justify-content: space-around;
+
+                li {
+                    width: 45vw;
+                    height: 45vw;
+                    background-color: yellow;
+                    list-style-type: none;
+                    text-align: end;
+                }
+            }
+        }
+
+        .pages-block {
+            .page {
+                display: flex;
+                border-radius: 15px;
+                border: 2px solid black;
+
+                #image {
+                    width: 35vw;
+                    height: auto;
+                    margin: 10px;
+                    border-radius: 10px;
+                    background-color: red;
+                }
+
+                #text {
+                    width: 60vw;
+                    height: auto;
+                }
+            }
+        }
+    }
+}

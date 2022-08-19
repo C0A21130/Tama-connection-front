@@ -1,10 +1,12 @@
 import * as React from "react";
-import "../static/css/index.scss"
+import Home from "./Home"
+import Header from "../src/components/Header"
 
-const App: React.VFC = () =>{
+const App: React.FC = () =>{
     return(
-        <div>
-            <h1>Hello,World</h1>
+        <div id="app">
+            <Header />
+            <Home />
         </div>
     )
 };

@@ -29,6 +29,10 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.(gif|png|jpg|svg)$/,
+                type: "asset/inline"
             }
         ]
     },
