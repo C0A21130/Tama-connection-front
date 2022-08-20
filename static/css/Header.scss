@@ -1,3 +1,9 @@
-p{
-    background-color:bisque
+.header-block{
+    display: flex;
+    align-items:center;
+    background-color: blanchedalmond;
+    justify-content: center;
+    input {
+        height: 39px;
+    }
 }
