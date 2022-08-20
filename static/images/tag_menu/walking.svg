@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="48px"
+   height="48px"
+   viewBox="0 0 24 24"
+   fill="none"
+   aria-labelledby="walkingIconTitle"
+   stroke="#2329D6"
+   stroke-width="1"
+   stroke-linecap="square"
+   stroke-linejoin="miter"
+   color="#2329D6"
+   version="1.1"
+   id="svg7">
+  <metadata
+     id="metadata13">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Walking</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs11" />
+  <title
+     id="walkingIconTitle">Walking</title>
+  <circle
+     cx="13"
+     cy="5"
+     r="1"
+     id="circle3"
+     style="stroke:#5e5e5e;stroke-opacity:1" />
+  <path
+     d="M15 20L14 17L11 14M11 14L12 9M11 14L8 20M12 9L15 12L17 13M12 9L9 11L8 14"
+     id="path5"
+     style="stroke:#5e5e5e;stroke-opacity:1" />
+</svg>
