@@ -9,24 +9,30 @@
 
                 li {
                     list-style-type: none;
-                    width: 80px;
-                    height: 100px;
+                    width: 23%;
+                    height: fit-content;
 
                     div {
-                        width: 80%;
-                        height: 60%;
+                        height: 55px;
                         margin: 0 auto;
-                        background-color: blue;
+                        text-align: center;
+                        svg{
+                            width: 65%;
+                            height: auto;
+                        }
                     }
 
                     p {
+                        height: 25px;
                         text-align: center;
                         margin: 0;
+                        font-size: 0.9rem;
+                        background-color: white;
                     }
 
                     p::after {
                         content: "";
-                        width: 85%;
+                        width: 90%;
                         height: 2px;
                         display: inline-block;
                         position: relative;
