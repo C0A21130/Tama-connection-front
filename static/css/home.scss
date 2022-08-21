@@ -1,63 +1,6 @@
 // スマホ表示
 @media screen and (max-width: 415px) {
-    body {
-        .user-block {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            text-align: center;
-
-            #user-icon {
-                font-size: 0.5rem;
-                text-align: center;
-                line-height: 40px;
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                border: 2px solid black;
-            }
-
-            #search {
-                align-self: center;
-                width: 200px;
-
-                input {
-                    height: 40px
-                }
-            }
-
-            button {
-                align-self: center;
-                height: 40px;
-            }
-        }
-
-        .page-menu-block {
-            ul {
-                display: flex;
-                padding: 0;
-
-                li {
-                    list-style-type: none;
-                    width: 530px;
-                    height: 70px;
-                    margin: 0 1px;
-                    border: 2px solid black;
-                    background-color: #eeeeee;
-
-                    div {
-                        height: 70%;
-                        background-color: aqua;
-                    }
-
-                    p {
-                        margin: 0;
-                        text-align: center;
-                    }
-                }
-            }
-        }
-
+    .home {
         .tag-menu-block {
             ul {
                 display: flex;
@@ -66,24 +9,30 @@
 
                 li {
                     list-style-type: none;
-                    width: 80px;
-                    height: 100px;
+                    width: 23%;
+                    height: fit-content;
 
                     div {
-                        width: 80%;
-                        height: 60%;
+                        height: 55px;
                         margin: 0 auto;
-                        background-color: blue;
+                        text-align: center;
+                        svg{
+                            width: 65%;
+                            height: auto;
+                        }
                     }
 
                     p {
+                        height: 25px;
                         text-align: center;
                         margin: 0;
+                        font-size: 0.9rem;
+                        background-color: white;
                     }
 
                     p::after {
                         content: "";
-                        width: 85%;
+                        width: 90%;
                         height: 2px;
                         display: inline-block;
                         position: relative;
