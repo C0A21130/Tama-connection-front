@@ -4,15 +4,14 @@
    role="img"
    viewBox="0 0 24 24"
    fill="none"
-   color="#2329D6"
    version="1.1"
-   id="svg">
+   id="svg7">
    <g stroke="#5e5e5e">
-    <path
-       id="rect3"
-       d="M 3,7 H 21 V 19 H 3 Z" />
-    <path
-       id="rect5"
-       d="m 8,3 h 8 V 19 H 8 Z" />
+      <path
+         id="rect3"
+         d="M 5,7 H 19 V 19 H 5 Z" />
+      <path
+         id="path5"
+         d="M8 7a4 4 0 1 1 8 0" />
    </g>
 </svg>
