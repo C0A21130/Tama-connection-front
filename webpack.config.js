@@ -31,8 +31,12 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(gif|png|jpg|svg)$/,
-                type: "asset/inline"
+                test: /\.svg$/,
+                loader: "react-svg-loader"
+            },
+            {
+                test: /\.(png|jpg)$/,
+                type: "asset/resource"
             }
         ]
     },
