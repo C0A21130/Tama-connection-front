@@ -2,8 +2,20 @@
     display: flex;
     align-items:center;
     background-color: blanchedalmond;
-    justify-content: center;
     input {
         height: 39px;
     }
+}
+
+.header-block{
+    background-image: image-url("../images/user.svg");
+}
+
+.icon{
+    height: 50px;
+    width: 95px;
+}
+
+.window{
+    width :50%;
 }
