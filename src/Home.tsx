@@ -56,17 +56,16 @@ const Home: React.FC = ()=>{
     // タグメニューのボタンを押したときにタグを切り替える
     const change_tag = (t: Tag) => {
         setTag(t)
-        console.log(tag)
     }
 
     return(
         <div className="home">
             <div className="tag-menu-block">
                 <ul>
-                    <li onClick={() => change_tag("kankou")}><div id="sightseeing"><Sightseeing /></div><p>観光地</p></li>
-                    <li onClick={() => change_tag("gurume")}><div id="gourumet"><Gourmet /></div><p>グルメ</p></li>
-                    <li onClick={() => change_tag("tamasanpo")}><div id="walking"><Walking /></div><p>たまさんぽ</p></li>
-                    <li onClick={() => change_tag("omiyage")}><div id="omiyage"><Souvenir /></div><p>お土産</p></li>
+                    <li onClick={() => change_tag("kankou")}><div id="sightseeing"><Sightseeing className={tag == "kankou" ? "active" : false} /></div><p className={tag == "kankou" ? "active" : "noacive"}>観光地</p></li>
+                    <li onClick={() => change_tag("gurume")}><div id="gourumet"><Gourmet className={tag == "gurume" ? "active" : false} /></div><p className={tag == "gurume" ? "active" : "noacive"}>グルメ</p></li>
+                    <li onClick={() => change_tag("tamasanpo")}><div id="walking"><Walking className={tag == "tamasanpo" ? "active" : false} /></div><p className={tag == "tamasanpo" ? "active" : "noacive"}>たまさんぽ</p></li>
+                    <li onClick={() => change_tag("omiyage")}><div id="omiyage"><Souvenir className={tag == "omiyage" ? "active" : false} /></div><p className={tag == "omiyage" ? "active" : "noacive"}>お土産</p></li>
                 </ul>
             </div>
             <div className="pictures-blck">

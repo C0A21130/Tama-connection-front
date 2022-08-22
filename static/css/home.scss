@@ -32,12 +32,21 @@
 
                     p::after {
                         content: "";
-                        width: 90%;
-                        height: 2px;
+                        width: 85%;
+                        height: 3px;
                         display: inline-block;
                         position: relative;
                         bottom: 15px;
                         background-color: black;
+                    }
+
+                    .active{
+                        stroke: #7de8ff;
+                        color: #7de8ff;
+                    }
+
+                    .active::after{
+                        background-color: #7de8ff;
                     }
                 }
             }
