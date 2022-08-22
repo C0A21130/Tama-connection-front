@@ -22,11 +22,18 @@ interface Page{
 
 type Tag = "kankou" | "gurume" | "tamasanpo" | "omiyage";
  
-// 仮データ
-const page: Page = {
+// 仮データ1
+const page1: Page = {
     "image" : "",
-    "title" : "title",
-    "text" : "text"
+    "title" : "title1",
+    "text" : "text1"
+}
+
+// 仮データ2
+const page2: Page = {
+    "image" : "",
+    "title" : "title2",
+    "text" : "text2"
 }
 
 const Home: React.FC = ()=>{
@@ -34,12 +41,12 @@ const Home: React.FC = ()=>{
     const [tag, setTag] = React.useState<Tag>("kankou")
     const [page_names, setPageNames] = React.useState<Page[]>([]);
 
-    const options: AxiosRequestConfig<Tag> = {
+    const options: AxiosRequestConfig = {
         url: `${ROOT_URL}/page?tag=${tag}`,
         method: "GET"
     }
 
-    // viewをエンコードしたあとにページの情報を取得
+    // 画面をエンコードしたあととタグを変更した際にページの情報を取得する
     React.useEffect(() => {
         axios(options)
         .then((respons: AxiosResponse<Page[]>) => {
@@ -48,10 +55,14 @@ const Home: React.FC = ()=>{
         })
         .catch((error)=>{
             console.log(error)
-            setPageNames([page, page, page])
+            if (tag=="kankou" || tag=="gurume"){
+                setPageNames([page1, page2, page2])
+            }else{
+                setPageNames([page2, page1, page2])
+            }
         })
 
-    }, [])
+    }, [tag])
 
     // タグメニューのボタンを押したときにタグを切り替える
     const change_tag = (t: Tag) => {
