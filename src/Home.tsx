@@ -1,6 +1,6 @@
 import * as React from "react";
 import axios, {AxiosRequestConfig, AxiosResponse} from "axios";
-import Page from "./components/Page";
+import PageEntry from "./components/PageEntry";
 
 import Sightseeing from "./../static/images/tag_menu/sightseeing.svg";
 import Gourmet from "./../static/images/tag_menu/gourmet.svg";
@@ -15,7 +15,7 @@ const PICTTUR_NUM = 2;
 const PAGE_NUM = 4;
 
 // ページのデータ型を定義
-interface Page{
+interface PageEntry{
     image: string
     title: string
     text: string
@@ -24,14 +24,14 @@ interface Page{
 type Tag = "kankou" | "gurume" | "tamasanpo" | "omiyage";
  
 // 仮データ1
-const page1: Page = {
+const page1: PageEntry = {
     "image" : "",
     "title" : "title1",
     "text" : "text1"
 }
 
 // 仮データ2
-const page2: Page = {
+const page2: PageEntry = {
     "image" : "",
     "title" : "title2",
     "text" : "text2"
@@ -40,7 +40,7 @@ const page2: Page = {
 const Home: React.FC = ()=>{
 
     const [tag, setTag] = React.useState<Tag>("kankou")
-    const [page_names, setPageNames] = React.useState<Page[]>([]);
+    const [page_names, setPageNames] = React.useState<PageEntry[]>([]);
 
     const options: AxiosRequestConfig = {
         url: `${BASE_URL}/page?tag=${tag}`,
@@ -50,7 +50,7 @@ const Home: React.FC = ()=>{
     // 画面をエンコードしたあととタグを変更した際にページの情報を取得する
     React.useEffect(() => {
         axios(options)
-        .then((respons: AxiosResponse<Page[]>) => {
+        .then((respons: AxiosResponse<PageEntry[]>) => {
             const {data} = respons
             setPageNames(data)
         })
@@ -71,8 +71,8 @@ const Home: React.FC = ()=>{
     }
 
     // ページを保存する配列
-    const pages = page_names.map((page: Page, index) => 
-        <Page image={page.image} title={page.title} text={page.text} key={index} />
+    const pages = page_names.map((page: PageEntry, index) => 
+        <PageEntry image={page.image} title={page.title} text={page.text} key={index} />
     )
 
     return(

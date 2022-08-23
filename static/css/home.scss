@@ -76,10 +76,11 @@
         }
 
         .pages-block {
-            .page {
+            .page-entry {
                 display: flex;
                 border-radius: 15px;
                 border: 2px solid black;
+                margin: 10px 0;
 
                 #image {
                     width: 35vw;

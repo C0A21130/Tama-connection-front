@@ -6,11 +6,11 @@ interface PageProps {
     text: string
 }
 
-const Page: React.FC<PageProps> = (props)=>{
+const PageEntty: React.FC<PageProps> = (props)=>{
     const {image, title, text} = props
 
     return(
-        <div className="page">
+        <div className="page-entry">
             <div id="image">{image}</div>
             <div id="text">
                 <h2>{title}</h2>
@@ -20,4 +20,4 @@ const Page: React.FC<PageProps> = (props)=>{
     )
 };
 
-export default Page;
+export default PageEntty;
