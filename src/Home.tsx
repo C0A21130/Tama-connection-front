@@ -9,7 +9,8 @@ import Souvenir from "./../static/images/tag_menu/souvenir.svg";
 
 import "./../static/css/home.scss";
 
-const BASE_URL = "https://tama-connection-backend.herokuapp.com";
+// const BASE_URL = "https://tama-connection-backend.herokuapp.com";
+const BASE_URL = "";
 const PICTTUR_NUM = 2;
 const PAGE_NUM = 4;
 
@@ -69,6 +70,11 @@ const Home: React.FC = ()=>{
         setTag(t)
     }
 
+    // ページを保存する配列
+    const pages = page_names.map((page: Page, index) => 
+        <Page image={page.image} title={page.title} text={page.text} key={index} />
+    )
+
     return(
         <div className="home">
             <div className="tag-menu-block">
@@ -86,9 +92,7 @@ const Home: React.FC = ()=>{
                 </ul>
             </div>
             <div className="pages-block">
-                {page_names.map((page: Page) =>
-                    <Page image={page.image} title={page.title} text={page.text} />
-                )}
+                {pages}
             </div>
         </div>
     )
