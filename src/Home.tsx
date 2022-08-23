@@ -9,7 +9,7 @@ import Souvenir from "./../static/images/tag_menu/souvenir.svg";
 
 import "./../static/css/home.scss";
 
-const ROOT_URL = "https://";
+const BASE_URL = "https://tama-connection-backend.herokuapp.com";
 const PICTTUR_NUM = 2;
 const PAGE_NUM = 4;
 
@@ -42,7 +42,7 @@ const Home: React.FC = ()=>{
     const [page_names, setPageNames] = React.useState<Page[]>([]);
 
     const options: AxiosRequestConfig = {
-        url: `${ROOT_URL}/page?tag=${tag}`,
+        url: `${BASE_URL}/page?tag=${tag}`,
         method: "GET"
     }
 
@@ -73,10 +73,10 @@ const Home: React.FC = ()=>{
         <div className="home">
             <div className="tag-menu-block">
                 <ul>
-                    <li onClick={() => change_tag("kankou")}><div id="sightseeing"><Sightseeing className={tag == "kankou" ? "active" : false} /></div><p className={tag == "kankou" ? "active" : "noacive"}>観光地</p></li>
-                    <li onClick={() => change_tag("gurume")}><div id="gourumet"><Gourmet className={tag == "gurume" ? "active" : false} /></div><p className={tag == "gurume" ? "active" : "noacive"}>グルメ</p></li>
-                    <li onClick={() => change_tag("tamasanpo")}><div id="walking"><Walking className={tag == "tamasanpo" ? "active" : false} /></div><p className={tag == "tamasanpo" ? "active" : "noacive"}>たまさんぽ</p></li>
-                    <li onClick={() => change_tag("omiyage")}><div id="omiyage"><Souvenir className={tag == "omiyage" ? "active" : false} /></div><p className={tag == "omiyage" ? "active" : "noacive"}>お土産</p></li>
+                    <li onClick={() => change_tag("kankou")} className={tag == "kankou" ? "active" : "noactive"}><div id="sightseeing"><Sightseeing /></div><p>観光地</p></li>
+                    <li onClick={() => change_tag("gurume")} className={tag == "gurume" ? "active" : "noactive"}><div id="gourumet"><Gourmet /></div><p>グルメ</p></li>
+                    <li onClick={() => change_tag("tamasanpo")} className={tag == "tamasanpo" ? "active" : "noactive"}><div id="walking"><Walking /></div><p>たまさんぽ</p></li>
+                    <li onClick={() => change_tag("omiyage")} className={tag == "omiyage" ? "active" : "noactive"}><div id="omiyage"><Souvenir  /></div><p>お土産</p></li>
                 </ul>
             </div>
             <div className="pictures-blck">

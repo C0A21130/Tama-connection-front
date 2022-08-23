@@ -39,13 +39,20 @@
                         bottom: 15px;
                         background-color: black;
                     }
+                }
 
-                    .active{
-                        stroke: #7de8ff;
+                .active{
+                    div{
+                        svg{
+                            stroke: #7de8ff;
+                        }
+                    }
+
+                    p{
                         color: #7de8ff;
                     }
 
-                    .active::after{
+                    p::after{
                         background-color: #7de8ff;
                     }
                 }
