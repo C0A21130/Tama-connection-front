@@ -1,8 +1,10 @@
 import * as React from "react";
-import {Route, Routes} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
+
 import Home from "./Home";
 import Header from "./components/Header";
 import TabMenu from "./components/TabMenu";
+import Page from "./pages/Page";
 
 const App: React.FC = () =>{
     return(
@@ -11,6 +13,9 @@ const App: React.FC = () =>{
             <TabMenu />
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/page">
+                    <Route path=":pageId" element={<Page />} />
+                </Route>
             </Routes>
         </div>
     )

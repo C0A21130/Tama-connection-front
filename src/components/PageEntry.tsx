@@ -1,5 +1,5 @@
 import * as React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface PageProps {
     page: number,
@@ -13,11 +13,15 @@ const PageEntty: React.FC<PageProps> = (props)=>{
 
     return(
         <div className="page-entry">
-            <div id="image"><img src={image} /></div>
-            <div id="text">
-                <h2>{title}</h2>
-                <p>{text}</p>
-            </div>
+            <Link to={`/page/${page}`}>
+                <div>
+                    <div id="image"><img src={image} /></div>
+                    <div id="text">
+                        <h2>{title}</h2>
+                        <p>{text}</p>
+                    </div>
+                </div>
+            </Link>
         </div>
     )
 };

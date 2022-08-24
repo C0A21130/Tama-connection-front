@@ -32,7 +32,7 @@ type Tag = "kankou" | "gurume" | "tamasanpo" | "omiyage";
 // 仮データ1
 const page1: PageEntry = {
     "page" : 1,
-    "image" : "",
+    "image": "data",
     "title" : "title1",
     "text" : "text1"
 }
@@ -79,8 +79,8 @@ const Home: React.FC = ()=>{
     }
 
     // ページを保存する配列
-    const pages = page_names.map((page: PageEntry, index: number) => 
-        <PageEntry image={page.image} title={page.title} text={page.text} key={index} />
+    const pages: JSX.Element[] = page_names.map((page: PageEntry, index: number) => 
+        <PageEntry page={page.page} image={page.image} title={page.title} text={page.text} key={index} />
     )
 
     return(
