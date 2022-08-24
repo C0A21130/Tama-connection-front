@@ -134,7 +134,7 @@
 
                 li {
                     list-style-type: none;
-                    width: 18vw;
+                    width: 20vw;
                     height: fit-content;
 
                     div {
@@ -157,7 +157,7 @@
 
                     p::after {
                         content: "";
-                        width: 85%;
+                        width: 100%;
                         height: 3px;
                         display: inline-block;
                         position: relative;
