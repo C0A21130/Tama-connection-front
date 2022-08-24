@@ -1,42 +1,44 @@
-/*ラジオボタンを全て消す*/
-input[name="tab_item"] {
-    display: none;
-  }
+.tab-menu {
+
+    /*ラジオボタンを全て消す*/
+    input[name="tab_item"] {
+        display: none;
+    }
 
 
-/*タブ切り替え全体のスタイル*/
-.tab {
-    margin-top: 60px;
-    padding-bottom: 80px;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin: 0 auto;
-  }
+    /*タブ切り替え全体のスタイル*/
+    .tab {
+        margin-top: 60px;
+        padding-bottom: 80px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin: 0 auto;
+    }
 
 
-/*タブのスタイル*/
-.tab_item {
-    width: 25%;
-    height: 80px;
-    background-color: #d9d9d9;
-    line-height: 20px;
-    font-size: 16px;
-    text-align: center;
-    color: #565656;
-    display: block;
-    float: left;
-    font-weight: bold;
-    transition: all 0.2s ease;
-  }
+    /*タブのスタイル*/
+    .tab_item {
+        width: 25%;
+        height: 80px;
+        background-color: #d9d9d9;
+        line-height: 20px;
+        font-size: 16px;
+        text-align: center;
+        color: #565656;
+        display: block;
+        float: left;
+        font-weight: bold;
+        transition: all 0.2s ease;
+    }
 
+    .tab_item:hover {
+        opacity: 0.75;
+    }
 
-.tab_item:hover {
-  opacity: 0.75;
-}
+    /*選択されているタブのスタイルを変える*/
+    .tab input:checked + .tab_item {
+        background-color: #5abd80;
+        color: #fff;
+    }
 
-
-/*選択されているタブのスタイルを変える*/
-.tab input:checked + .tab_item {
-  background-color: #5abd80;
-  color: #fff;
 }

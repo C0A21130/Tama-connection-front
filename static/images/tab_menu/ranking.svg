@@ -1,0 +1,14 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    stroke="#5e5e5e"
+    fill="none"
+    color="#2329D6">
+    <title id="calendarIconTitle">Calendar</title>
+    <g>
+        <path d="M3 5H21V21H3V5Z"/>
+        <path d="M21 9H3"/>
+        <path d="M7 5V3"/>
+        <path d="M17 5V3"/>
+    </g>
+</svg>
