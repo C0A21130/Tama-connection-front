@@ -14,17 +14,24 @@ const BASE_URL = "";
 const PICTTUR_NUM = 2;
 const PAGE_NUM = 4;
 
-// ページのデータ型を定義
-interface PageEntry{
-    image: string
-    title: string
+// ページ項目のデータ型を定義
+interface PageEntry {
+    page: number,
+    image: string,
+    title: string,
     text: string
+}
+
+// 受け取るデータのデータ型を定義
+interface ResponsData {
+    result: PageEntry[]
 }
 
 type Tag = "kankou" | "gurume" | "tamasanpo" | "omiyage";
  
 // 仮データ1
 const page1: PageEntry = {
+    "page" : 1,
     "image" : "",
     "title" : "title1",
     "text" : "text1"
@@ -32,6 +39,7 @@ const page1: PageEntry = {
 
 // 仮データ2
 const page2: PageEntry = {
+    "page" : 3,
     "image" : "",
     "title" : "title2",
     "text" : "text2"
@@ -50,9 +58,9 @@ const Home: React.FC = ()=>{
     // 画面をエンコードしたあととタグを変更した際にページの情報を取得する
     React.useEffect(() => {
         axios(options)
-        .then((respons: AxiosResponse<PageEntry[]>) => {
+        .then((respons: AxiosResponse<ResponsData>) => {
             const {data} = respons
-            setPageNames(data)
+            setPageNames(data.result)
         })
         .catch((error)=>{
             console.log(error)
@@ -71,7 +79,7 @@ const Home: React.FC = ()=>{
     }
 
     // ページを保存する配列
-    const pages = page_names.map((page: PageEntry, index) => 
+    const pages = page_names.map((page: PageEntry, index: number) => 
         <PageEntry image={page.image} title={page.title} text={page.text} key={index} />
     )
 
