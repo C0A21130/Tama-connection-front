@@ -18,11 +18,11 @@ const TabMenu: React.FC = () =>{
 
     return(
         <div className="tab-menu">
-            <ul>
-                <li onClick={() => change_tab("guide")} className={tab=="guide" ? "active" : "noactive"}><div><Guide /></div><p>ガイド</p></li>
-                <li onClick={() => change_tab("map")} className={tab == "map" ? "active" : "noactive"}><div><Map /></div><p>マップ</p></li>
-                <li onClick={() => change_tab("library")} className={tab == "library" ? "active" : "noactive"}><div><Library /></div><p>ライブラリ</p></li>
-                <li onClick={() => change_tab("ranking")} className={tab == "ranking" ? "active" : "noactive"}><div><Ranking /></div><p>ランキング</p></li>
+            <ul className="tab">
+                <li className="tab-item" onClick={() => change_tab("guide")} id={tab=="guide" ? "active" : "noactive"}><div><Guide /></div><p>ガイド</p></li>
+                <li className="tab-item" onClick={() => change_tab("map")} id={tab == "map" ? "active" : "noactive"}><div><Map /></div><p>マップ</p></li>
+                <li className="tab-item" onClick={() => change_tab("library")} id={tab == "library" ? "active" : "noactive"}><div><Library /></div><p>ライブラリ</p></li>
+                <li className="tab-item" onClick={() => change_tab("ranking")} id={tab == "ranking" ? "active" : "noactive"}><div><Ranking /></div><p>ランキング</p></li>
             </ul>
         </div>
     )
