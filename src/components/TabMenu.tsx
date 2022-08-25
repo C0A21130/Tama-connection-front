@@ -1,23 +1,29 @@
-import * as React from "react"
-import "../../static/css/TabMenu.scss"
+import * as React from "react";
+import "../../static/css/TabMenu.scss";
 
-import Guide from "../../static/images/menu/book-opened.svg";
-import Calendar from "../../static/images/menu/calendar.svg";
-import Camera from "../../static/images/menu/camera.svg";
-import Map from "../../static/images/menu/map.svg";
+import Guide from "./../../static/images/tab_menu/guide.svg";
+import Map from "./../../static/images/tab_menu/map.svg";
+import Library from "../../static/images/tab_menu/library.svg";
+import Ranking from "../../static/images/tab_menu/ranking.svg";
 
+type Tab = "guide" | "map" | "library" | "ranking";
 
 const TabMenu: React.FC = () =>{
+
+    const [tab, setTab] = React.useState<Tab>("guide");
+
+    const change_tab = (tab_name:Tab) => {
+        setTab(tab_name);
+    };
+
     return(
-        <div className="tab">
-            <input id="guide" type="radio" name="tab_item" checked></input>
-            <label className="tab_item" htmlFor="guide"><div><Guide /></div>ガイド</label>
-            <input id="map" type="radio" name="tab_item"></input>
-            <label className="tab_item" htmlFor="map"><div><Map /></div>マップ</label>
-            <input id="library" type="radio" name="tab_item"></input>
-            <label className="tab_item" htmlFor="library"><Camera /><br></br>ライブラリ</label>
-            <input id="ranking" type="radio" name="tab_item"></input>
-            <label className="tab_item" htmlFor="ranking"><Calendar /><br></br>ランキング</label>
+        <div className="tab-menu">
+            <ul className="tab">
+                <li className="tab-item" onClick={() => change_tab("guide")} id={tab=="guide" ? "active" : "noactive"}><div><Guide /></div><p>ガイド</p></li>
+                <li className="tab-item" onClick={() => change_tab("map")} id={tab == "map" ? "active" : "noactive"}><div><Map /></div><p>マップ</p></li>
+                <li className="tab-item" onClick={() => change_tab("library")} id={tab == "library" ? "active" : "noactive"}><div><Library /></div><p>ライブラリ</p></li>
+                <li className="tab-item" onClick={() => change_tab("ranking")} id={tab == "ranking" ? "active" : "noactive"}><div><Ranking /></div><p>ランキング</p></li>
+            </ul>
         </div>
     )
 }
