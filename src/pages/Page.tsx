@@ -66,7 +66,7 @@ const Page: React.FC = () => {
 
     return(
         <div className="page">
-        <div id={"testPage.tag"}>
+        <div id={testPage.tag}>
             <div className="picture-block">
                 <div className="picture-box">
                     <div className="picture">
