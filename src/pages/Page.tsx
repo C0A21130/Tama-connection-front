@@ -2,6 +2,8 @@ import * as React from "react";
 import { useParams } from "react-router-dom";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
+import "./../../static/css/page.scss";
+
 const pic_datas = require("./../pic.json");
 
 const ROOT_URL:string = "";
@@ -43,7 +45,7 @@ const testPage: ResponsPage = {
 
 const Page: React.FC = () => {
     const {pageId} = useParams();
-    const [pageData, setPageData] = React.useState<ResponsPage>();
+    const [pageData, setPageData] = React.useState<ResponsPage | null>();
 
     const option: AxiosRequestConfig = {
         url: `${ROOT_URL}/page/${pageId}`,
@@ -58,12 +60,32 @@ const Page: React.FC = () => {
         })
         .catch((eroor)=>{
             setPageData(testPage)
+            console.log(testPage);
         })
     }, [])
 
     return(
         <div className="page">
-            <h1>PAGE{pageId}</h1>
+        <div id={"testPage.tag"}>
+            <div className="picture-block">
+                <div className="picture-box">
+                    <div className="picture">
+                        <img src={testPage.image}></img>
+                    </div>
+                </div>
+            </div>
+            <div className="title-block">
+                <div className="title-box">
+                    <div className="tag"></div>
+                    <h2>{testPage.title}</h2>
+                </div>
+            </div>
+            <div className="text-blok">
+                <div className="text-box">
+                    <p>{testPage.text}</p>
+                </div>
+            </div>
+        </div>
         </div>
     )
 }
