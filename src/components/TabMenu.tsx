@@ -1,4 +1,5 @@
 import * as React from "react";
+import {Link} from "react-router-dom";
 import "../../static/css/TabMenu.scss";
 
 import Guide from "./../../static/images/tab_menu/guide.svg";
@@ -19,7 +20,7 @@ const TabMenu: React.FC = () =>{
     return(
         <div className="tab-menu">
             <ul className="tab">
-                <li className="tab-item" onClick={() => change_tab("guide")} id={tab=="guide" ? "active" : "noactive"}><div><Guide /></div><p>ガイド</p></li>
+                <li className="tab-item" onClick={() => change_tab("guide")} id={tab == "guide" ? "active" : "noactive"}><Link to="/"><div><Guide /></div><p>ガイド</p></Link></li>
                 <li className="tab-item" onClick={() => change_tab("map")} id={tab == "map" ? "active" : "noactive"}><div><Map /></div><p>マップ</p></li>
                 <li className="tab-item" onClick={() => change_tab("library")} id={tab == "library" ? "active" : "noactive"}><div><Library /></div><p>ライブラリ</p></li>
                 <li className="tab-item" onClick={() => change_tab("ranking")} id={tab == "ranking" ? "active" : "noactive"}><div><Ranking /></div><p>ランキング</p></li>

@@ -18,6 +18,10 @@
         transition: all 0.2s ease;
         list-style: none;
 
+        a {
+            text-decoration: none;
+        }
+
         svg {
             width: 70%;
         }
