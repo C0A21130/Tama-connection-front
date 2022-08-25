@@ -12,7 +12,7 @@ import "./../static/css/home.scss";
 const pic_datas = require("./pic.json");
 
 // const BASE_URL = "https://tama-connection-backend.herokuapp.com";
-const BASE_URL = "";
+const ROOT_URL = "";
 
 // ページ項目のデータ型を定義
 interface PageEntry {
@@ -51,7 +51,7 @@ const Home: React.FC = ()=>{
     const [page_names, setPageNames] = React.useState<PageEntry[]>([]);
 
     const options: AxiosRequestConfig = {
-        url: `${BASE_URL}/page?tag=${tag}`,
+        url: `${ROOT_URL}/page?tag=${tag}`,
         method: "GET"
     }
 
