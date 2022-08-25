@@ -14,12 +14,10 @@ const PageEntty: React.FC<PageProps> = (props)=>{
     return(
         <div className="page-entry">
             <Link to={`/page/${page}`}>
-                <div>
-                    <div id="image"><img src={image} /></div>
-                    <div id="text">
-                        <h2>{title}</h2>
-                        <p>{text}</p>
-                    </div>
+                <div id="image"><img src={image} /></div>
+                <div id="text">
+                    <h2>{title}</h2>
+                    <p>{text}</p>
                 </div>
             </Link>
         </div>

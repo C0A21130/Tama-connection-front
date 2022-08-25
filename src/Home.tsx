@@ -6,13 +6,13 @@ import Sightseeing from "./../static/images/tag_menu/sightseeing.svg";
 import Gourmet from "./../static/images/tag_menu/gourmet.svg";
 import Walking from "./../static/images/tag_menu/walking.svg";
 import Souvenir from "./../static/images/tag_menu/souvenir.svg";
-
+ 
 import "./../static/css/home.scss";
+
+const pic_datas = require("./pic.json");
 
 // const BASE_URL = "https://tama-connection-backend.herokuapp.com";
 const BASE_URL = "";
-const PICTTUR_NUM = 2;
-const PAGE_NUM = 4;
 
 // ページ項目のデータ型を定義
 interface PageEntry {
@@ -32,7 +32,7 @@ type Tag = "kankou" | "gurume" | "tamasanpo" | "omiyage";
 // 仮データ1
 const page1: PageEntry = {
     "page" : 1,
-    "image": "data",
+    "image": pic_datas.file1,
     "title" : "title1",
     "text" : "text1"
 }
@@ -40,7 +40,7 @@ const page1: PageEntry = {
 // 仮データ2
 const page2: PageEntry = {
     "page" : 3,
-    "image" : "",
+    "image" : pic_datas.file2,
     "title" : "title2",
     "text" : "text2"
 }
@@ -95,8 +95,8 @@ const Home: React.FC = ()=>{
             </div>
             <div className="pictures-blck">
                 <ul>
-                    <li>画像1</li>
-                    <li>画像2</li>
+                    <li><img src={pic_datas.file1}></img></li>
+                    <li><img src={pic_datas.file2}></img></li>
                 </ul>
             </div>
             <div className="pages-block">
