@@ -11,8 +11,7 @@ import "./../static/css/home.scss";
 
 const pic_datas = require("./pic.json");
 
-// const BASE_URL = "https://tama-connection-backend.herokuapp.com";
-const ROOT_URL = "";
+const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
 
 // ページ項目のデータ型を定義
 interface PageEntry {

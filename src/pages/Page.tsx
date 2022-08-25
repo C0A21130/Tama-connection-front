@@ -6,7 +6,7 @@ import "./../../static/css/page.scss";
 
 const pic_datas = require("./../pic.json");
 
-const ROOT_URL:string = "";
+const ROOT_URL: string = "https://tama-connection-backend.herokuapp.com";
 
 interface Other {
     user: string,
