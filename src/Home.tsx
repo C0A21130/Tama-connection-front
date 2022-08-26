@@ -11,8 +11,8 @@ import "./../static/css/home.scss";
 
 const pic_datas = require("./pic.json");
 
-// const BASE_URL = "https://tama-connection-backend.herokuapp.com";
-const ROOT_URL = "";
+// const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
+const ROOT_URL = "http://localhost:5000";
 
 // ページ項目のデータ型を定義
 interface PageEntry {
@@ -56,22 +56,21 @@ const Home: React.FC = ()=>{
     }
 
     // 画面をエンコードしたあととタグを変更した際にページの情報を取得する
-    React.useEffect(() => {
-        axios(options)
-        .then((respons: AxiosResponse<ResponsData>) => {
-            const {data} = respons
-            setPageNames(data.result)
-        })
-        .catch((error)=>{
-            console.log(error)
-            if (tag=="kankou" || tag=="gurume"){
-                setPageNames([page1, page2, page2])
-            }else{
-                setPageNames([page2, page1, page2])
-            }
-        })
+    // React.useEffect(() => {
+    //     axios(options)
+    //     .then((respons: AxiosResponse<ResponsData>) => {
+    //         const {data} = respons
+    //         setPageNames(data.result)
+    //     })
+    //     .catch((error)=>{
+    //         if (tag=="kankou" || tag=="gurume"){
+    //             setPageNames([page1, page2, page2])
+    //         }else{
+    //             setPageNames([page2, page1, page2])
+    //         }
+    //     })
 
-    }, [tag])
+    // }, [tag])
 
     // タグメニューのボタンを押したときにタグを切り替える
     const change_tag = (t: Tag) => {
@@ -79,7 +78,7 @@ const Home: React.FC = ()=>{
     }
 
     // ページを保存する配列
-    const pages: JSX.Element[] = page_names.map((page: PageEntry, index: number) => 
+    const pages: JSX.Element[] = page_names?.map((page: PageEntry, index: number) => 
         <PageEntry page={page.page} image={page.image} title={page.title} text={page.text} key={index} />
     )
 
