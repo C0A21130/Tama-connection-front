@@ -59,7 +59,7 @@ const Home: React.FC = ()=>{
     // タグメニューのボタンを押したときにタグを切り替える
     const changeTag = (t: Tag) => {
         setTag(t)
-        switch (tag) {
+        switch (t) {
             case "kankou":
                 setDisplayPage(pageData.kankou);
                 break;
