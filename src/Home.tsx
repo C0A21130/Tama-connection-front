@@ -1,5 +1,4 @@
 import * as React from "react";
-import axios, {AxiosRequestConfig, AxiosResponse} from "axios";
 import PageEntry from "./components/PageEntry";
 
 import Sightseeing from "./../static/images/tag_menu/sightseeing.svg";
@@ -8,88 +7,86 @@ import Walking from "./../static/images/tag_menu/walking.svg";
 import Souvenir from "./../static/images/tag_menu/souvenir.svg";
  
 import "./../static/css/home.scss";
+import axios from "axios";
 
 const pic_datas = require("./pic.json");
 
-// const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
 const ROOT_URL = "http://localhost:5000";
+// const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
 
-// ページ項目のデータ型を定義
-interface PageEntry {
-    page: number,
-    image: string,
-    title: string,
-    text: string
+interface Other {
+    user: string,
+    location: {
+        x: number,
+        y: number
+    },
+    good: number
 }
 
-// 受け取るデータのデータ型を定義
-interface ResponsData {
-    result: PageEntry[]
+interface PageData {
+    file_name: number,
+    title: string,
+    tag: string,
+    text: string,
+    other: Other | null,
+    image: string
+}
+
+interface ResponsePageData {
+    kankou: PageData[],
+    gurume: PageData[],
+    tamasanpo: PageData[],
+    omiyage: PageData[]
 }
 
 type Tag = "kankou" | "gurume" | "tamasanpo" | "omiyage";
- 
-// 仮データ1
-const page1: PageEntry = {
-    "page" : 1,
-    "image": pic_datas.file1,
-    "title" : "title1",
-    "text" : "text1"
-}
-
-// 仮データ2
-const page2: PageEntry = {
-    "page" : 3,
-    "image" : pic_datas.file2,
-    "title" : "title2",
-    "text" : "text2"
-}
 
 const Home: React.FC = ()=>{
 
-    const [tag, setTag] = React.useState<Tag>("kankou")
-    const [page_names, setPageNames] = React.useState<PageEntry[]>([]);
+    const [tag, setTag] = React.useState<Tag>("kankou");
+    const [displayPage, setDisplayPage] = React.useState<PageData[]>();
+    const [pageData, setPageData] = React.useState<ResponsePageData>();
 
-    const options: AxiosRequestConfig = {
-        url: `${ROOT_URL}/page?tag=${tag}`,
-        method: "GET"
-    }
-
-    // 画面をエンコードしたあととタグを変更した際にページの情報を取得する
-    // React.useEffect(() => {
-    //     axios(options)
-    //     .then((respons: AxiosResponse<ResponsData>) => {
-    //         const {data} = respons
-    //         setPageNames(data.result)
-    //     })
-    //     .catch((error)=>{
-    //         if (tag=="kankou" || tag=="gurume"){
-    //             setPageNames([page1, page2, page2])
-    //         }else{
-    //             setPageNames([page2, page1, page2])
-    //         }
-    //     })
-
-    // }, [tag])
+    React.useEffect(() => {
+        const getPage = async () => {
+            const {data} = await axios.get<ResponsePageData>(ROOT_URL + "/page")
+            setPageData(data)
+            setDisplayPage(data.kankou);
+        }
+        getPage();
+    }, [])
 
     // タグメニューのボタンを押したときにタグを切り替える
-    const change_tag = (t: Tag) => {
+    const changeTag = (t: Tag) => {
         setTag(t)
+        switch (tag) {
+            case "kankou":
+                setDisplayPage(pageData.kankou);
+                break;
+            case "gurume":
+                setDisplayPage(pageData.gurume);
+                break;
+            case "tamasanpo":
+                setDisplayPage(pageData.tamasanpo);
+                break;
+            case "omiyage":
+                setDisplayPage(pageData.omiyage);
+                break;
+        }
     }
 
-    // ページを保存する配列
-    const pages: JSX.Element[] = page_names?.map((page: PageEntry, index: number) => 
-        <PageEntry page={page.page} image={page.image} title={page.title} text={page.text} key={index} />
+    const pages: JSX.Element[] = displayPage?.map((page, index) => 
+        <PageEntry page={page.file_name} title={page.title} text={page.text} image={page.image} key={index}/>
     )
 
     return(
         <div className="home">
             <div className="tag-menu-block">
                 <ul>
-                    <li onClick={() => change_tag("kankou")} className={tag == "kankou" ? "active" : "noactive"}><div id="sightseeing"><Sightseeing /></div><p>観光地</p></li>
-                    <li onClick={() => change_tag("gurume")} className={tag == "gurume" ? "active" : "noactive"}><div id="gourumet"><Gourmet /></div><p>グルメ</p></li>
-                    <li onClick={() => change_tag("tamasanpo")} className={tag == "tamasanpo" ? "active" : "noactive"}><div id="walking"><Walking /></div><p>たまさんぽ</p></li>
-                    <li onClick={() => change_tag("omiyage")} className={tag == "omiyage" ? "active" : "noactive"}><div id="omiyage"><Souvenir  /></div><p>お土産</p></li>
+                    <li onClick={() => changeTag("kankou")} className={tag == "kankou" ? "active" : "noactive"}><div id="sightseeing"><Sightseeing /></div><p>観光地</p></li>
+                    <li onClick={() => changeTag("gurume")} className={tag == "gurume" ? "active" : "noactive"}><div id="gourumet"><Gourmet /></div><p>グルメ</p></li>
+                    <li onClick={() => changeTag("tamasanpo")} className={tag == "tamasanpo" ? "active" : "noactive"}><div id="walking"><Walking /></div><p>たまさんぽ</p></li>
+                    <li onClick={() => changeTag("omiyage")} className={tag == "omiyage" ? "active" : "noactive"}><div id="omiyage"><Souvenir  /></div><p>お土産</p></li>
                 </ul>
             </div>
             <div className="pictures-blck">
