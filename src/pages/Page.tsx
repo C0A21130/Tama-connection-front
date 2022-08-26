@@ -4,8 +4,6 @@ import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
 import "./../../static/css/page.scss";
 
-const pic_datas = require("./../pic.json");
-
 const ROOT_URL: string = "https://tama-connection-backend.herokuapp.com";
 
 interface Other {
@@ -28,24 +26,24 @@ interface ResponsPage{
 }
 
 const testPage: ResponsPage = {
-    file_name: 1,
-    title: "test",
-    tag: "kankou",
-    text: "test,test,test",
+    file_name: 2,
+    title: "",
+    tag: "",
+    text: "",
     other: {
-        user: "test_user",
+        user: "",
         location_information: {
-            x: 120,
-            y: 200
+            x: 0,
+            y: 0
         },
-        good: 2
+        good: 0
     },
-    image: pic_datas.file1
+    image: ""
 }
 
 const Page: React.FC = () => {
     const {pageId} = useParams();
-    const [pageData, setPageData] = React.useState<ResponsPage | null>();
+    const [pageData, setPageData] = React.useState<ResponsPage>(testPage);
 
     const option: AxiosRequestConfig = {
         url: `${ROOT_URL}/page/${pageId}`,
@@ -57,6 +55,7 @@ const Page: React.FC = () => {
         .then((respons: AxiosResponse<ResponsPage>)=>{
             const {data} = respons;
             setPageData(data)
+            console.log(pageData)
         })
         .catch((eroor)=>{
             setPageData(testPage)
@@ -66,23 +65,23 @@ const Page: React.FC = () => {
 
     return(
         <div className="page">
-        <div id={testPage.tag}>
+        <div id={pageData.tag}>
             <div className="picture-block">
                 <div className="picture-box">
                     <div className="picture">
-                        <img src={testPage.image}></img>
+                        <img src={pageData.image}></img>
                     </div>
                 </div>
             </div>
             <div className="title-block">
                 <div className="title-box">
                     <div className="tag"></div>
-                    <h2>{testPage.title}</h2>
+                    <h2>{pageData.title}</h2>
                 </div>
             </div>
             <div className="text-blok">
                 <div className="text-box">
-                    <p>{testPage.text}</p>
+                    <p>{pageData.text}</p>
                 </div>
             </div>
         </div>
