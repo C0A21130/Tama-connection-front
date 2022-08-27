@@ -1,15 +1,15 @@
 import * as React from "react";
-import PageEntry from "./components/PageEntry";
+import PageEntry from "../components/PageEntry";
 
-import Sightseeing from "./../static/images/tag_menu/sightseeing.svg";
-import Gourmet from "./../static/images/tag_menu/gourmet.svg";
-import Walking from "./../static/images/tag_menu/walking.svg";
-import Souvenir from "./../static/images/tag_menu/souvenir.svg";
+import Sightseeing from "./../../static/images/tag_menu/sightseeing.svg";
+import Gourmet from "./../../static/images/tag_menu/gourmet.svg";
+import Walking from "./../../static/images/tag_menu/walking.svg";
+import Souvenir from "./../../static/images/tag_menu/souvenir.svg";
  
-import "./../static/css/home.scss";
+import "./../../static/css/home.scss";
 import axios from "axios";
 
-const pic_datas = require("./pic.json");
+const pic_datas = require("./../pic.json");
 
 const ROOT_URL = "http://localhost:5000";
 // const ROOT_URL = "https://tama-connection-backend.herokuapp.com";

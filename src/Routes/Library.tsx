@@ -1,9 +1,9 @@
 import * as React from "react";
-import "../static/css/Library.scss";
-import Camera from "../static/images/Library/camera.svg";
-import Pan from "../static/images/Library/pan.svg";
-import Touch from "../static/images/Library/shift.svg";
-import Medal from "../static/images/Library/medal.svg"
+import "./../../static/css/Library.scss";
+import Camera from "./../../static/images/Library/camera.svg";
+import Pan from "./../../static/images/Library/pan.svg";
+import Touch from "./../../static/images/Library/shift.svg";
+import Medal from "./../../static/images/Library/medal.svg"
 
 
 

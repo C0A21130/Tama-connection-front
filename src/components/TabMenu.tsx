@@ -23,7 +23,7 @@ const TabMenu: React.FC = () =>{
                 <li className="tab-item" onClick={() => change_tab("guide")} id={tab == "guide" ? "active" : "noactive"}><Link to="/"><div><Guide /></div><p>ガイド</p></Link></li>
                 <li className="tab-item" onClick={() => change_tab("map")} id={tab == "map" ? "active" : "noactive"}><div><Map /></div><p>マップ</p></li>
                 <li className="tab-item" onClick={() => change_tab("library")} id={tab == "library" ? "active" : "noactive"}><Link to="/library"><div><Library /></div><p>ライブラリ</p></Link></li>
-                <li className="tab-item" onClick={() => change_tab("ranking")} id={tab == "ranking" ? "active" : "noactive"}><div><Ranking /></div><p>ランキング</p></li>
+                <li className="tab-item" onClick={() => change_tab("ranking")} id={tab == "ranking" ? "active" : "noactive"}><Link to="/postpage"><div><Ranking /></div><p>ランキング</p></Link></li>
             </ul>
         </div>
     )

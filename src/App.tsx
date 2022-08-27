@@ -1,8 +1,9 @@
 import * as React from "react";
 import {Routes, Route} from "react-router-dom";
 
-import Home from "./Home";
-import Library from "./Library";
+import Home from "./Routes/Home";
+import Library from "./Routes/Library";
+import PostPagge from "./Routes/PostPage";
 import Header from "./components/Header";
 import TabMenu from "./components/TabMenu";
 import Page from "./pages/Page";
@@ -18,6 +19,7 @@ const App: React.FC = () =>{
                     <Route path=":pageId" element={<Page />} />
                 </Route>
                 <Route path="/library" element={<Library />}></Route>
+                <Route path="/postpage" element={<PostPagge />}></Route>
             </Routes>
         </div>
     )
