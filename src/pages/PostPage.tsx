@@ -81,9 +81,6 @@ const postPage: React.FC = () => {
                 <div className="text-block">
                     <label>説明</label>
                     <textarea name="comment" cols={20} rows={5}></textarea>
-                </div> 
-                <div className="picture-block">
-                    <label>写真を追加する<input type="file" /></label>
                 </div>
                 <div className="submit-button">
                     <label>送信する</label>

@@ -6,7 +6,7 @@ import Guide from "./../../static/images/tab_menu/guide.svg";
 import Map from "./../../static/images/tab_menu/map.svg";
 import Library from "../../static/images/tab_menu/library.svg";
 import Ranking from "../../static/images/tab_menu/ranking.svg";
-import PostPaage from "../Routes/PostPage";
+import PostPaage from "../Routes/Post";
 
 type Tab = "guide" | "map" | "library" | "postPage";
 
@@ -31,7 +31,7 @@ const TabMenu: React.FC = () =>{
                     <Link to="/library"><div><Library /></div><p>ライブラリ</p></Link>
                 </li>
                 <li className="tab-item" onClick={() => change_tab("postPage")} id={tab == "postPage" ? "active" : "noactive"}>
-                    <Link to="/postpage"><div><Ranking /></div><p>投稿</p></Link>
+                    <Link to="/post"><div><Ranking /></div><p>投稿</p></Link>
                 </li>
             </ul>
         </div>
