@@ -16,7 +16,7 @@
                     border: 1px solid white;
                     border-radius: 10px;
                     margin: 0 auto;
-                    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+                    filter: drop-shadow(0 4px 4px #00000033);
                     
                     svg {
                         width: 90%;
@@ -30,6 +30,37 @@
 
     .get-medal {
 
+        .get-medal-block {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #F5F5F5;
+            padding: 5px 20px;
+            border-radius: 10px;
+            filter: drop-shadow(0 4px 4px #00000033);
+            
+            h2 {
+                margin: 10px auto;
+            }
+
+            .input-number-box {
+                display: flex;
+                flex-direction: column;
+
+                label {
+                    font-size: 0.9rem;
+                }
+
+                input {
+                    font-size: 1.5rem;
+                }
+            }
+
+            p {
+                font-size: 2rem;
+                text-align: center;
+                margin: 10px auto;
+            }
+        }
     }
 }
 
