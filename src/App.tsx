@@ -6,8 +6,9 @@ import Library from "./Routes/Library";
 import Post from "./Routes/Post";
 import Header from "./components/Header";
 import TabMenu from "./components/TabMenu";
-import PostPage from "./pages/PostPage";
 import Page from "./pages/Page";
+import PostPage from "./pages/PostPage";
+import CheckPoint from "./pages/GetMedal";
 
 const App: React.FC = () =>{
     return(
@@ -19,7 +20,9 @@ const App: React.FC = () =>{
                 <Route path="/gaid">
                     <Route path=":pageId" element={<Page />} />
                 </Route>
-                <Route path="/library" element={<Library />}></Route>
+                <Route path="/library" element={<Library />}>
+                    <Route path="get" element={<CheckPoint />}/>
+                </Route>
                 <Route path="/post" element={<Post />}>
                     <Route path="page" element={<PostPage />} />
                 </Route>

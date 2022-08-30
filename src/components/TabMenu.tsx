@@ -6,7 +6,6 @@ import Guide from "./../../static/images/tab_menu/guide.svg";
 import Map from "./../../static/images/tab_menu/map.svg";
 import Library from "../../static/images/tab_menu/library.svg";
 import Ranking from "../../static/images/tab_menu/ranking.svg";
-import PostPaage from "../Routes/Post";
 
 type Tab = "guide" | "map" | "library" | "postPage";
 
