@@ -1,39 +1,35 @@
 // スマホ表示
 @media screen and (max-width: 480px) {
     .library {
-        .get-medal-block {
-            box-shadow: 4px 4px 8px #dddddd;
-            display: flex;
-            justify-content: space-around;
-            border-radius: 10px;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            background: #F5F5F5;
-            border: 1px solid rgb(255, 255, 255);
+        .library-block {
 
-            .button {
-                box-shadow: 4px 4px 8px #dddddd;
-                border-radius: 100px;
-                box-sizing: border-box;
+            ul {
+                padding: 0;
+                display: flex;
+
+                li {
+                    text-decoration: none;
+                    display: flex;
+                    flex-direction: column;
+                    width: 40%;
+                    background-color: #F5F5F5;
+                    border: 1px solid white;
+                    border-radius: 10px;
+                    margin: 0 auto;
+                    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+                    
+                    svg {
+                        width: 90%;
+                        margin: 0 auto;
+                    }
+                }
             }
-        }
 
-        .check-medals-block {
-            box-shadow: 4px 4px 8px #dddddd;
-            justify-content: space-around;
-            border-radius: 10px;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            background: #F5F5F5;
-            border: 1px solid rgb(255, 255, 255);
-            vertical-align: middle
         }
     }
 
     .get-medal {
-        
+
     }
 }
 

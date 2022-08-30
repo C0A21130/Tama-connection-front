@@ -8,6 +8,7 @@ const Library: React.FC = () =>{
     return(
         <div className="library">
             <h1>ライブラリ</h1>
+            <div className="library-block">
             <ul>
                 <li className="get-medal-block">
                     <Link to="/library/get">
@@ -19,6 +20,7 @@ const Library: React.FC = () =>{
                     <p>取得したメダルを確認する</p>
                 </li>
             </ul>
+            </div>
             <Outlet />
         </div>
     )
