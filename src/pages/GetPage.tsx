@@ -2,8 +2,6 @@ import * as React from "react";
 import { useParams } from "react-router-dom";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
-import "./../../static/css/page.scss";
-
 const pic_datas = require("./../pic.json");
 
 const ROOT_URL:string = "http://localhost:5000";

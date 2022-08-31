@@ -10,6 +10,7 @@ import Post from "./Routes/Post";
 
 import GetPage from "./pages/GetPage";
 import GetMedal from "./pages/GetMedal";
+import CheckMedal from "./pages/CheckMedal";
 import PostPage from "./pages/PostPage";
 import CheckPage from "./pages/CheckPage";
 
@@ -25,6 +26,7 @@ const App: React.FC = () =>{
                 </Route>
                 <Route path="/library" element={<Library />}>
                     <Route path="get" element={<GetMedal />}/>
+                    <Route path="check" element={<CheckMedal />} />
                 </Route>
                 <Route path="/post" element={<Post />}>
                     <Route path="page" element={<PostPage />} />

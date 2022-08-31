@@ -16,8 +16,10 @@ const Library: React.FC = () =>{
                     </Link>
                 </li>
                 <li>
-                    <Medal width="60%" height="60%"/>
-                    <p>取得したメダルを確認する</p>
+                    <Link to="/library/check">
+                        <Medal width="100%" height="40%" />
+                        <p>取得したメダルを確認する</p>
+                    </Link>
                 </li>
             </ul>
             </div>

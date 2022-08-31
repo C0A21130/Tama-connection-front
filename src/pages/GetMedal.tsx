@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./../../static/css/library.scss"
 
 type StateValues = "" | "成功"  | "失敗";
 

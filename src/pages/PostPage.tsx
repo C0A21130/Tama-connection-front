@@ -1,6 +1,5 @@
 import * as React from "react";
 import axios from "axios";
-import "./../../static/css/postpage.scss";
 
 const ROOT_URL = "http://localhost:5000";
 
