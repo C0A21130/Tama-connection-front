@@ -44,7 +44,7 @@ const testPage: ResponsPage = {
     image: pic_datas.file1
 }
 
-const Page: React.FC = () => {
+const GetPage: React.FC = () => {
     const {pageId} = useParams();
     const [pageData, setPageData] = React.useState<ResponsPage>();
 
@@ -91,4 +91,4 @@ const Page: React.FC = () => {
     )
 }
 
-export default Page;
+export default GetPage;

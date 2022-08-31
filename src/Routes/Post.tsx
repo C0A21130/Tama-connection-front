@@ -13,7 +13,9 @@ const Post: React.FC = () => {
                     </Link>
                 </li>
                 <li>
-                    <p>投稿された記事</p>
+                    <Link to="/post/check">
+                        <p>投稿された記事</p>
+                    </Link>
                 </li>
             </ul>
             </div>
