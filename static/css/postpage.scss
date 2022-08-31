@@ -1,4 +1,30 @@
 @media screen and (max-width: 480px) {
+    .post {
+        .post-block {
+            ul {
+                padding: 0;
+                display: flex;
+        
+                li {
+                    text-decoration: none;
+                    display: flex;
+                    flex-direction: column;
+                    width: 145px;
+                    height: 145px;
+                    background-color: #F5F5F5;
+                    border: 1px solid white;
+                    border-radius: 10px;
+                    margin: 0 auto;
+                    filter: drop-shadow(0 4px 4px #00000033);
+        
+                    svg {
+                        width: 90%;
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+    }
 
     // 投稿するページ
     .post-page{
