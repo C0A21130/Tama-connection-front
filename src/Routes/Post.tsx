@@ -1,6 +1,8 @@
 import * as React from "react";
 import { Link, Outlet } from "react-router-dom";
 
+import "./../../static/css/postpage.scss";
+
 const Post: React.FC = () => {
     return (
         <div className="post">

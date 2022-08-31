@@ -10,12 +10,12 @@ const Library: React.FC = () =>{
             <h1>ライブラリ</h1>
             <div className="library-block">
             <ul>
-                <li className="get-medal-block">
+                <li>
                     <Link to="/library/get">
                         <p>メダルを取得する</p>
                     </Link>
                 </li>
-                <li className="check-medals-block">
+                <li>
                     <Medal width="60%" height="60%"/>
                     <p>取得したメダルを確認する</p>
                 </li>
