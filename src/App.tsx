@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import TabMenu from "./components/TabMenu";
 
 import Home from "./Routes/Home";
+import Map from "./Routes/Map";
 import Library from "./Routes/Library";
 import Post from "./Routes/Post";
 
@@ -24,6 +25,7 @@ const App: React.FC = () =>{
                 <Route path="/gaid">
                     <Route path=":pageId" element={<GetPage />} />
                 </Route>
+                <Route path="/map" element={<Map />} />
                 <Route path="/library" element={<Library />}>
                     <Route path="get" element={<GetMedal />}/>
                     <Route path="check" element={<CheckMedal />} />
