@@ -19,6 +19,7 @@
   "homepage": "https://github.com/C0A21130/frontend#readme",
   "devDependencies": {
     "css-loader": "^6.7.1",
+    "mini-css-extract-plugin": "^2.6.1",
     "react-svg-loader": "^3.0.3",
     "sass": "^1.54.4",
     "sass-loader": "^13.0.2",
