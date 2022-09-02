@@ -5,7 +5,7 @@ const geoJson = require("./japan.geo.json");
 const MAG_RATE = 20
 
 const drawMap = ():void => {
-    console.log(geoJson)
+    // console.log(geoJson)
 
     const svg = d3.select("#svg")
         .append("svg")
