@@ -1,6 +1,5 @@
 import * as React from "react";
 import {Link} from "react-router-dom";
-import "../../static/css/TabMenu.scss";
 
 import Guide from "./../../static/images/tab_menu/guide.svg";
 import Map from "./../../static/images/tab_menu/map.svg";
