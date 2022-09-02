@@ -15,7 +15,7 @@ const shopDatas: ShopDataType[] = [
 ]
 
 const GetMedal: React.FC = () => {
-    const [inputNum, setInputNum] = React.useState<string>("1");
+    const [inputNum, setInputNum] = React.useState<string>("0");
     const [state, setState] = React.useState<StateValues>("");
 
     // 用意されたお店のコードの中に入力された値が存在するか確認

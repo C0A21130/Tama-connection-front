@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   width="401.55164"
+   height="366.29611"
+   viewBox="0 0 106.24387 96.915849"
+   version="1.1"
+   id="svg8">
+  <g
+     id="layer1"
+     transform="translate(-55.940475,-106.9078)">
+    <g
+       id="g1081"
+       transform="matrix(0.64597904,0,0,0.64597904,37.352583,58.610358)"
+       style="stroke-width:0.535621;stroke-miterlimit:4;stroke-dasharray:none">
+      <g
+         id="g1073"
+         style="stroke-width:0.535621;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           id="rect833-5-5-2"
+           style="fill:#b3b3b3;stroke:#333333;stroke-width:0.535621;stroke-miterlimit:4;stroke-dasharray:none"
+           d="m 107.33228,138.56114 -0.005,-13.89388 h 2.98708 l -0.0173,14.1083 z" />
+        <path
+           id="rect833-5-5-2-8"
+           style="fill:#b3b3b3;stroke:#333333;stroke-width:0.535621;stroke-miterlimit:4;stroke-dasharray:none"
+           d="m 110.31936,138.56114 -0.005,-13.89388 h 2.98708 l -0.0173,14.1083 z" />
+        <path
+           id="rect833-5-5-2-9"
+           style="fill:#b3b3b3;stroke:#333333;stroke-width:0.535621;stroke-miterlimit:4;stroke-dasharray:none"
+           d="m 113.30644,138.56114 -0.005,-13.89388 h 2.98708 l -0.0173,14.1083 z" />
+        <path
+           id="rect833-5-5-2-9-4"
+           style="fill:#b3b3b3;stroke:#333333;stroke-width:0.535621;stroke-miterlimit:4;stroke-dasharray:none"
+           d="m 116.29352,138.56114 -0.005,-13.89388 h 2.98708 l -0.0173,14.1083 z" />
+        <path
+           id="rect833-5-5-2-9-4-0"
+           style="fill:#b3b3b3;stroke:#333333;stroke-width:0.535621;stroke-miterlimit:4;stroke-dasharray:none"
+           d="m 119.2806,138.56114 -0.005,-13.89388 h 2.98708 l -0.0173,14.1083 z" />
+      </g>
+    </g>
+    <path
+       id="rect833-5"
+       style="fill:#b3b3b3;stroke:none;stroke-width:0.506232"
+       d="m 64.719382,147.23487 6.789445,-16.78308 h 17.735675 l 7.915482,16.78308 z" />
+    <path
+       id="rect833"
+       style="fill:#cccccc;stroke:none;stroke-width:0.473001"
+       d="m 59.77352,145.69092 h 5.061009 32.482724 36.811007 c 2.12351,0 3.83304,1.70953 3.83304,3.83304 v 50.46664 c 0,2.12351 -1.70953,3.83305 -3.83304,3.83305 H 59.77352 c -2.123506,0 -3.833045,-1.70954 -3.833045,-3.83305 v -50.46664 c 0,-2.12351 1.709539,-3.83304 3.833045,-3.83304 z" />
+    <rect
+       style="fill:#aaeeff;stroke:none;stroke-width:0.473001"
+       id="rect836"
+       width="16.169809"
+       height="10.223068"
+       x="72.737251"
+       y="133.4756"
+       ry="0.73499119" />
+    <circle
+       style="fill:#999999;stroke:none;stroke-width:0.60725"
+       id="path840"
+       cx="96.95089"
+       cy="174.814"
+       r="18.075733" />
+    <circle
+       style="fill:#aaeeff;stroke:none;stroke-width:0.488613"
+       id="path840-3"
+       cx="96.95089"
+       cy="174.814"
+       r="14.544278" />
+    <circle
+       style="fill:#ffffff;stroke:none;stroke-width:0.085866"
+       id="path840-3-2"
+       cx="89.926727"
+       cy="168.41608"
+       r="2.5559196" />
+    <g
+       id="g1086"
+       transform="matrix(0.81754307,0,0,0.81754307,45.011089,63.20694)">
+      <path
+         id="rect904"
+         style="fill:#ffaaaa;stroke:none;stroke-width:0.473001"
+         d="m 95.84954,53.453899 h 47.44071 c 0.0185,0 0.0334,0.0149 0.0334,0.03341 v 31.98998 c 0,0.0046 -9.3e-4,0.009 -0.003,0.01303 -0.002,0.004 -0.004,0.0076 -0.007,0.01062 -0.003,0.003 -0.007,0.0055 -0.0106,0.0071 -0.004,0.0017 -0.008,0.0026 -0.013,0.0026 h -32.49768 l -10.04369,10.423512 1.66917,-10.423512 h -6.56831 c -0.0046,0 -0.009,-9.31e-4 -0.01303,-0.0026 -0.004,-0.0017 -0.0076,-0.0041 -0.01062,-0.0071 -0.003,-0.003 -0.0055,-0.0066 -0.0071,-0.01062 -0.0017,-0.004 -0.0026,-0.0084 -0.0026,-0.01303 v -31.98998 c 0,-0.01851 0.0149,-0.03341 0.03341,-0.03341 z" />
+      <path
+         style="fill:#ffffff;stroke:#333333;stroke-width:0.165768"
+         id="path902"
+         d="m 134.10285,75.354464 -7.78542,-0.507868 -4.83205,6.125528 -1.92282,-7.561319 -7.31891,-2.702657 6.59706,-4.165283 0.30872,-7.795863 6.00002,4.987032 7.5097,-2.115451 -2.88884,7.247439 z"
+         transform="rotate(23.863633,121.31553,59.315876)" />
+    </g>
+  </g>
+</svg>

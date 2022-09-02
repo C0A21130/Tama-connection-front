@@ -3,6 +3,9 @@ import { Link, Outlet } from "react-router-dom";
 
 import "./../../static/css/postpage.scss";
 
+import Camera from  "./../../static/images/post/camera.svg";
+import Picture from "./../../static/images/post/picture.svg";
+
 const Post: React.FC = () => {
     return (
         <div className="post">
@@ -11,12 +14,14 @@ const Post: React.FC = () => {
             <ul>
                 <li>
                     <Link to="/post/page">
+                        <Camera />
                         <p>写真の投稿</p>
                     </Link>
                 </li>
                 <li>
                     <Link to="/post/check">
-                        <p>投稿された記事</p>
+                        <Picture />
+                        <p>写真を確認</p>
                     </Link>
                 </li>
             </ul>

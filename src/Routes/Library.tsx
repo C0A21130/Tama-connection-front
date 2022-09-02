@@ -2,6 +2,7 @@ import * as React from "react";
 import { Link, Outlet } from "react-router-dom";
 import "./../../static/css/library.scss";
 
+import Restaurant from "./../../static/images/Library/restaurant.svg";
 import Medal from "./../../static/images/Library/medal.svg";
 
 const Library: React.FC = () =>{
@@ -12,13 +13,14 @@ const Library: React.FC = () =>{
             <ul>
                 <li>
                     <Link to="/library/get">
-                        <p>メダルを取得する</p>
+                        <Restaurant />
+                        <p>メダルを獲得</p>
                     </Link>
                 </li>
                 <li>
                     <Link to="/library/check">
                         <Medal width="100%" height="40%" />
-                        <p>取得したメダルを確認する</p>
+                        <p>メダルを確認</p>
                     </Link>
                 </li>
             </ul>
