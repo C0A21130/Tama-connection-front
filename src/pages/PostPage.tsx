@@ -1,4 +1,5 @@
 import * as React from "react";
+import Compressor from "compressorjs";
 import axios from "axios";
 
 const ROOT_URL = "http://localhost:5000";
@@ -25,35 +26,48 @@ const postPage: React.FC = () => {
     const [title, setTitle] = React.useState<string>("たいとる");
     const [tag, setTag] = React.useState<string>("kankou");
     const [text, setText] = React.useState<string>("ぶんしょう");
+    const [pic, setPic] = React.useState<string>("")
 
-    const submitPage = async () => {
-        const render = new FileReader();
+    const render = new FileReader();
+    const body: sendBody = {
+        title: title,
+        tag: tag,
+        text: text,
+        other: {
+            user: "test_user",
+            location: {
+                x: -1,
+                y: -1
+            }
+        },
+        image: ""
+    }
+
+    const submitPage = () => {
         const pictuer = document.querySelector<HTMLInputElement>("#picture-input");
         const file = pictuer.files[0];
 
-        render.onload = (event) => {
-            const base64Text = event.target.result
-            console.log(base64Text)
+        // 写真が選択されてなければ処理を抜ける
+        if (file == undefined) { return }
 
-            const body: sendBody = {
-                title: title,
-                tag: tag,
-                text: text,
-                other: {
-                    user: "test_user",
-                    location: {
-                        x: -1,
-                        y: -1
-                    }
-                },
-                image: base64Text
-            }
-
-            console.log(body)
-            // axios.post(ROOT_URL + "/page", body);
-        }
-        render.readAsDataURL(file)
-        
+        // 画像の圧縮
+        new Compressor(file, {
+            quality: 0.6,
+            // 圧縮成功時の処理
+            success(result) {
+                // base64変換後の処理
+                render.onload = () => {
+                    body.image = render.result
+                    console.log(body)
+                    // axios.post(`${ROOT_URL}/page`, body)
+                }
+                // Blobをbase64に変換
+                render.readAsDataURL(result)
+            },
+            maxWidth: 1000,
+            maxHeight: 1000,
+            mimeType: "image/png"
+        })
     }
 
     return(
@@ -64,7 +78,8 @@ const postPage: React.FC = () => {
                     <div><input type="text" value={title} onChange={(event) => setTitle(event.target.value)}></input></div>
                 </div>
                 <div className="picture-block">
-                    <label className="picture-label">写真を選択<input id="picture-input" type="file" accept="image/*" /></label>
+                    <label className="picture-label">写真を選択<input id="picture-input" type="file" accept="image/*" onChange={(event) => setPic(event.target.value)}/></label>
+                    <div><img src={pic}></img></div>
                 </div>
                 <div className="select-tag-block">
                     <label>タグを選択</label>
@@ -77,7 +92,7 @@ const postPage: React.FC = () => {
                 </div>
                 <div className="text-block">
                     <label>説明の追加</label>
-                    <textarea name="comment" cols={20} rows={5} onChange={(event) => setText(event.target.value)}></textarea>
+                    <textarea value={text} cols={20} rows={5} onChange={(event) => setText(event.target.value)}></textarea>
                 </div>
                 <div className="submit-button">
                     <button type="submit" onClick={() => submitPage()}>送信</button>
