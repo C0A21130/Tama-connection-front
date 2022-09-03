@@ -11,8 +11,8 @@ import axios from "axios";
 
 const pic_datas = require("./../pic.json");
 
-const ROOT_URL = "http://localhost:5000";
-// const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
+// const ROOT_URL = "http://localhost:5000";
+const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
 
 interface Other {
     user: string,

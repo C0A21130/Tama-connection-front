@@ -2,8 +2,8 @@ import * as React from "react";
 import Compressor from "compressorjs";
 import axios from "axios";
 
-const ROOT_URL = "http://localhost:5000";
-// const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
+// const ROOT_URL = "http://localhost:5000";
+const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
 
 type Tag = "kankou" | "gurume" | "tamasanpo" | "omiyage"; 
 
