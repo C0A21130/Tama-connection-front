@@ -3,6 +3,7 @@ import Compressor from "compressorjs";
 import axios from "axios";
 
 const ROOT_URL = "http://localhost:5000";
+// const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
 
 type Tag = "kankou" | "gurume" | "tamasanpo" | "omiyage"; 
 
@@ -61,7 +62,7 @@ const postPage: React.FC = () => {
                     console.log(body);
                     // trueのときに送信し、送信しない際には画像をページに表示する
                     if (submit) {
-                        // axios.post(`${ROOT_URL}/page`, body)
+                        axios.post(`${ROOT_URL}/page`, body)
                     } else {
                         setPic(body.image.toString())
                     }
