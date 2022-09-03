@@ -16,24 +16,25 @@ li {
 
 // パソコン表示
 @media screen and (min-width: 481px) {
+    // ライブラリのメニュー
     .library {
         .library-block {
             ul {
                 display: flex;
-                width: 600px;
+                width: 400px;
                 margin: 0 auto;
 
                 li {
-                    width: 300px;
-                    height: 280px;
+                    width: 200px;
+                    height: 180px;
                     background-color: #F5F5F5;
                     margin: 0 10px;
                     border-radius: 30px;
                     filter: drop-shadow(0 4px 4px #00000033);
 
                     .picture {
-                        width: 200px;
-                        height: 170px;
+                        width: 120px;
+                        height: 90px;
                         margin: 10px auto;
                         svg {
                             width: 100%;
@@ -48,6 +49,17 @@ li {
                     }
                 }
             }
+        }
+    }
+
+    .get-medal {
+        .get-medal-block {
+            width: 400px;
+            margin: 20px auto;
+            background-color: #F5F5F5;
+            padding: 20px;
+            border-radius: 30px;
+            filter: drop-shadow(0 4px 4px #00000033);
         }
     }
 }
