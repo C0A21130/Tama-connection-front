@@ -1,3 +1,65 @@
+// パソコン表示
+@media screen and (min-width: 481px) {
+    // ヘッダー
+    .header {
+        .header-block {
+            display: flex;
+        }
+    }
+
+    // タブメニュー
+    .tab-menu {
+        .tab {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0 auto;
+            background-color: #d9d9d9;
+            
+            .tab-item {
+                width: 140px;
+                list-style: none;
+                margin: 0 5px;
+                border-radius: 15px 15px 0 0;
+
+                a {
+                    display: block;
+                    height: 100%;
+                    color: #565656;
+                    text-decoration: none;
+                }
+
+                .item {
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+
+                    .pic {
+                        width: 50px;
+                        height: 50px;
+                    }
+                
+                    p {
+                        margin: auto;
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+
+        .tab #active {
+            background-color: #5abd80;
+
+            svg {
+                fill: #ffca8c;
+            }
+            p {
+                color: #fff;
+            }
+        }
+    }
+}
+
 // スマホ表示
 @media screen and (max-width: 480px) {
     // ヘッダー  
@@ -6,24 +68,16 @@
             display: flex;
             align-items: center;
             background-color: blanchedalmond;
+            
+            .icon {
+                text-align: center;
+                height: 50px;
+                width: 95px;
+            }
 
             input {
                 height: 39px;
             }
-        }
-
-        .header-block {
-            background-image: image-url("../images/user.svg");
-        }
-
-        .icon {
-            text-align: center;
-            height: 50px;
-            width: 95px;
-        }
-
-        .window {
-            width: 50%;
         }
     }
 
@@ -49,7 +103,7 @@
             a {
                 text-decoration: none;
             }
-
+            
             svg {
                 width: 70%;
             }

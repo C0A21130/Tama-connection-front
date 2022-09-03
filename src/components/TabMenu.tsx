@@ -20,16 +20,16 @@ const TabMenu: React.FC = () =>{
         <div className="tab-menu">
             <ul className="tab">
                 <li className="tab-item" onClick={() => change_tab("guide")} id={tab == "guide" ? "active" : "noactive"}>
-                    <Link to="/"><div><Guide /></div><p>ガイド</p></Link>
+                    <Link to="/"><div className="item"><div className="pic"><Guide /></div><p>ガイド</p></div></Link>
                 </li>
                 <li className="tab-item" onClick={() => change_tab("map")} id={tab == "map" ? "active" : "noactive"}>
-                    <Link to="/map"><div><Map /></div><p>マップ</p></Link>
+                    <Link to="/map"><div className="item"><div className="pic"><Map /></div><p>マップ</p></div></Link>
                 </li>
                 <li className="tab-item" onClick={() => change_tab("library")} id={tab == "library" ? "active" : "noactive"}>
-                    <Link to="/library"><div><Library /></div><p>ライブラリ</p></Link>
+                    <Link to="/library"><div className="item"><div className="pic"><Library /></div><p>ライブラリ</p></div></Link>
                 </li>
                 <li className="tab-item" onClick={() => change_tab("postPage")} id={tab == "postPage" ? "active" : "noactive"}>
-                    <Link to="/post"><div><Ranking /></div><p>投稿</p></Link>
+                    <Link to="/post"><div className="item"><div className="pic"><Ranking /></div><p>投稿</p></div></Link>
                 </li>
             </ul>
         </div>
