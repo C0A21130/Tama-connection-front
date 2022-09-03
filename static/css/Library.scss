@@ -1,16 +1,68 @@
+a {
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    color: #5e5e5e;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+// パソコン表示
+@media screen and (min-width: 481px) {
+    .library {
+        .library-block {
+            ul {
+                display: flex;
+                width: 600px;
+                margin: 0 auto;
+
+                li {
+                    width: 300px;
+                    height: 280px;
+                    background-color: #F5F5F5;
+                    margin: 0 10px;
+                    border-radius: 30px;
+                    filter: drop-shadow(0 4px 4px #00000033);
+
+                    .picture {
+                        width: 200px;
+                        height: 170px;
+                        margin: 10px auto;
+                        svg {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    
+
+                    p{
+                        font-size: 1.6rem;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
 // スマホ表示
 @media screen and (max-width: 480px) {
     // ライブラリのメニュー
     .library {
         .library-block {
             ul {
-                padding: 0;
                 display: flex;
         
                 li {
                     width: 145px;
                     height: 145px;
-                    list-style: none;
                     background-color: #F5F5F5;
                     border: 1px solid white;
                     border-radius: 10px;
@@ -18,11 +70,6 @@
                     filter: drop-shadow(0 4px 4px #00000033);
         
                     a {
-                        display: block;
-                        text-decoration: none;
-                        color: #5e5e5e;
-                        width: 100%;
-                        height: 100%;
                         padding: 10px;
 
                         svg {

@@ -13,13 +13,13 @@ const Library: React.FC = () =>{
             <ul>
                 <li>
                     <Link to="/library/get">
-                        <Restaurant />
+                        <div className="picture"><Restaurant /></div>
                         <p>メダルを獲得</p>
                     </Link>
                 </li>
                 <li>
                     <Link to="/library/check">
-                        <Medal width="100%" height="40%" />
+                        <div className="picture"><Medal /></div>
                         <p>メダルを確認</p>
                     </Link>
                 </li>
