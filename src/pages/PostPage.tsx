@@ -85,7 +85,7 @@ const postPage: React.FC = () => {
                 </div>
                 <div className="picture-block">
                     <label className="picture-label">写真を選択<input id="picture-input" type="file" accept="image/*" onChange={(event) => submitPage(false)}/></label>
-                    <div><img src={pic}></img></div>
+                    <div className="picture-box"><img src={pic}></img></div>
                 </div>
                 <div className="select-tag-block">
                     <label>タグを選択</label>

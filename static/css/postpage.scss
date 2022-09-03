@@ -32,7 +32,8 @@
                         }
 
                         p {
-                            margin: 0 auto;
+                            width: 80%;
+                            margin: 5px auto;
                         }
                     }
                 }
@@ -65,7 +66,7 @@
             }
 
             .picture-block {
-                padding: 20px 15px;
+                margin: 10px 15px;
 
                 input {
                     display: none;
@@ -81,6 +82,15 @@
 
                 .picture-label:hover {
                     background-color: #afafaf;
+                }
+
+                .picture-box {
+                    width: 80%;
+                    margin: 15px auto;
+
+                    img {
+                        width: 100%;
+                    }
                 }
 
             }
