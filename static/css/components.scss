@@ -4,6 +4,11 @@
     .header {
         .header-block {
             display: flex;
+            justify-content: center;
+
+            input {
+                margin: 0 10px;
+            }
         }
     }
 
