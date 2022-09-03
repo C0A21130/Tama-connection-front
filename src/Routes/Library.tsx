@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link, Outlet } from "react-router-dom";
-import "./../../static/css/library.scss";
+import "./../../static/css/Library.scss";
 
 import Restaurant from "./../../static/images/Library/restaurant.svg";
 import Medal from "./../../static/images/Library/medal.svg";

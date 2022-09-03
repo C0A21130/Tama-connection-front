@@ -379,6 +379,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./static/css/Library.scss":
+/*!*********************************!*\
+  !*** ./static/css/Library.scss ***!
+  \*********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://fronted/./static/css/Library.scss?");
+
+/***/ }),
+
 /***/ "./static/css/components.scss":
 /*!************************************!*\
   !*** ./static/css/components.scss ***!
@@ -398,17 +409,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://fronted/./static/css/home.scss?");
-
-/***/ }),
-
-/***/ "./static/css/library.scss":
-/*!*********************************!*\
-  !*** ./static/css/library.scss ***!
-  \*********************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://fronted/./static/css/library.scss?");
 
 /***/ }),
 
@@ -705,7 +705,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/index.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router/index.js\");\n/* harmony import */ var _static_css_library_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../static/css/library.scss */ \"./static/css/library.scss\");\n/* harmony import */ var _static_images_Library_restaurant_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../static/images/Library/restaurant.svg */ \"./static/images/Library/restaurant.svg\");\n/* harmony import */ var _static_images_Library_medal_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../static/images/Library/medal.svg */ \"./static/images/Library/medal.svg\");\n\r\n\r\n\r\n\r\n\r\nconst Library = () => {\r\n    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", { className: \"library\" },\r\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", null, \"\\u30E9\\u30A4\\u30D6\\u30E9\\u30EA\"),\r\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", { className: \"library-block\" },\r\n            react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"ul\", null,\r\n                react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"li\", null,\r\n                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, { to: \"/library/get\" },\r\n                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_static_images_Library_restaurant_svg__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null),\r\n                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", null, \"\\u30E1\\u30C0\\u30EB\\u3092\\u7372\\u5F97\"))),\r\n                react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"li\", null,\r\n                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, { to: \"/library/check\" },\r\n                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_static_images_Library_medal_svg__WEBPACK_IMPORTED_MODULE_3__[\"default\"], { width: \"100%\", height: \"40%\" }),\r\n                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", null, \"\\u30E1\\u30C0\\u30EB\\u3092\\u78BA\\u8A8D\"))))),\r\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Outlet, null)));\r\n};\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (Library);\r\n\n\n//# sourceURL=webpack://fronted/./src/Routes/Library.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/index.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router/index.js\");\n/* harmony import */ var _static_css_Library_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../static/css/Library.scss */ \"./static/css/Library.scss\");\n/* harmony import */ var _static_images_Library_restaurant_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../static/images/Library/restaurant.svg */ \"./static/images/Library/restaurant.svg\");\n/* harmony import */ var _static_images_Library_medal_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../static/images/Library/medal.svg */ \"./static/images/Library/medal.svg\");\n\r\n\r\n\r\n\r\n\r\nconst Library = () => {\r\n    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", { className: \"library\" },\r\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", null, \"\\u30E9\\u30A4\\u30D6\\u30E9\\u30EA\"),\r\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", { className: \"library-block\" },\r\n            react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"ul\", null,\r\n                react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"li\", null,\r\n                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, { to: \"/library/get\" },\r\n                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_static_images_Library_restaurant_svg__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null),\r\n                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", null, \"\\u30E1\\u30C0\\u30EB\\u3092\\u7372\\u5F97\"))),\r\n                react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"li\", null,\r\n                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, { to: \"/library/check\" },\r\n                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_static_images_Library_medal_svg__WEBPACK_IMPORTED_MODULE_3__[\"default\"], { width: \"100%\", height: \"40%\" }),\r\n                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", null, \"\\u30E1\\u30C0\\u30EB\\u3092\\u78BA\\u8A8D\"))))),\r\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Outlet, null)));\r\n};\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (Library);\r\n\n\n//# sourceURL=webpack://fronted/./src/Routes/Library.tsx?");
 
 /***/ }),
 
