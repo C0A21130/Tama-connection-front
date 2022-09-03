@@ -16,7 +16,9 @@ module.exports = {
             {
                 test: /\.scss/,
                 use: [
-                    "style-loader",
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
                     {
                         loader: "css-loader",
                         options: {
