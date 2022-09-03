@@ -17,8 +17,7 @@ const drawMap = ():void => {
         .append("svg")
         .attr("width", 370)
         .attr("height", 350)
-        .attr("fill", "none")
-        .attr("transform", "matrix(1, 0, 0, -1, 0, 0)")
+        .attr("fill", "none")        
 
     // 座標をsvgのpath形式に変換
     const line = d3.line()
