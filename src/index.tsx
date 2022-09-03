@@ -4,6 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import App from "./App";
 
+import "./../static/css/index.scss";
+
 const container = document.querySelector("#root");
 const root = createRoot(container);
 root.render(

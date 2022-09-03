@@ -1,26 +1,9 @@
-a {
-    display: block;
-    text-decoration: none;
-    width: 100%;
-    height: 100%;
-    color: #5e5e5e;
-}
-
-ul {
-    padding: 0;
-}
-
-li {
-    list-style: none;
-}
-
 // パソコン表示
 @media screen and (min-width: 481px) {
     // ライブラリのメニュー
     .library {
         .library-block {
             ul {
-                display: flex;
                 width: 400px;
                 margin: 0 auto;
 
@@ -70,7 +53,6 @@ li {
     .library {
         .library-block {
             ul {
-                display: flex;
         
                 li {
                     width: 145px;

@@ -8,8 +8,6 @@
             background-color: #5abd80;
             padding: 10px 0;
             ul {
-                display: flex;
-                padding: 0;
                 margin: 0 auto;
                 justify-content: center;
 
@@ -78,7 +76,6 @@
                 position: relative;
                 width: 500px;
                 height: 350px;
-                padding: 0;
                 margin: 10px auto;
                 overflow: hidden;
 
@@ -86,7 +83,6 @@
                     display: flex;
                     width: 100%;
                     height: 100%;
-                    list-style-type: none;
                     padding: 0;
                     position: absolute;
                     animation: slideshow 16s linear infinite;
@@ -119,8 +115,6 @@
 
                 a {
                     display: flex;
-                    text-decoration: none;
-                    color: #5e5e5e;
 
                     #image {
                         width: 220px;
@@ -151,11 +145,9 @@
         .tag-menu-block {
             ul {
                 display: flex;
-                padding: 0;
                 justify-content: space-around;
 
                 li {
-                    list-style-type: none;
                     width: 20vw;
                     height: fit-content;
 
@@ -214,7 +206,6 @@
                     width: 45vw;
                     height: 45vw;
                     border-radius: 10px;
-                    list-style-type: none;
                     overflow: hidden;
                     
                     img {
@@ -235,8 +226,6 @@
                 a {
                     width: 100%;
                     display: flex;
-                    text-decoration: none;
-                    color: #5e5e5e;
 
                     #image {
                         width: 35vw;
