@@ -1,11 +1,10 @@
 import * as React from "react";
-import "./../../static/css/Header.scss";
 
 import User from "../../static/images/user.svg"
 
 const head: React.FC = () =>{
     return(
-        <div id="header">
+        <div className="header">
         <header>
             <div className="header-block">
                 <p className="icon"><User /></p>

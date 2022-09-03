@@ -2,9 +2,12 @@ import * as React from "react";
 import { useParams } from "react-router-dom";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
-import "./../../static/css/page.scss";
+import "./../../static/css/page.scss"
 
-const ROOT_URL: string = "https://tama-connection-backend.herokuapp.com";
+const pic_datas = require("./../pic.json");
+
+const ROOT_URL:string = "http://localhost:5000";
+// const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
 
 interface Other {
     user: string,
@@ -21,7 +24,7 @@ interface ResponsPage{
     title: string,
     tag: string,
     text: string,
-    other: Other
+    other: Other | null
     image: string
 }
 
@@ -41,9 +44,10 @@ const testPage: ResponsPage = {
     image: ""
 }
 
-const Page: React.FC = () => {
+const GetPage: React.FC = () => {
     const {pageId} = useParams();
-    const [pageData, setPageData] = React.useState<ResponsPage>(testPage);
+
+    const [pageData, setPageData] = React.useState<ResponsPage>();
 
     const option: AxiosRequestConfig = {
         url: `${ROOT_URL}/page/${pageId}`,
@@ -65,23 +69,24 @@ const Page: React.FC = () => {
 
     return(
         <div className="page">
-        <div id={pageData.tag}>
+        <div id={pageData?.tag}>
             <div className="picture-block">
                 <div className="picture-box">
                     <div className="picture">
-                        <img src={pageData.image}></img>
+                        <img src={pageData?.image}></img>
                     </div>
                 </div>
             </div>
             <div className="title-block">
                 <div className="title-box">
                     <div className="tag"></div>
-                    <h2>{pageData.title}</h2>
+                    <h2>{pageData?.title}</h2>
                 </div>
             </div>
             <div className="text-blok">
                 <div className="text-box">
-                    <p>{pageData.text}</p>
+                    <p>{pageData?.text}</p>
+
                 </div>
             </div>
         </div>
@@ -89,4 +94,4 @@ const Page: React.FC = () => {
     )
 }
 
-export default Page;
+export default GetPage;
