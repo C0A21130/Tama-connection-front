@@ -43,7 +43,7 @@ const postPage: React.FC = () => {
         image: ""
     }
 
-    const submitPage = () => {
+    const submitPage = (submit: boolean) => {
         const pictuer = document.querySelector<HTMLInputElement>("#picture-input");
         const file = pictuer.files[0];
 
@@ -57,12 +57,18 @@ const postPage: React.FC = () => {
             success(result) {
                 // base64変換後の処理
                 render.onload = () => {
-                    body.image = render.result
-                    console.log(body)
-                    // axios.post(`${ROOT_URL}/page`, body)
+                    body.image = render.result;
+                    console.log(body);
+                    // trueのときに送信し、送信しない際には画像をページに表示する
+                    if (submit) {
+                        // axios.post(`${ROOT_URL}/page`, body)
+                    } else {
+                        setPic(body.image.toString())
+                    }
+                    
                 }
                 // Blobをbase64に変換
-                render.readAsDataURL(result)
+                render.readAsDataURL(result);
             },
             maxWidth: 1000,
             maxHeight: 1000,
@@ -78,7 +84,7 @@ const postPage: React.FC = () => {
                     <div><input type="text" value={title} onChange={(event) => setTitle(event.target.value)}></input></div>
                 </div>
                 <div className="picture-block">
-                    <label className="picture-label">写真を選択<input id="picture-input" type="file" accept="image/*" onChange={(event) => setPic(event.target.value)}/></label>
+                    <label className="picture-label">写真を選択<input id="picture-input" type="file" accept="image/*" onChange={(event) => submitPage(false)}/></label>
                     <div><img src={pic}></img></div>
                 </div>
                 <div className="select-tag-block">
@@ -95,7 +101,7 @@ const postPage: React.FC = () => {
                     <textarea value={text} cols={20} rows={5} onChange={(event) => setText(event.target.value)}></textarea>
                 </div>
                 <div className="submit-button">
-                    <button type="submit" onClick={() => submitPage()}>送信</button>
+                    <button type="submit" onClick={() => submitPage(true)}>送信</button>
                 </div>
             </div>
         </div>
