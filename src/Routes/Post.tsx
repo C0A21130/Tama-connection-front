@@ -14,13 +14,13 @@ const Post: React.FC = () => {
             <ul>
                 <li>
                     <Link to="/post/page">
-                        <Camera />
+                        <div className="picture"><Camera /></div>
                         <p>写真の投稿</p>
                     </Link>
                 </li>
                 <li>
                     <Link to="/post/check">
-                        <Picture />
+                        <div className="picture"><Picture /></div>
                         <p>写真を確認</p>
                     </Link>
                 </li>

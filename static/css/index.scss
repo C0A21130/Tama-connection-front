@@ -1,0 +1,154 @@
+// リセット
+a {
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    color: #5e5e5e;
+}
+
+ul {
+    padding: 0;
+    display: flex;
+}
+
+li {
+    list-style: none;
+}
+
+// パソコン表示
+@media screen and (min-width: 481px) {
+    // ヘッダー
+    .header {
+        .header-block {
+            display: flex;
+            justify-content: center;
+
+            input {
+                margin: 0 10px;
+            }
+        }
+    }
+
+    // タブメニュー
+    .tab-menu {
+        .tab {
+            justify-content: center;
+            padding: 0;
+            margin: 0 auto;
+            background-color: #d9d9d9;
+            
+            .tab-item {
+                width: 140px;
+                list-style: none;
+                margin: 0 5px;
+                border-radius: 15px 15px 0 0;
+
+                a {
+                    display: block;
+                    height: 100%;
+                    color: #565656;
+                    text-decoration: none;
+                }
+
+                .item {
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+
+                    .pic {
+                        width: 50px;
+                        height: 50px;
+                    }
+                
+                    p {
+                        margin: auto;
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+
+        .tab #active {
+            background-color: #5abd80;
+
+            svg {
+                fill: #ffca8c;
+            }
+            p {
+                color: #fff;
+            }
+        }
+    }
+}
+
+// スマホ表示
+@media screen and (max-width: 480px) {
+    // ヘッダー  
+    .header {
+        .header-block {
+            display: flex;
+            align-items: center;
+            background-color: blanchedalmond;
+            
+            .icon {
+                text-align: center;
+                height: 50px;
+                width: 95px;
+            }
+
+            input {
+                height: 39px;
+            }
+        }
+    }
+
+    // タブメニュー
+    .tab-menu {
+
+        /*タブ切り替え全体のスタイル*/
+        .tab {
+            background-color: #ffffff;
+            margin: 0 auto;
+        }
+
+        /*タブのスタイル*/
+        .tab-item {
+            width: 25%;
+            background-color: #d9d9d9;
+            text-align: center;
+            transition: all 0.2s ease;
+            list-style: none;
+
+            a {
+                text-decoration: none;
+            }
+            
+            svg {
+                width: 70%;
+            }
+
+            p {
+                font-size: 16px;
+                font-weight: bold;
+                text-align: center;
+                color: #565656;
+                margin: 0 auto;
+            }
+        }
+
+        /*選択されているタブのスタイルを変える*/
+        .tab #active {
+            background-color: #5abd80;
+
+            svg {
+                fill: #ffca8c;
+            }
+
+            p {
+                color: #fff;
+            }
+        }
+
+    }
+}

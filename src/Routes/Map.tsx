@@ -1,6 +1,8 @@
 import * as React from "react";
 import drawMap from "./drawMap";
 
+import "./../../static/css/map.scss";
+
 const Map: React.FC = () => {
     React.useEffect(()=>{
         drawMap()

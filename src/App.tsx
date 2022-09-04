@@ -1,8 +1,6 @@
 import * as React from "react";
 import {Routes, Route} from "react-router-dom";
 
-import "./../static/css/components.scss";
-
 import Header from "./components/Header";
 import TabMenu from "./components/TabMenu";
 
