@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Link, Outlet } from "react-router-dom";
 
-import "./../../static/css/postpage.scss";
+import "./../static/css/postpage.scss";
 
-import Camera from  "./../../static/images/post/camera.svg";
-import Picture from "./../../static/images/post/picture.svg";
+import Camera from  "./../static/images/post/camera.svg";
+import Picture from "./../static/images/post/picture.svg";
 
 const Post: React.FC = () => {
     return (
