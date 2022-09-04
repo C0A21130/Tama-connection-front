@@ -1,4 +1,6 @@
 .map {
+    width: 300px;
+    margin: 0 auto;
     #svg {
         transform: matrix(1,0, 0, -1, 0, 0);
         -webkit-transform: matrix(1,0, 0, -1, 0, 0);

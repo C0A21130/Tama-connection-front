@@ -103,7 +103,7 @@
         }
 
         .pages-block {
-            width: 600px;
+            width: 500px;
             margin: 0 auto;
 
             .page-entry {
@@ -117,16 +117,15 @@
                     display: flex;
 
                     #image {
-                        width: 220px;
-                        height: 180px;
+                        width: 200px;
+                        height: 120px;
                         display: flex;
-                        align-items: center;
+                        justify-content: center;
                         overflow: hidden;
-                        margin: 0 50px;
+                        margin: 30px 20px;
 
                         img {
-                            width: 100%;
-                            border-radius: 10px;
+                            height: 100%;
                         }
                     }
                 
