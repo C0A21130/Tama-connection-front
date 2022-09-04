@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import User from "../../static/images/user.svg"
+import User from "./../static/images/user.svg"
 
 const head: React.FC = () =>{
     return(
