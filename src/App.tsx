@@ -8,6 +8,7 @@ import Home from "./Routes/Home";
 import Map from "./Routes/Map";
 import Library from "./Routes/Library";
 import Post from "./Routes/Post";
+import Account from "./Routes/Account";
 
 import GetPage from "./pages/GetPage";
 import GetMedal from "./pages/GetMedal";
@@ -33,6 +34,10 @@ const App: React.FC = () =>{
                 <Route path="/post" element={<Post />}>
                     <Route path="page" element={<PostPage />} />
                     <Route path="check" element={<CheckPage />} />
+                </Route>
+                <Route path="/account" element={<Account />}>
+                    <Route path="signup" />
+                    <Route path="login" />
                 </Route>
             </Routes>
         </div>

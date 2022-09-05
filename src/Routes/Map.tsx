@@ -1,5 +1,5 @@
 import * as React from "react";
-import drawMap from "./drawMap";
+import drawMap from "./../lib/drawMap";
 
 import "./../static/css/map.scss";
 
