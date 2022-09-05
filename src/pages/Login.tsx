@@ -1,12 +1,12 @@
 import * as React from "react";
 
-const Signup: React.FC = () => {
+const Login: React.FC = () => {
     const [name, setName] = React.useState<string>("");
     const [password, setPassword] = React.useState<string>("");
- 
+
     return (
-        <div className="signup">
-            <h2>サインアップ</h2>
+        <div className="login">
+            <h2>ログイン</h2>
             <div className="name-input">
                 <label>なまえ<input type="text" value={name} onChange={(event) => setName(event.target.value)}></input></label>
             </div>
@@ -17,4 +17,4 @@ const Signup: React.FC = () => {
     )
 }
 
-export default Signup;
+export default Login;

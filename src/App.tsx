@@ -16,6 +16,7 @@ import CheckMedal from "./pages/CheckMedal";
 import PostPage from "./pages/PostPage";
 import CheckPage from "./pages/CheckPage";
 import Signup from "./pages/signup";
+import Login from "./pages/Login";
 
 const App: React.FC = () =>{
     return(
@@ -38,7 +39,7 @@ const App: React.FC = () =>{
                 </Route>
                 <Route path="/account" element={<Account />}>
                     <Route path="signup" element={<Signup />} />
-                    <Route path="login" />
+                    <Route path="login" element={<Login />} />
                 </Route>
             </Routes>
         </div>
