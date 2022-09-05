@@ -15,6 +15,7 @@ import GetMedal from "./pages/GetMedal";
 import CheckMedal from "./pages/CheckMedal";
 import PostPage from "./pages/PostPage";
 import CheckPage from "./pages/CheckPage";
+import Signup from "./pages/signup";
 
 const App: React.FC = () =>{
     return(
@@ -36,7 +37,7 @@ const App: React.FC = () =>{
                     <Route path="check" element={<CheckPage />} />
                 </Route>
                 <Route path="/account" element={<Account />}>
-                    <Route path="signup" />
+                    <Route path="signup" element={<Signup />} />
                     <Route path="login" />
                 </Route>
             </Routes>

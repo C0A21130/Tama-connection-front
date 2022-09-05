@@ -1,5 +1,7 @@
-const checkAccount = (path: string): string => {
-    return true ? path : "./account"
+type Path = "/library" | "/post" | "/account";
+
+const checkAccount = (path: Path): string => {
+    return false ? path : "./account/signup"
 }
 
 export default checkAccount;

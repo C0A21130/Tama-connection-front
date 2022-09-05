@@ -8,7 +8,7 @@ const Account: React.FC = () => {
             <h1>ログイン</h1>
             <ul>
                 <li>アカウントを持っている</li>
-                <li>アカウントを持っていない</li>
+                <li><Link to="/account/signup">アカウントを持っていない</Link></li>
             </ul>
             <Outlet />
         </div>
