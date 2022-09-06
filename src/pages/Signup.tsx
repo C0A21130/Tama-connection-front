@@ -26,7 +26,7 @@ const Signup: React.FC = () => {
 
         const {data}: AxiosResponse<ResposBody> = await axios.post(`${ROOT_URL}/user`, body);
 
-        await console.log(data.user_id)
+        await localStorage.setItem("user_id", data.user_id.toString())
     }
 
     return (
