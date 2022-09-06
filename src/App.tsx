@@ -17,6 +17,7 @@ import PostPage from "./pages/PostPage";
 import CheckPage from "./pages/CheckPage";
 import Signup from "./pages/signup";
 import Login from "./pages/Login";
+import Success from "./pages/success";
 
 const App: React.FC = () =>{
     return(
@@ -40,6 +41,7 @@ const App: React.FC = () =>{
                 <Route path="/account" element={<Account />}>
                     <Route path="signup" element={<Signup />} />
                     <Route path="login" element={<Login />} />
+                    <Route path="success" element={<Success />} />
                 </Route>
             </Routes>
         </div>
