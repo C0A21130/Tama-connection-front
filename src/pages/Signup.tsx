@@ -24,7 +24,7 @@ const Signup: React.FC = () => {
             password: password
         } 
 
-        const {data}: AxiosResponse<ResposBody> = await axios.post(`${ROOT_URL}/user`, body);
+        const {data}: AxiosResponse<ResposBody> = await axios.post(`${ROOT_URL}/regist`, body);
 
         await localStorage.setItem("user_id", data.user_id.toString())
     }
