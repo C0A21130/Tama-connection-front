@@ -1,10 +1,9 @@
 type Path = "/library" | "/post" | "/account";
 
-const checkAccount = (path: Path): string => {
-    const user_id = localStorage.getItem("user_id")
-
+const checkAccount = () => {
+    const token = localStorage.getItem("token")
     // ユーザーIDが保存されている場合に通常のパスを返す用にする
-    return user_id!=null ? path : "./account/signup"
+    return token!=null
 }
 
 export default checkAccount;

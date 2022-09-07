@@ -11,7 +11,7 @@ interface User {
 }
 
 interface ResposBody {
-    user_id: number
+    token: string
 }
 
 const Signup: React.FC = () => {
@@ -26,8 +26,8 @@ const Signup: React.FC = () => {
     // ユーザーを作成してユーザーIDを保存
     const submit_user = async () =>  { 
         const {data}: AxiosResponse<ResposBody> = await axios.post(`${ROOT_URL}/regist`, body);
-        await localStorage.setItem("user_id", data.user_id.toString())
-        await navigate("/account/success")
+        await localStorage.setItem("token", data.token)
+        await navigate("/", {state: {s:true}})
     }
 
     return (

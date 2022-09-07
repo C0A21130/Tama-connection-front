@@ -39,7 +39,7 @@ const TabMenu: React.FC = () =>{
                     </Link>
                 </li>
                 <li className="tab-item" onClick={() => change_tab("library")} id={tab == "library" ? "active" : "noactive"}>
-                    <Link to={checkAccount("/library")}>
+                    <Link to="/library">
                         <div className="item">
                             <div className="pic"><Library /></div>
                             <p>ライブラリ</p>
@@ -47,7 +47,7 @@ const TabMenu: React.FC = () =>{
                     </Link>
                 </li>
                 <li className="tab-item" onClick={() => change_tab("postPage")} id={tab == "postPage" ? "active" : "noactive"}>
-                    <Link to={checkAccount("/post")}>
+                    <Link to="/post">
                         <div className="item">
                             <div className="pic"><Ranking /></div>
                             <p>投稿</p>

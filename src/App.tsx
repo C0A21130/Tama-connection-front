@@ -1,5 +1,6 @@
 import * as React from "react";
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, Navigate, useLocation} from "react-router-dom";
+import checkAccount from "./lib/checkAccount";
 
 import Header from "./components/Header";
 import TabMenu from "./components/TabMenu";
@@ -20,6 +21,12 @@ import Login from "./pages/Login";
 import Success from "./pages/success";
 
 const App: React.FC = () =>{
+    const location = useLocation();
+    const [isLogin, setIsLogin] = React.useState(false);
+    React.useEffect(()=>{
+        setIsLogin(checkAccount())
+    }, [location])
+    
     return(
         <div className="app">
             <Header />
@@ -30,11 +37,11 @@ const App: React.FC = () =>{
                     <Route path=":pageId" element={<GetPage />} />
                 </Route>
                 <Route path="/map" element={<Map />} />
-                <Route path="/library" element={<Library />}>
+                <Route path="/library" element={isLogin?<Library />:<Navigate to="/account" />}>
                     <Route path="get" element={<GetMedal />}/>
                     <Route path="check" element={<CheckMedal />} />
                 </Route>
-                <Route path="/post" element={<Post />}>
+                <Route path="/post" element={isLogin?<Post />:<Navigate to="/account"/>}>
                     <Route path="page" element={<PostPage />} />
                     <Route path="check" element={<CheckPage />} />
                 </Route>
