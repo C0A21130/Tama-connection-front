@@ -2,119 +2,99 @@
 @media screen and (min-width: 481px) {
     // ライブラリのメニュー
     .library {
-        .library-block {
-            ul {
-                width: 400px;
-                margin: 0 auto;
+        ul {
+            width: 400px;
+            margin: 0 auto;
 
-                li {
-                    width: 200px;
-                    height: 180px;
-                    background-color: #F5F5F5;
-                    margin: 0 10px;
-                    border-radius: 30px;
-                    filter: drop-shadow(0 4px 4px #00000033);
+            li {
+                width: 200px;
+                height: 180px;
+                background-color: #F5F5F5;
+                margin: 0 10px;
+                border-radius: 30px;
+                filter: drop-shadow(0 4px 4px #00000033);
 
-                    .picture {
-                        width: 120px;
-                        height: 90px;
-                        margin: 10px auto;
-                        svg {
-                            width: 100%;
-                            height: 100%;
-                        }
+                .picture {
+                    width: 120px;
+                    height: 90px;
+                    margin: 10px auto;
+                    svg {
+                        width: 100%;
+                        height: 100%;
                     }
-                    
+                }
+                
 
-                    p{
-                        font-size: 1.6rem;
-                        text-align: center;
-                    }
+                p{
+                    font-size: 1.5rem;
+                    text-align: center;
                 }
             }
         }
     }
 
     .get-medal {
-        .get-medal-block {
-            width: 400px;
-            margin: 20px auto;
-            background-color: #F5F5F5;
-            padding: 20px;
-            border-radius: 30px;
-            filter: drop-shadow(0 4px 4px #00000033);
-        }
+        width: 400px;
+        margin: 20px auto;
+        background-color: #F5F5F5;
+        padding: 20px;
+        border-radius: 30px;
+        filter: drop-shadow(0 4px 4px #00000033);
     }
 }
 
 // スマホ表示
 @media screen and (max-width: 480px) {
     // ライブラリのメニュー
-    .library {
-        .library-block {
-            ul {
-        
-                li {
-                    width: 145px;
-                    height: 145px;
-                    background-color: #F5F5F5;
-                    border: 1px solid white;
-                    border-radius: 10px;
-                    margin: 0 auto;
-                    filter: drop-shadow(0 4px 4px #00000033);
-        
-                    a {
-                        padding: 10px;
+    .library { 
+        li {
+            width: 145px;
+            height: 145px;
+            background-color: #F5F5F5;
+            border-radius: 10px;
+            margin: 0 auto;
+            filter: drop-shadow(0 4px 4px #00000033);
 
-                        svg {
-                            width: 90%;
-                            height: 50%;
-                            margin: 0 auto;
-                        }
-                    
-                        p {
-                            font-size: 0.9rem;
-                            width: 80%;
-                            margin: 10px auto;
-                        }
-                    }
+            .picture {
+                width: 80%;
+                margin: 10px auto;
+                svg {
+                    width: 100%;
                 }
             }
-
+        
+            p {
+                text-align: center;
+                margin: 5px auto;
+            }
         }
     }
 
+    // 取得したメダルを確認
     .get-medal {
-        .get-medal-block {
-            width: 90%;
-            margin: 0 auto;
-            background-color: #F5F5F5;
-            padding: 5px 20px;
-            border-radius: 10px;
-            filter: drop-shadow(0 4px 4px #00000033);
-            
-            h2 {
-                margin: 10px auto;
+        width: 80%;
+        margin: 0 auto;
+        background-color: #F5F5F5;
+        padding: 5px 20px;
+        border-radius: 10px;
+        filter: drop-shadow(0 4px 4px #00000033);
+
+        .input-number-box {
+            display: flex;
+            flex-direction: column;
+
+            label {
+                font-size: 0.9rem;
             }
 
-            .input-number-box {
-                display: flex;
-                flex-direction: column;
-
-                label {
-                    font-size: 0.9rem;
-                }
-
-                input {
-                    font-size: 1.5rem;
-                }
+            input {
+                font-size: 1.5rem;
             }
+        }
 
-            p {
-                font-size: 2rem;
-                text-align: center;
-                margin: 10px auto;
-            }
+        p {
+            font-size: 2rem;
+            text-align: center;
         }
     }
 }

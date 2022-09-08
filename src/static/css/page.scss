@@ -64,15 +64,14 @@
         }
 
         #kankou {
-            .picture-block {
-                .picture-box {
-                    background-color: #fffeed;
-                }
-                
-                .picture-box::before{
-                    background-color: #ff99004d;
-                }
+            .picture-box {
+                background-color: #fffeed;
             }
+                
+            .picture-box::before{
+                background-color: #ff99004d;
+            }
+
             .title-box {
                 background-color: #fffdd0;
 
@@ -83,14 +82,12 @@
         }
 
         #gurume {
-            .picture-block {
-                .picture-box {
-                    background-color: #feedff;
-                }
+            .picture-box {
+                background-color: #feedff;
+            }
 
-                .picture-box::before {
-                    background-color: #ff007a4d;
-                }
+            .picture-box::before {
+                background-color: #ff007a4d;
             }
 
             .title-box {
@@ -103,14 +100,12 @@
         }
 
         #tamasanpo {
-            .picture-block {
-                .picture-box {
-                    background-color: #efffed;
-                }
+            .picture-box {
+                background-color: #efffed;
+            }
 
-                .picture-box::before {
-                    background-color: #80ff004d;
-                }
+            .picture-box::before {
+                background-color: #80ff004d;
             }
 
             .title-box {
@@ -123,24 +118,21 @@
         }
 
         #omiyage {
-            .picture-block {
-                    .picture-box {
-                        background-color: #edfffe;
-                    }
-            
-                    .picture-box::before {
-                        background-color: #0085ff4d;
-                    }
+            .picture-box {
+                background-color: #edfffe;
+            }
+    
+            .picture-box::before {
+                background-color: #0085ff4d;
+            }
+        
+            .title-box {
+                background-color: #c5fbff;
+        
+                .tag {
+                    background-color: #9decfe;
                 }
-            
-                .title-box {
-                    background-color: #c5fbff;
-            
-                    .tag {
-                        background-color: #9decfe;
-                    }
-                }
-
+            }
         }
     }
 }

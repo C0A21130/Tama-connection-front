@@ -75,10 +75,10 @@ const Home: React.FC = ()=>{
         <div className="home">
             <div className="tag-menu-block">
                 <ul>
-                    <li onClick={() => changeTag("kankou")} className={tag == "kankou" ? "active" : "noactive"}><div id="sightseeing"><Sightseeing /></div><p>観光地</p></li>
-                    <li onClick={() => changeTag("gurume")} className={tag == "gurume" ? "active" : "noactive"}><div id="gourumet"><Gourmet /></div><p>グルメ</p></li>
-                    <li onClick={() => changeTag("tamasanpo")} className={tag == "tamasanpo" ? "active" : "noactive"}><div id="walking"><Walking /></div><p>たまさんぽ</p></li>
-                    <li onClick={() => changeTag("omiyage")} className={tag == "omiyage" ? "active" : "noactive"}><div id="omiyage"><Souvenir  /></div><p>お土産</p></li>
+                    <li onClick={() => changeTag("kankou")} className={tag == "kankou" ? "active" : "noactive"}><div className="icon"><Sightseeing /></div><p>観光地</p></li>
+                    <li onClick={() => changeTag("gurume")} className={tag == "gurume" ? "active" : "noactive"}><div className="icon"><Gourmet /></div><p>グルメ</p></li>
+                    <li onClick={() => changeTag("tamasanpo")} className={tag == "tamasanpo" ? "active" : "noactive"}><div className="icon"><Walking /></div><p>たまさんぽ</p></li>
+                    <li onClick={() => changeTag("omiyage")} className={tag == "omiyage" ? "active" : "noactive"}><div className="icon"><Souvenir /></div><p>お土産</p></li>
                 </ul>
             </div>
             <div className="pictures-blck">
