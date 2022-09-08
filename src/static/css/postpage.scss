@@ -159,7 +159,8 @@
                     display: none;
                 }
 
-                .picture-label {
+                .input-picture {
+                    width: 100px;
                     font-size: 1.1rem;
                     background-color: #f0f0f0;
                     padding: 10px;
@@ -167,7 +168,7 @@
                     border: 1px solid black;
                 }
 
-                .picture-label:hover {
+                .input-picture:hover {
                     background-color: #afafaf;
                 }
 
