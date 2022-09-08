@@ -1,13 +1,10 @@
 import * as React from "react";
 import {Link} from "react-router-dom";
 
-import CheckAccount from "./../lib/checkAccount"
-
 import Guide from "./../static/images/tab_menu/guide.svg";
 import Map from "./../static/images/tab_menu/map.svg";
 import Library from "./../static/images/tab_menu/library.svg";
 import Ranking from "./../static/images/tab_menu/ranking.svg";
-import checkAccount from "./../lib/checkAccount";
 
 type Tab = "guide" | "map" | "library" | "postPage";
 

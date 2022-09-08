@@ -1,4 +1,6 @@
 import * as React from "react";
+import axios from "axios";
+
 import PageEntry from "./../components/PageEntry";
 
 import Sightseeing from "./../static/images/tag_menu/sightseeing.svg";
@@ -7,28 +9,22 @@ import Walking from "./../static/images/tag_menu/walking.svg";
 import Souvenir from "./../static/images/tag_menu/souvenir.svg";
  
 import "./../static/css/home.scss";
-import axios from "axios";
 
 const pic_datas = require("./../pic.json");
 
 const ROOT_URL = "http://localhost:5000";
 // const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
 
-interface Other {
-    user: string,
-    location: {
-        x: number,
-        y: number
-    },
-    good: number
-}
-
 interface PageData {
     file_name: number,
     title: string,
     tag: string,
     text: string,
-    other: Other | null,
+    user: number,
+    location: {
+        x: number,
+        y: number
+    }
     image: string
 }
 
@@ -75,10 +71,6 @@ const Home: React.FC = ()=>{
         }
     }
 
-    const pages: JSX.Element[] = displayPage?.map((page, index) => 
-        <PageEntry page={page.file_name} title={page.title} text={page.text} image={page.image} key={index}/>
-    )
-
     return(
         <div className="home">
             <div className="tag-menu-block">
@@ -96,7 +88,9 @@ const Home: React.FC = ()=>{
                 </ul>
             </div>
             <div className="pages-block">
-                {pages}
+                {displayPage?.map((page, index) =>
+                    <PageEntry page={page.file_name} title={page.title} text={page.text} image={page.image} key={index} />
+                )}
             </div>
         </div>
     )
