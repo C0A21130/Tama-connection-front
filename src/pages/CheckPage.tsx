@@ -42,12 +42,9 @@ const CheckPage: React.FC = () => {
 
     return (
         <div className="check-page">
-            <h1>投稿したページを確認(今後機能の追加)</h1>
-            <div>
-                {files?.map((file, index) => 
-                    <CheckPageBlock title={file.title} image={file.image} tag={file.tag} text={file.text} key={index} />
-                )}
-            </div>
+            {files?.map((file, index) => 
+                <CheckPageBlock title={file.title} image={file.image} tag={file.tag} text={file.text} key={index} />
+            )}
         </div>
     )
 }

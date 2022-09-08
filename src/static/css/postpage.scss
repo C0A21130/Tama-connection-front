@@ -174,7 +174,8 @@
 
                 .picture-box {
                     width: 80%;
-                    margin: 15px auto;
+                    margin: 15px 0;
+                    background-color: #afafaf;
 
                     img {
                         width: 100%;
@@ -234,9 +235,30 @@
         .check-page-block {
             width: 90%;
             background-color: #F5F5F5;
+            padding: 10px;
             border-radius: 10px;
-            margin: 0 auto;
+            margin: 20px auto;
             filter: drop-shadow(0 4px 4px #00000033);
+
+            h3 {
+                font-size: 1.1rem;
+                margin: 5px;
+            }
+
+            p{
+                margin: 10px;
+            }
+
+            .pic {
+                width: 90%;
+                height: 150px;
+                margin: 0 auto;
+                overflow: hidden;
+
+                img {
+                    height: 100%;
+                }
+            }
         }
         
     }
