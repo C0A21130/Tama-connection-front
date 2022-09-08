@@ -1,6 +1,6 @@
 import * as React from "react";
 import Compressor from "compressorjs";
-import axios, { Axios, AxiosRequestConfig } from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
 const ROOT_URL = "http://localhost:5000";
 // const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
