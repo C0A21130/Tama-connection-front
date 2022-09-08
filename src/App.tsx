@@ -37,11 +37,11 @@ const App: React.FC = () =>{
                     <Route path=":pageId" element={<GetPage />} />
                 </Route>
                 <Route path="/map" element={<Map />} />
-                <Route path="/library" element={isLogin?<Library />:<Navigate to="/account" />}>
+                <Route path="/library" element={isLogin?<Library />:<Navigate to="/account/signup" />}>
                     <Route path="get" element={<GetMedal />}/>
                     <Route path="check" element={<CheckMedal />} />
                 </Route>
-                <Route path="/post" element={isLogin?<Post />:<Navigate to="/account"/>}>
+                <Route path="/post" element={isLogin?<Post />:<Navigate to="/account/signup"/>}>
                     <Route path="page" element={<PostPage />} />
                     <Route path="check" element={<CheckPage />} />
                 </Route>

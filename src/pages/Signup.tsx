@@ -1,6 +1,6 @@
 import * as React from "react";
 import axios, { AxiosResponse } from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ROOT_URL = "http://localhost:5000";
 // const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
@@ -26,10 +26,13 @@ const Signup: React.FC = () => {
 
     // ユーザーを作成してユーザーIDを保存
     const submit_user = async () =>  {
+        // パスワードの文字数を確認する
         if (password.length <= 8) {
             setStatus("パスワードは8桁以上にしてください");
             return 
-        } 
+        }
+
+        // ユーザーを作成する
         const {data}: AxiosResponse<ResposBody> = await axios.post(`${ROOT_URL}/regist`, body);
         if (data.token == "exist name") {
             setStatus("存在する名前なので名前を変えてください");
@@ -43,13 +46,16 @@ const Signup: React.FC = () => {
         <div className="signup">
             <h2>サインアップ</h2>
             <div>
+                <Link to="/account/login"><p>アカウントを持っている</p></Link>
+            </div>
+            <div>
                 <p>{status}</p>
             </div>
             <div className="name-input">
-                <label>なまえ<input type="text" value={name} onChange={(event) => setName(event.target.value)}></input></label>
+                <label>名前</label><input type="text" value={name} onChange={(event) => setName(event.target.value)}></input>
             </div>
             <div className="pass-input">
-                <label>ぱすわーど<input type="text" value={password} onChange={(event) => setPassword(event.target.value)}></input></label>
+                <label>パスワード</label><input type="text" value={password} onChange={(event) => setPassword(event.target.value)}></input>
             </div>
             <div className="submit-button">
                 <button type="submit" onClick={() => submit_user()}>送信</button>
