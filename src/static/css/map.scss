@@ -4,5 +4,10 @@
     #svg {
         transform: matrix(1,0, 0, -1, 0, 0);
         -webkit-transform: matrix(1,0, 0, -1, 0, 0);
+        overflow: hidden;
+    }
+
+    .x-block {
+        display: flex;
     }
 }

@@ -6,11 +6,6 @@ const MAG_RATE = 20;
 const CENTER_X = 128;
 const CENTER_Y = 30;
 
-const testData = [
-    {name: "tokyokoukadai", x: 139.34212301443, y: 35.626093236309 },
-    {name: "hatioujieki", x: 139.33910123176, y: 35.655485591286 }
-]
-
 interface ResponseData {
     file_name: number,
     x: number,
@@ -18,28 +13,35 @@ interface ResponseData {
     r: number
 }
 
-const drawMap = (data: ResponseData, x:number, y:number, z:number):void => {
+const drawMap = ( data: ResponseData[], x:number, y:number, z:number):void => {
+    // 座標をsvgのpath形式に変換
+    const line = d3.line()
+        .x((d) => (d[0] - CENTER_X) * MAG_RATE - x)
+        .y((d) => (d[1] - CENTER_Y) * MAG_RATE - y)
+
+    // 黒、太さ3の線を描く関数
+    const drawPath = (d) => {
+        d3.select("#svg").select("svg")
+            .append("path")
+            .attr("d", line(d))
+            .attr("stroke", "black")
+            .attr("stroke-width", 3)
+    }
+
+    // const zoom = d3.zoom().on("zoom", () => {console.log("aa")})
+
+    // 前に描画されていたsvgを削除
+    d3.select("#svg").select("svg").remove()
+
     // svgを生成
     const svg = d3.select("#svg")
         .append("svg")
         .attr("width", 370)
         .attr("height", 350)
         .attr("fill", "none")
-        .attr("transform", `translate(${x}, ${y}) scale(${z}, ${z})`)
+        .attr("transform", `scale(${z}, ${z})`)
+        // .call(zoom)
 
-    // 座標をsvgのpath形式に変換
-    const line = d3.line()
-        .x((d) => (d[0] - CENTER_X) * MAG_RATE)
-        .y((d) => (d[1] - CENTER_Y) * MAG_RATE)
-
-    // 黒、太さ3の線を描く関数
-    const drawPath = (d) => {
-        svg.append("path")
-            .attr("d", line(d))
-            .attr("stroke", "black")
-            .attr("stroke-width", 3)
-    }
-    
     // 都道府県を表示
     geoJson.features.map((ken, index) => {
         // 離島が存在する場合
@@ -63,8 +65,8 @@ const drawMap = (data: ResponseData, x:number, y:number, z:number):void => {
         .data(data)
         .enter()
         .append("circle")
-        .attr("cx", (d) => (d.x - CENTER_X) * MAG_RATE )
-        .attr("cy", (d) => (d.y - CENTER_Y) * MAG_RATE )
+        .attr("cx", (d) => (d.x - CENTER_X) * MAG_RATE - x )
+        .attr("cy", (d) => (d.y - CENTER_Y) * MAG_RATE - y )
         .attr("r", 2)
         .attr("fill", "red")
 
