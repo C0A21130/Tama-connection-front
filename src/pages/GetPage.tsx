@@ -1,13 +1,13 @@
 import * as React from "react";
 import { useParams } from "react-router-dom";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+import { constant } from "./../constant";
 
 import "./../static/css/page.scss"
 
 const pic_datas = require("./../pic.json");
 
-const ROOT_URL:string = "http://localhost:5000";
-// const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
+const ROOT_URL = constant.ROOT_URL;
 
 interface Other {
     user: string,

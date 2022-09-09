@@ -1,5 +1,6 @@
 import * as React from "react";
 import axios from "axios";
+import { constant } from "./../constant";
 
 import PageEntry from "./../components/PageEntry";
 
@@ -12,8 +13,7 @@ import "./../static/css/home.scss";
 
 const pic_datas = require("./../pic.json");
 
-const ROOT_URL = "http://localhost:5000";
-// const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
+const ROOT_URL = constant.ROOT_URL;
 
 interface PageData {
     file_name: number,

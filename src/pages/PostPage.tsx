@@ -1,9 +1,9 @@
 import * as React from "react";
 import Compressor from "compressorjs";
 import axios, { AxiosRequestConfig } from "axios";
+import { constant } from "./../constant";
 
-const ROOT_URL = "http://localhost:5000";
-// const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
+const ROOT_URL = constant.ROOT_URL;
 
 interface sendBody {
     title: string,

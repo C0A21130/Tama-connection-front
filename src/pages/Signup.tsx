@@ -1,9 +1,9 @@
 import * as React from "react";
 import axios, { AxiosResponse } from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { constant } from "./../constant";
 
-const ROOT_URL = "http://localhost:5000";
-// const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
+const ROOT_URL = constant.ROOT_URL;
 
 interface User {
     name: string,
