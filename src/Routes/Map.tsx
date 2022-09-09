@@ -7,9 +7,28 @@ import "./../static/css/map.scss";
 
 const ROOT_URL = constant.ROOT_URL;
 
+interface ResponseData {
+    file_name: number,
+    x: number,
+    y: number,
+    r: number
+}
+
 const Map: React.FC = () => {
+    let status = true;
+    let data: ResponseData;
     React.useEffect(()=>{
-        drawMap()
+        if (status) {
+            axios.get<ResponseData>(`${ROOT_URL}/map?myx=120&myy=30`)
+            .then((response) => {
+                data = response.data
+                console.log(data);
+                status = false;
+                drawMap(data);
+            })
+        } else {
+            drawMap(data);
+        }
     }, [])
 
     return (

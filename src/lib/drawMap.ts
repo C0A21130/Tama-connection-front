@@ -9,9 +9,14 @@ const testData = [
     {name: "hatioujieki", x: 139.33910123176, y: 35.655485591286 }
 ]
 
-const drawMap = ():void => {
-    // console.log(geoJson)
+interface ResponseData {
+    file_name: number,
+    x: number,
+    y: number,
+    r: number
+}
 
+const drawMap = (data: ResponseData):void => {
     // svgを生成
     const svg = d3.select("#svg")
         .append("svg")
@@ -23,25 +28,28 @@ const drawMap = ():void => {
     const line = d3.line()
         .x((d) => (d[0] - 128) * MAG_RATE)
         .y((d) => (d[1] - 30) * MAG_RATE)
+
+    // 黒、太さ3の線を描く関数
+    const drawPath = (d) => {
+        svg.append("path")
+            .attr("d", line(d))
+            .attr("stroke", "black")
+            .attr("stroke-width", 3)
+    }
     
     // 都道府県を表示
     geoJson.features.map((ken, index) => {
-        // console.log(ken.properties.name_ja)
+        // 離島が存在する場合
         if (ken.geometry.type == "MultiPolygon"){
             ken.geometry.coordinates.map((multiPolygon) => {
-                multiPolygon.map((d) => {
-                    svg.append("path")
-                        .attr("d", line(d))
-                        .attr("stroke", "black")
-                        .attr("stroke-width", 3)
+                multiPolygon.map((polygon) => {
+                    drawPath(polygon);
                 })
             })
+        // 離島が存在しない場合
         } else {
             ken.geometry.coordinates.map((polygon) => {
-                svg.append("path")
-                    .attr("d", line(polygon))
-                    .attr("stroke", "black")
-                    .attr("stroke-width", 3)
+                drawPath(polygon);
             })
         }
         
@@ -49,7 +57,7 @@ const drawMap = ():void => {
 
     // 座標データから地図にマッピング
     svg.selectAll("svg")
-        .data(testData)
+        .data(data)
         .enter()
         .append("circle")
         .attr("cx", (d) => (d.x - 128)*MAG_RATE )
