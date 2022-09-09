@@ -3,6 +3,8 @@ import * as d3 from "d3";
 const geoJson = require("./japan.geo.json");
 
 const MAG_RATE = 20;
+const CENTER_X = 128;
+const CENTER_Y = 30;
 
 const testData = [
     {name: "tokyokoukadai", x: 139.34212301443, y: 35.626093236309 },
@@ -16,18 +18,19 @@ interface ResponseData {
     r: number
 }
 
-const drawMap = (data: ResponseData):void => {
+const drawMap = (data: ResponseData, x:number, y:number, z:number):void => {
     // svgを生成
     const svg = d3.select("#svg")
         .append("svg")
         .attr("width", 370)
         .attr("height", 350)
-        .attr("fill", "none")        
+        .attr("fill", "none")
+        .attr("transform", `translate(${x}, ${y}) scale(${z}, ${z})`)
 
     // 座標をsvgのpath形式に変換
     const line = d3.line()
-        .x((d) => (d[0] - 128) * MAG_RATE)
-        .y((d) => (d[1] - 30) * MAG_RATE)
+        .x((d) => (d[0] - CENTER_X) * MAG_RATE)
+        .y((d) => (d[1] - CENTER_Y) * MAG_RATE)
 
     // 黒、太さ3の線を描く関数
     const drawPath = (d) => {
@@ -60,8 +63,8 @@ const drawMap = (data: ResponseData):void => {
         .data(data)
         .enter()
         .append("circle")
-        .attr("cx", (d) => (d.x - 128)*MAG_RATE )
-        .attr("cy", (d) => (d.y - 30)*MAG_RATE )
+        .attr("cx", (d) => (d.x - CENTER_X) * MAG_RATE )
+        .attr("cy", (d) => (d.y - CENTER_Y) * MAG_RATE )
         .attr("r", 2)
         .attr("fill", "red")
 
