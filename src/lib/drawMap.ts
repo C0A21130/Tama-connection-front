@@ -2,18 +2,24 @@ import * as d3 from "d3";
 
 const geoJson = require("./japan.geo.json");
 
-const MAG_RATE = 20;
-const CENTER_X = 128;
-const CENTER_Y = 30;
-
 interface ResponseData {
     file_name: number,
+    title: string,
+    tag: string,
     x: number,
     y: number,
     r: number
 }
 
-const drawMap = ( data: ResponseData[], x:number, y:number, z:number):void => {
+const drawMap = ( data: ResponseData[], myx: number, myy: number):void => {
+    const MAG_RATE = 2000;
+    const CENTER_X = myx - 0.10;
+    const CENTER_Y = myy - 0.10;
+
+    let x = 0;
+    let y = 0;
+    let z = 0;
+
     // 座標をsvgのpath形式に変換
     const line = d3.line()
         .x((d) => (d[0] - CENTER_X) * MAG_RATE - x)
@@ -28,7 +34,19 @@ const drawMap = ( data: ResponseData[], x:number, y:number, z:number):void => {
             .attr("stroke-width", 3)
     }
 
-    // const zoom = d3.zoom().on("zoom", () => {console.log("aa")})
+    // スクロールした際に呼び出される関数
+    const zoom = d3.zoom()
+        .scaleExtent([0.1, 50])
+        .on("zoom", (event) => {
+            z = event.transform.k;
+            x = event.transform.x;
+            y = event.transform.y;
+            console.log(event.transform)
+            d3.select("#svg").select("svg").selectAll("path")
+                .attr("transform", `translate(${x}, ${y}) scale(${z}, ${z})`)
+            d3.select("#svg").select("svg").selectAll("circle")
+                .attr("transform", `translate(${x}, ${y}) scale(${z}, ${z})`)
+        })
 
     // 前に描画されていたsvgを削除
     d3.select("#svg").select("svg").remove()
@@ -36,11 +54,10 @@ const drawMap = ( data: ResponseData[], x:number, y:number, z:number):void => {
     // svgを生成
     const svg = d3.select("#svg")
         .append("svg")
-        .attr("width", 370)
+        .attr("width", 350)
         .attr("height", 350)
         .attr("fill", "none")
-        .attr("transform", `scale(${z}, ${z})`)
-        // .call(zoom)
+        .call(zoom)
 
     // 都道府県を表示
     geoJson.features.map((ken, index) => {
@@ -65,10 +82,27 @@ const drawMap = ( data: ResponseData[], x:number, y:number, z:number):void => {
         .data(data)
         .enter()
         .append("circle")
-        .attr("cx", (d) => (d.x - CENTER_X) * MAG_RATE - x )
-        .attr("cy", (d) => (d.y - CENTER_Y) * MAG_RATE - y )
-        .attr("r", 2)
+        .attr("cx", (d) => (d.x - CENTER_X) * MAG_RATE )
+        .attr("cy", (d) => (d.y - CENTER_Y) * MAG_RATE )
+        .attr("r", 10)
         .attr("fill", "red")
+        .attr("id", (d) => (d.tag))
+
+    // 自身の座標をマッピング
+    d3.select("#svg").select("svg")
+        .append("circle")
+        .attr("cx", (myx - CENTER_X) * MAG_RATE )
+        .attr("cy", (myy - CENTER_Y) * MAG_RATE )
+        .attr("r", 15)
+        .attr("fill", "green")
+
+    // svg.selectAll("svg")
+    //     .data(data)
+    //     .enter()
+    //     .append("path")
+    //     .attr("d", (d) => line([[d.x, d.y], [d.x - 0.05, d.y + 0.1], [d.x, d.y + 0.15], [d.x + 0.05, d.y + 0.1], [d.x, d.y]]) )
+    //     .attr("stroke", "black")
+    //     .attr("stroke-width", 0.25)
 
 }
 

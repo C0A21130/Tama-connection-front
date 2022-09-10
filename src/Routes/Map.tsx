@@ -6,60 +6,41 @@ import drawMap from "./../lib/drawMap";
 import "./../static/css/map.scss";
 
 const ROOT_URL = constant.ROOT_URL;
-const DXY = 20;
-const DZ = 1.2;
 
 // 受け取るデータの型
 interface ResponseData {
     file_name: number,
+    title: string,
+    tag: string,
     x: number,
     y: number,
     r: number
 }
 
 const Map: React.FC = () => {
-    const [x, setX] = React.useState<number>(0);
-    const [y, setY] = React.useState<number>(0);
-    const [z, setZ] = React.useState<number>(1);
-
-    const [status, setStatus] = React.useState<boolean>(true);
     const [data, setData] = React.useState<ResponseData[]>();
 
     React.useEffect(()=>{
-        // 最初に画面を描画したときだけ実行
-        if (status) {
-            axios.get<ResponseData[]>(`${ROOT_URL}/map?myx=120&myy=30`)
-            .then((response) => {
-                setData(response.data);
-                drawMap(response.data, x, y, z);
-            })
-            setStatus(false);
-        // 2回目以降の描画を行う
-        } else {
-            drawMap(data, x, y, z);
-        }
-    }, [x, y, z])
+        axios.get<ResponseData[]>(`${ROOT_URL}/map?myx=120&myy=30`)
+        .then((response) => {
+            setData(response.data);
+            drawMap(response.data, 139.33, 35.65);
+        })
+    }, [])
 
     return (
         <div className="map">
             <h1>マップ</h1>
-            <div className="x-block">
-                <button onClick={() => setX(x - DXY)}>-X</button>
-                <p>{-1 * x}</p>
-                <button onClick={() => setX(x + DXY)}>+X</button>
-            </div>
-            <div className="center-block">
-                <div id="svg"></div>
-                <div className="y-block">
-                    <button onClick={() => setY(y - DXY)}>+Y</button>
-                    <p>{-1 * y}</p>
-                    <button onClick={() => setY(y + DXY)}>-Y</button>
-                </div>
-            </div>
-            <div className="z-block">
-                <button onClick={() => setZ(z * DZ)}>+Z</button>
-                <p>{z}</p>
-                <button onClick={() => setZ(z / DZ)}>-Z</button>
+            <div id="svg"></div>
+            <div>
+                {data?.map((d, index) => {
+                    return (
+                        <div key={index}>
+                            <h1>{d.title}</h1>
+                            <p>{d.tag}</p>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )
