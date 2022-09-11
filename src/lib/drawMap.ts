@@ -8,7 +8,8 @@ interface ResponseData {
     tag: string,
     x: number,
     y: number,
-    r: number
+    r: number,
+    image: string
 }
 
 const drawMap = ( data: ResponseData[], myx: number, myy: number):void => {

@@ -15,7 +15,8 @@ interface ResponseData {
     tag: string,
     x: number,
     y: number,
-    r: number
+    r: number,
+    image: string
 }
 
 const Map: React.FC = () => {
@@ -45,10 +46,10 @@ const Map: React.FC = () => {
             <div>
                 {data?.map((d, index) => {
                     return (
-                        <div key={index}>
+                        <div className="page-block" key={index}>
                             <Link to={`/gaid/${d.file_name}`}>
                                 <h1>{index + 1}番：{d.title}</h1>
-                                <p>{d.tag}</p>
+                                <div className="pic"><img src={ d.image }></img></div>
                             </Link>
                             <button onClick={() => { window.open(`https://maps.google.co.jp/maps?ll=${d.y},${d.x}`)}}>Google MAPで開く</button>
                         </div>
