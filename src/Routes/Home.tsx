@@ -83,8 +83,8 @@ const Home: React.FC = ()=>{
             </div>
             <div className="pictures-blck">
                 <ul>
-                    <li><img src={pic_datas.file1}></img></li>
-                    <li><img src={pic_datas.file2}></img></li>
+                    <li><img alt="pic-box" src={pic_datas.file1}></img></li>
+                    <li><img alt="pic-box" src={pic_datas.file2}></img></li>
                 </ul>
             </div>
             <div className="pages-block">
