@@ -7,7 +7,11 @@
         border: 1px solid black;
     }
 
-    .x-block {
-        display: flex;
+    text {
+        display: inline-block;
+        transform-origin: center center 0;
+        // transform: matrix(1, 0, 0, -1, 0, 0);    
+        // transform: rotateX(180deg);
     }
+
 }

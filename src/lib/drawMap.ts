@@ -41,7 +41,6 @@ const drawMap = ( data: ResponseData[], myx: number, myy: number):void => {
             z = event.transform.k;
             x = event.transform.x;
             y = event.transform.y;
-            console.log(event.transform)
             d3.select("#svg").select("svg").selectAll("path")
                 .attr("transform", `translate(${x}, ${y}) scale(${z}, ${z})`)
             d3.select("#svg").select("svg").selectAll("circle")
@@ -56,7 +55,7 @@ const drawMap = ( data: ResponseData[], myx: number, myy: number):void => {
         .append("svg")
         .attr("width", 350)
         .attr("height", 350)
-        .attr("fill", "none")
+        .attr("fill", "#dbffb7")
         .call(zoom)
 
     // 都道府県を表示
@@ -94,11 +93,25 @@ const drawMap = ( data: ResponseData[], myx: number, myy: number):void => {
         .attr("cx", (myx - CENTER_X) * MAG_RATE )
         .attr("cy", (myy - CENTER_Y) * MAG_RATE )
         .attr("r", 15)
-        .attr("fill", "green")
+        .attr("fill", "#7fffff")
+    
+    d3.select("#svg").select("svg")
+        .append("circle")
+        .attr("cx", (myx - CENTER_X) * MAG_RATE)
+        .attr("cy", (myy - CENTER_Y) * MAG_RATE)
+        .attr("r", 8)
+        .attr("fill", "white")
+
+    // d3.select("#svg").select("svg")
+    //     .append("text")
+    //     .attr("x", (myx - CENTER_X) * MAG_RATE)
+    //     .attr("y", (myy - CENTER_Y) * MAG_RATE)
+    //     .text("my")
+    //     .attr("font-size", 20)
+    //     .attr("fill", "black")
+        
 
     // svg.selectAll("svg")
-    //     .data(data)
-    //     .enter()
     //     .append("path")
     //     .attr("d", (d) => line([[d.x, d.y], [d.x - 0.05, d.y + 0.1], [d.x, d.y + 0.15], [d.x + 0.05, d.y + 0.1], [d.x, d.y]]) )
     //     .attr("stroke", "black")

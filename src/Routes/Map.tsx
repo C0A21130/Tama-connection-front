@@ -19,14 +19,24 @@ interface ResponseData {
 
 const Map: React.FC = () => {
     const [data, setData] = React.useState<ResponseData[]>();
+    let [myx, setMyx] = React.useState<number>(139);
+    let [myy, setMyy] = React.useState<number>(35);
+
+    // 現在地を取得
+    navigator.geolocation.getCurrentPosition((position) => {
+        setMyx(position.coords.longitude);
+        setMyy(position.coords.latitude); 
+    })
 
     React.useEffect(()=>{
-        axios.get<ResponseData[]>(`${ROOT_URL}/map?myx=120&myy=30`)
+        // 現在地から情報をAPIサーバから取得して地図を描画
+        axios.get<ResponseData[]>(`${ROOT_URL}/map?myx=${myx}&myy=${myy}`)
         .then((response) => {
             setData(response.data);
-            drawMap(response.data, 139.33, 35.65);
+            drawMap(response.data, myx, myy);
+            console.log(myx)
         })
-    }, [])
+    }, [myy])
 
     return (
         <div className="map">
@@ -36,7 +46,7 @@ const Map: React.FC = () => {
                 {data?.map((d, index) => {
                     return (
                         <div key={index}>
-                            <h1>{d.title}</h1>
+                            <h1>{index + 1}番：{d.title}</h1>
                             <p>{d.tag}</p>
                         </div>
                     )
