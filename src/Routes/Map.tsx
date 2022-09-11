@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { constant } from "./../constant";
 import drawMap from "./../lib/drawMap";
@@ -34,7 +35,6 @@ const Map: React.FC = () => {
         .then((response) => {
             setData(response.data);
             drawMap(response.data, myx, myy);
-            console.log(myx)
         })
     }, [myy])
 
@@ -46,8 +46,11 @@ const Map: React.FC = () => {
                 {data?.map((d, index) => {
                     return (
                         <div key={index}>
-                            <h1>{index + 1}番：{d.title}</h1>
-                            <p>{d.tag}</p>
+                            <Link to={`/gaid/${d.file_name}`}>
+                                <h1>{index + 1}番：{d.title}</h1>
+                                <p>{d.tag}</p>
+                            </Link>
+                            <button onClick={() => { window.open(`https://maps.google.co.jp/maps?ll=${d.y},${d.x}`)}}>Google MAPで開く</button>
                         </div>
                     )
                 })}
