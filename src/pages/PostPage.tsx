@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import Compressor from "compressorjs";
 import axios, { AxiosRequestConfig } from "axios";
 import { constant } from "./../constant";
@@ -22,6 +23,7 @@ const postPage: React.FC = () => {
     const [text, setText] = React.useState<string>("");
     const [pic, setPic] = React.useState<string>("")
 
+    const navigate = useNavigate();
     const render = new FileReader();
     const config: AxiosRequestConfig = {
         headers: {
@@ -39,6 +41,7 @@ const postPage: React.FC = () => {
         image: ""
     }
 
+    // 送信ボタンを押したときの処理
     const submitPage = (submit: boolean) => {
         const pictuer = document.querySelector<HTMLInputElement>("#picture");
         const file = pictuer.files[0];
@@ -54,9 +57,16 @@ const postPage: React.FC = () => {
                 // base64変換後の処理
                 render.onload = () => {
                     body.image = render.result;
-                    // trueのときに送信し、送信しない際には画像をページに表示する
+                    // データを送信する
                     if (submit) {
-                        axios.post(`${ROOT_URL}/page`, body, config);
+                        axios.post(`${ROOT_URL}/page`, body, config)
+                            .then((response) => {
+                                // JWTが期限ぎれのときの処理
+                                if (response.data.error == "exp error") {
+                                    navigate("/accout/login");
+                                }
+                            })
+                    // 送信せずに画像をページに表示する
                     } else {
                         setPic(body.image.toString())
                     }

@@ -9,22 +9,16 @@ const pic_datas = require("./../pic.json");
 
 const ROOT_URL = constant.ROOT_URL;
 
-interface Other {
-    user: string,
-    location_information: {
-        x: number,
-        y: number
-    },
-    good: number
-
-}
-
 interface ResponsPage{
     file_name: number,
     title: string,
     tag: string,
     text: string,
-    other: Other | null
+    user: number,
+    location: {
+        x: number,
+        y: number
+    },
     image: string
 }
 
@@ -33,13 +27,10 @@ const testPage: ResponsPage = {
     title: "test",
     tag: "kankou",
     text: "test,test,test",
-    other: {
-        user: "test_user",
-        location_information: {
-            x: 120,
-            y: 200
-        },
-        good: 2
+    user: 1,
+    location: {
+        x: 120,
+        y: 200
     },
     image: pic_datas.file1
 }
@@ -59,7 +50,7 @@ const GetPage: React.FC = () => {
             const {data} = respons;
             setPageData(data)
         })
-        .catch((eroor)=>{
+        .catch(()=>{
             setPageData(testPage)
             console.log(testPage);
         })

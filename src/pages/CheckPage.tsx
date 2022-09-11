@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import axios, { AxiosRequestConfig } from "axios";
 import CheckPageBlock from "../components/CheckPageBlock";
 
@@ -19,6 +20,7 @@ interface Page {
 }
 
 interface Data {
+    error: string,
     name: string,
     checked: number[],
     files: Page[]
@@ -26,7 +28,9 @@ interface Data {
 
 const CheckPage: React.FC = () => {
     const [files, setFiles] = React.useState<Page[]>()
+    const navigate = useNavigate();
 
+    // ヘッダーにJWTを設定
     const config: AxiosRequestConfig = {
         headers: {
             "token": localStorage.getItem("token")
@@ -36,7 +40,12 @@ const CheckPage: React.FC = () => {
     React.useEffect(() => {
         axios.get<Data>(`${ROOT_URL}/user`, config)
             .then((response) => {
-                setFiles(response.data.files)
+                if (response.data.error == "exp error") {
+                    navigate("/account/login")
+                    return 
+                } else {
+                    setFiles(response.data.files)
+                }
             })
     }, [])
 
