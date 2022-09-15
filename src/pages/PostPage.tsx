@@ -22,6 +22,7 @@ const postPage: React.FC = () => {
     const [tag, setTag] = React.useState<string>("kankou");
     const [text, setText] = React.useState<string>("");
     const [pic, setPic] = React.useState<string>("")
+    const [status, setStatus] = React.useState<"成功"|"失敗">()
 
     const navigate = useNavigate();
     const render = new FileReader();
@@ -51,7 +52,7 @@ const postPage: React.FC = () => {
 
         // 画像の圧縮
         new Compressor(file, {
-            quality: 0.6,
+            quality: 0.5,
             // 圧縮成功時の処理
             success(result) {
                 // base64変換後の処理
@@ -60,12 +61,18 @@ const postPage: React.FC = () => {
                     // データを送信する
                     if (submit) {
                         axios.post(`${ROOT_URL}/page`, body, config)
-                            .then((response) => {
-                                // JWTが期限ぎれのときの処理
-                                if (response.data.error == "exp error") {
-                                    navigate("/accout/login");
-                                }
-                            })
+                        .then((response) => {
+                            // JWTが期限ぎれのときの処理
+                            if (response.data.error == "exp error") {
+                                navigate("/accout/login");
+                                return
+                            }
+                            setStatus("成功");
+                            navigate("/post/check");
+                        })
+                        .catch(() => {
+                            setStatus("失敗");
+                        })
                     // 送信せずに画像をページに表示する
                     } else {
                         setPic(body.image.toString())
@@ -108,6 +115,7 @@ const postPage: React.FC = () => {
                 <div className="submit-button">
                     <button type="submit" onClick={() => submitPage(true)}>送信</button>
                 </div>
+                <div>{status}</div>
             </div>
         </div>
     )

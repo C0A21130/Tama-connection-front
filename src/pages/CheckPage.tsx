@@ -2,9 +2,9 @@ import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import axios, { AxiosRequestConfig } from "axios";
 import CheckPageBlock from "../components/CheckPageBlock";
+import { constant } from "./../constant";
 
-const ROOT_URL = "http://localhost:5000";
-// const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
+const ROOT_URL = constant.ROOT_URL;
 
 interface Page {
     file_name: number,
@@ -39,14 +39,17 @@ const CheckPage: React.FC = () => {
 
     React.useEffect(() => {
         axios.get<Data>(`${ROOT_URL}/user`, config)
-            .then((response) => {
-                if (response.data.error == "exp error") {
-                    navigate("/account/login")
-                    return 
-                } else {
-                    setFiles(response.data.files)
-                }
-            })
+        .then((response) => {
+            // 期限切れのときにログインページに移動する
+            if (response.data.error == "exp error") {
+                navigate("/account/login")
+                return 
+            }
+            setFiles(response.data.files.reverse())
+        })
+        .catch(()=>{
+            setFiles([])
+        })
     }, [])
 
     return (

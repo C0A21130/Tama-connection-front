@@ -1,11 +1,9 @@
 import * as React from "react";
 import { useParams } from "react-router-dom";
-import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+import axios, { AxiosResponse } from "axios";
 import { constant } from "./../constant";
 
 import "./../static/css/page.scss"
-
-const pic_datas = require("./../pic.json");
 
 const ROOT_URL = constant.ROOT_URL;
 
@@ -24,35 +22,29 @@ interface ResponsPage{
 
 const testPage: ResponsPage = {
     file_name: 1,
-    title: "test",
+    title: "ネットワークエラー",
     tag: "kankou",
-    text: "test,test,test",
+    text: "ネットワークと接続してください",
     user: 1,
     location: {
         x: 120,
         y: 200
     },
-    image: pic_datas.file1
+    image: ""
 }
 
 const GetPage: React.FC = () => {
     const {pageId} = useParams();
     const [pageData, setPageData] = React.useState<ResponsPage>();
 
-    const option: AxiosRequestConfig = {
-        url: `${ROOT_URL}/page/${pageId}`,
-        method: "GET"
-    }
-
     React.useEffect(()=>{
-        axios(option)
+        axios.get(`${ROOT_URL}/page/${pageId}`)
         .then((respons: AxiosResponse<ResponsPage>)=>{
             const {data} = respons;
             setPageData(data)
         })
         .catch(()=>{
             setPageData(testPage)
-            console.log(testPage);
         })
     }, [])
 

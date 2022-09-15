@@ -25,9 +25,15 @@ const Login: React.FC = () => {
 
     // 登録されているユーザーのIDを取得する
     const submit_user = async () => {
-        const { data }: AxiosResponse<ResposBody> = await axios.post(`${ROOT_URL}/login`, body);
-        await localStorage.setItem("token", data.token)
-        await navigate("/account/success", {state: {s:true}})
+        // const { data }: AxiosResponse<ResposBody> = await axios.post(`${ROOT_URL}/login`, body);
+        await axios.post<ResposBody>(`${ROOT_URL}/login`, body)
+        .then((response) => {
+            localStorage.setItem("token", response.data.token)
+            navigate("/account/success", { state: { s: true } })
+        })
+        .catch(() => {
+            navigate("/account/signup");
+        })
     }
 
     return (

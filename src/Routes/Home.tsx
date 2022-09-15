@@ -45,9 +45,14 @@ const Home: React.FC = ()=>{
 
     React.useEffect(() => {
         const getPage = async () => {
-            const {data} = await axios.get<ResponsePageData>(ROOT_URL + "/page")
-            setPageData(data)
-            setDisplayPage(data.kankou);
+            axios.get<ResponsePageData>(`${ROOT_URL}/page`)
+            .then((response) => {
+                setPageData(response.data)
+                setDisplayPage(response.data.kankou);
+            })
+            .catch(() => {
+                setDisplayPage([])
+            })
         }
         getPage();
     }, [])

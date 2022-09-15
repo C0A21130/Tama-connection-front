@@ -33,13 +33,16 @@ const Signup: React.FC = () => {
         }
 
         // ユーザーを作成する
-        const {data}: AxiosResponse<ResposBody> = await axios.post(`${ROOT_URL}/regist`, body);
-        if (data.token == "exist name") {
-            setStatus("存在する名前なので名前を変えてください");
-        } else {
-            await localStorage.setItem("token", data.token);
-            await navigate("/", { state: { s: true } });
-        }
+        // const {data}: AxiosResponse<ResposBody> = await axios.post(`${ROOT_URL}/regist`, body);
+        await axios.post<ResposBody>(`${ROOT_URL}/regist`, body)
+        .then((response) => {
+            if (response.data.token == "exist name") {
+                setStatus("存在する名前なので名前を変えてください");
+                return
+            }
+            localStorage.setItem("token", response.data.token);
+            navigate("/", { state: { s: true } });
+        })
     }
 
     return (
