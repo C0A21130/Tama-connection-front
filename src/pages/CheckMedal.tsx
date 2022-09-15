@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import axios, { AxiosRequestConfig } from "axios";
 import {constant} from "./../constant"
 
@@ -23,27 +24,32 @@ interface Data {
     files: Page[] | null
 }
 
-const config: AxiosRequestConfig = {
-    headers: {
-        "token": localStorage.getItem("token")
-    }
-}
-
 const CheckMedal: React.FC = () => {
-    const [testData, setTestData] = React.useState<Data>() 
-    React.useEffect(()=>{
+    const navigate = useNavigate();
+    const [checkedData, setCheckedData] = React.useState<Data>();
+    const config: AxiosRequestConfig = {
+        headers: {
+            "token": localStorage.getItem("token")
+        }
+    }
+
+    React.useEffect(() => {
         axios.get<Data>(`${constant.ROOT_URL}/user`, config)
-        .then()
-        .catch((error)=>{
-            console.log(error)
+        .then((response) => {
+            if (response.data.error == "exp error") {
+                navigate("/account/login");
+                return
+            }
+            setCheckedData(response.data)
+        })
+        .catch(() => {
             const data:Data = {
                 error : "test",
                 name : "username",
-                checked : [5],
+                checked : [],
                 files: null, 
             }     
-            setTestData(data)
-            console.log(testData)
+            setCheckedData(data);
         })
     },[])
 
@@ -51,8 +57,8 @@ const CheckMedal: React.FC = () => {
         <div className="check-medal">
             <h1>メダルを確認する</h1>
             <div>
-                {testData?.checked.map((c) => {
-                    return <div>{c}</div>
+                {checkedData?.checked.map((c, index) => {
+                    return <div key={index}>{c}</div>
                 })}
             </div>
         </div>
