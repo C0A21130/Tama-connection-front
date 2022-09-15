@@ -11,8 +11,6 @@ import Souvenir from "./../static/images/tag_menu/souvenir.svg";
  
 import "./../static/css/home.scss";
 
-const pic_datas = require("./../pic.json");
-
 const ROOT_URL = constant.ROOT_URL;
 
 interface PageData {
@@ -37,18 +35,31 @@ interface ResponsePageData {
 
 type Tag = "kankou" | "gurume" | "tamasanpo" | "omiyage";
 
-const Home: React.FC = ()=>{
+// 記事の配列から2つの画像を取り出す
+const makeRandomPage = (pages:PageData[]):string[] => {
+    const rand1:number = Math.floor(Math.random() * pages.length);
+    while(true) {
+        const rand2:number = Math.floor(Math.random() * pages.length);
+        // 返却値が被らないように変更
+        if ((rand1 != rand2) || (pages.length === 1)) {
+            return [pages[rand1].image, pages[rand2].image];
+        }
+    }
+}
 
+const Home: React.FC = ()=>{
     const [tag, setTag] = React.useState<Tag>("kankou");
     const [displayPage, setDisplayPage] = React.useState<PageData[]>();
     const [pageData, setPageData] = React.useState<ResponsePageData>();
+    const [picBox, setPicBox] = React.useState<string[]>(["", ""]);
 
     React.useEffect(() => {
         const getPage = async () => {
             axios.get<ResponsePageData>(`${ROOT_URL}/page`)
             .then((response) => {
-                setPageData(response.data)
+                setPageData(response.data);
                 setDisplayPage(response.data.kankou);
+                setPicBox(makeRandomPage(response.data.kankou));
             })
             .catch(() => {
                 setDisplayPage([])
@@ -63,15 +74,19 @@ const Home: React.FC = ()=>{
         switch (t) {
             case "kankou":
                 setDisplayPage(pageData.kankou);
+                setPicBox(makeRandomPage(pageData.kankou))
                 break;
             case "gurume":
                 setDisplayPage(pageData.gurume);
+                setPicBox(makeRandomPage(pageData.gurume))
                 break;
             case "tamasanpo":
                 setDisplayPage(pageData.tamasanpo);
+                setPicBox(makeRandomPage(pageData.tamasanpo))
                 break;
             case "omiyage":
                 setDisplayPage(pageData.omiyage);
+                setPicBox(makeRandomPage(pageData.omiyage))
                 break;
         }
     }
@@ -88,8 +103,8 @@ const Home: React.FC = ()=>{
             </div>
             <div className="pictures-blck">
                 <ul>
-                    <li><img alt="pic-box" src={pic_datas.file1}></img></li>
-                    <li><img alt="pic-box" src={pic_datas.file2}></img></li>
+                    <li><img alt="" src={picBox[0]}></img></li>
+                    <li><img alt="" src={picBox[1]}></img></li>
                 </ul>
             </div>
             <div className="pages-block">
