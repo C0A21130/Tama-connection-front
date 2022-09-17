@@ -33,7 +33,6 @@ const Signup: React.FC = () => {
         }
 
         // ユーザーを作成する
-        // const {data}: AxiosResponse<ResposBody> = await axios.post(`${ROOT_URL}/regist`, body);
         await axios.post<ResposBody>(`${ROOT_URL}/regist`, body)
         .then((response) => {
             if (response.data.token == "exist name") {

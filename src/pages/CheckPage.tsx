@@ -27,8 +27,7 @@ interface Data {
 }
 
 const CheckPage: React.FC = () => {
-    const [files, setFiles] = React.useState<Page[]>()
-    const navigate = useNavigate();
+    const [files, setFiles] = React.useState<Page[]>();
 
     // ヘッダーにJWTを設定
     const config: AxiosRequestConfig = {
@@ -40,11 +39,6 @@ const CheckPage: React.FC = () => {
     React.useEffect(() => {
         axios.get<Data>(`${ROOT_URL}/user`, config)
         .then((response) => {
-            // 期限切れのときにログインページに移動する
-            if (response.data.error == "exp error") {
-                navigate("/account/login")
-                return 
-            }
             setFiles(response.data.files.reverse())
         })
         .catch(()=>{

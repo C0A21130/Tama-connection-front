@@ -19,7 +19,6 @@ interface Page {
 
 
 interface Data {
-    error: string,
     name: string,
     checked: number[],
     files: Page[] | null
@@ -37,15 +36,10 @@ const CheckMedal: React.FC = () => {
     React.useEffect(() => {
         axios.get<Data>(`${constant.ROOT_URL}/user`, config)
         .then((response) => {
-            if (response.data.error == "exp error") {
-                navigate("/account/login");
-                return
-            }
             setResponseData(response.data);
         })
         .catch(() => {
             const data:Data = {
-                error : "test",
                 name : "username",
                 checked : [],
                 files: null, 
