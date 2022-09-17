@@ -25,7 +25,6 @@ interface Data {
 }
 
 const CheckMedal: React.FC = () => {
-    const navigate = useNavigate();
     const [responseData, setResponseData] = React.useState<Data>();
     const config: AxiosRequestConfig = {
         headers: {
@@ -39,12 +38,12 @@ const CheckMedal: React.FC = () => {
             setResponseData(response.data);
         })
         .catch(() => {
-            const data:Data = {
+            const testData:Data = {
                 name : "username",
                 checked : [],
                 files: null, 
             }     
-            setResponseData(data);
+            setResponseData(testData);
         })
     },[])
 

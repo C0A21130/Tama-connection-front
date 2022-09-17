@@ -35,6 +35,7 @@ const Signup: React.FC = () => {
         // ユーザーを作成する
         await axios.post<ResposBody>(`${ROOT_URL}/regist`, body)
         .then((response) => {
+            // 既に名前が存在する際にもう一度名前の入力を求める
             if (response.data.token == "exist name") {
                 setStatus("存在する名前なので名前を変えてください");
                 return
