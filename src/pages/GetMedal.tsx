@@ -1,31 +1,16 @@
 import * as React from "react";
+import checkShop from "./../lib/checkShop"
 
 type StateValues = "" | "成功"  | "失敗";
-
-// (shopId:コード, shopName:お店の名前)
-interface ShopDataType {
-    shopId: number,
-    shopName: string
-}
-
-// お店コードを作成
-const shopDatas: ShopDataType[] = [
-    {shopId: 1, shopName: "test1"},
-    {shopId: 2, shopName: "test2"}
-]
 
 const GetMedal: React.FC = () => {
     const [inputNum, setInputNum] = React.useState<string>("0");
     const [state, setState] = React.useState<StateValues>("");
 
     // 用意されたお店のコードの中に入力された値が存在するか確認
-    const checkShop = ():void => {
-        const d = shopDatas.filter((shopData)=>{
-            return shopData.shopId == Number(inputNum)
-        })
-
-        setState((d.length == 1) ? "成功" : "失敗" )
-        
+    const getShop = ():void => {
+        const num = checkShop(Number(inputNum)).length;
+        setState(((num==1) ? "成功" : "失敗"))
     }
 
     return (
@@ -37,7 +22,7 @@ const GetMedal: React.FC = () => {
                     <input type="text" value={inputNum.toString()} onChange={(event) => setInputNum(event.target.value)}/>
                 </div>
                 <div>
-                    <button onClick={() => checkShop()}>送信</button>
+                    <button onClick={() => getShop()}>送信</button>
                 </div>
                 <div>
                     <p>{state}</p>

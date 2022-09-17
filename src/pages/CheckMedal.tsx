@@ -1,7 +1,8 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import axios, { AxiosRequestConfig } from "axios";
-import {constant} from "./../constant"
+import { constant } from "./../constant"
+import checkShop from "./../lib/checkShop";
 
 interface Page {
     file_name: number,
@@ -26,7 +27,7 @@ interface Data {
 
 const CheckMedal: React.FC = () => {
     const navigate = useNavigate();
-    const [checkedData, setCheckedData] = React.useState<Data>();
+    const [responseData, setResponseData] = React.useState<Data>();
     const config: AxiosRequestConfig = {
         headers: {
             "token": localStorage.getItem("token")
@@ -40,7 +41,7 @@ const CheckMedal: React.FC = () => {
                 navigate("/account/login");
                 return
             }
-            setCheckedData(response.data)
+            setResponseData(response.data);
         })
         .catch(() => {
             const data:Data = {
@@ -49,7 +50,7 @@ const CheckMedal: React.FC = () => {
                 checked : [],
                 files: null, 
             }     
-            setCheckedData(data);
+            setResponseData(data);
         })
     },[])
 
@@ -57,8 +58,11 @@ const CheckMedal: React.FC = () => {
         <div className="check-medal">
             <h1>メダルを確認する</h1>
             <div>
-                {checkedData?.checked.map((c, index) => {
-                    return <div key={index}>{c}</div>
+                {responseData?.checked.map((id, index) => {
+                    const result = checkShop(id);
+                    return result.map(() => 
+                        <div key={index}>{result[0].shopName}</div>
+                    )
                 })}
             </div>
         </div>
