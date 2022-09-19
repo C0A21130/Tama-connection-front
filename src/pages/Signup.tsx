@@ -41,7 +41,7 @@ const Signup: React.FC = () => {
                 return
             }
             localStorage.setItem("token", response.data.token);
-            navigate("/", { state: { s: true } });
+            navigate("/account/success", { state: { s: true } });
         })
     }
 
