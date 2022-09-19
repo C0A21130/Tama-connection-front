@@ -1,15 +1,56 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
+import axios, { AxiosRequestConfig } from "axios";
+import CheckPageBlock from "../components/CheckPageBlock";
+import { constant } from "./../constant";
+
+const ROOT_URL = constant.ROOT_URL;
+
+interface Page {
+    file_name: number,
+    title: string,
+    tag: string,
+    text: string,
+    user: number,
+    location: {
+        x: number,
+        y: number
+    },
+    image: string
+}
+
+interface Data {
+    error: string,
+    name: string,
+    checked: number[],
+    files: Page[]
+}
 
 const CheckPage: React.FC = () => {
+    const [files, setFiles] = React.useState<Page[]>();
+
+    // ヘッダーにJWTを設定
+    const config: AxiosRequestConfig = {
+        headers: {
+            "token": localStorage.getItem("token")
+        }
+    }
+
+    React.useEffect(() => {
+        axios.get<Data>(`${ROOT_URL}/user`, config)
+        .then((response) => {
+            setFiles(response.data.files.reverse())
+        })
+        .catch(()=>{
+            setFiles([])
+        })
+    }, [])
+
     return (
         <div className="check-page">
-            <h1>投稿したページを確認(今後機能の追加)</h1>
-            <div className="check-page-block">
-                <p>タイトル</p>
-                <div><img></img></div>
-                <p>タグ：観光</p>
-                <p>説明</p>
-            </div>
+            {files?.map((file, index) => 
+                <CheckPageBlock title={file.title} image={file.image} tag={file.tag} text={file.text} key={index} />
+            )}
         </div>
     )
 }

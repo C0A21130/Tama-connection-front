@@ -1,31 +1,45 @@
 import * as React from "react";
+import axios, { AxiosRequestConfig } from "axios";
+import { constant } from "./../constant";
+import checkShop from "./../lib/checkShop"
 
-type StateValues = "" | "成功"  | "失敗";
-
-// (shopId:コード, shopName:お店の名前)
-interface ShopDataType {
-    shopId: number,
-    shopName: string
-}
-
-// お店コードを作成
-const shopDatas: ShopDataType[] = [
-    {shopId: 1, shopName: "test1"},
-    {shopId: 2, shopName: "test2"}
-]
+type StateValues = "" | "成功"  | "失敗" | "既にチェック済み";
 
 const GetMedal: React.FC = () => {
     const [inputNum, setInputNum] = React.useState<string>("0");
     const [state, setState] = React.useState<StateValues>("");
+    const config: AxiosRequestConfig = {
+        headers: {
+            "token": localStorage.getItem("token")
+        }
+    }
 
-    // 用意されたお店のコードの中に入力された値が存在するか確認
-    const checkShop = ():void => {
-        const d = shopDatas.filter((shopData)=>{
-            return shopData.shopId == Number(inputNum)
-        })
+    // 送信ボタンを押したときの処理
+    const getShop = ():void => {
+        // 用意されたお店のコードの中に入力された値が存在するか確認
+        const shopId: number = Number(inputNum)
+        const num = checkShop(shopId).length;
 
-        setState((d.length == 1) ? "成功" : "失敗" )
+        // お店のIDがJSONファイルに存在しないときに終了する
+        if (num == 0) {
+            setState("失敗");
+            return 
+        }
         
+        // ユーザーのチェックポイント情報を更新
+        axios.put(`${constant.ROOT_URL}/user`, {shop_id : shopId}, config)
+        .then((response) => {
+            // 既にチェック済みの場合は失敗を表示
+            if(response.data == "error checked") {
+                setState("既にチェック済み");
+            // 成功した際に画面に成功を表示
+            } else {
+                setState("成功");
+            }
+        })
+        .catch(() => {
+            setState("失敗");
+        })
     }
 
     return (
@@ -37,7 +51,7 @@ const GetMedal: React.FC = () => {
                     <input type="text" value={inputNum.toString()} onChange={(event) => setInputNum(event.target.value)}/>
                 </div>
                 <div>
-                    <button onClick={() => checkShop()}>送信</button>
+                    <button onClick={() => getShop()}>送信</button>
                 </div>
                 <div>
                     <p>{state}</p>

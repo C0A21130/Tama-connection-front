@@ -1,51 +1,50 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import Compressor from "compressorjs";
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
+import { constant } from "./../constant";
 
-// const ROOT_URL = "http://localhost:5000";
-const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
-
-type Tag = "kankou" | "gurume" | "tamasanpo" | "omiyage"; 
-
-interface Other {
-    user: string,
-    location: {
-        x: number,
-        y: number
-    }
-}
+const ROOT_URL = constant.ROOT_URL;
 
 interface sendBody {
     title: string,
     tag: string,
     text: string,
-    other: Other,
+    location: {
+        x: number,
+        y: number
+    }
     image: string | ArrayBuffer
 }
 
 const postPage: React.FC = () => {
-    const [title, setTitle] = React.useState<string>("たいとる");
+    const [title, setTitle] = React.useState<string>("");
     const [tag, setTag] = React.useState<string>("kankou");
-    const [text, setText] = React.useState<string>("ぶんしょう");
+    const [text, setText] = React.useState<string>("");
     const [pic, setPic] = React.useState<string>("")
+    const [status, setStatus] = React.useState<"成功"|"失敗">()
 
+    const navigate = useNavigate();
     const render = new FileReader();
+    const config: AxiosRequestConfig = {
+        headers: {
+            "token": localStorage.getItem("token")
+        }
+    }
     const body: sendBody = {
         title: title,
         tag: tag,
         text: text,
-        other: {
-            user: "test_user",
-            location: {
-                x: -1,
-                y: -1
-            }
+        location: {
+            x: -1,
+            y: -1
         },
         image: ""
     }
 
+    // 送信ボタンを押したときの処理
     const submitPage = (submit: boolean) => {
-        const pictuer = document.querySelector<HTMLInputElement>("#picture-input");
+        const pictuer = document.querySelector<HTMLInputElement>("#picture");
         const file = pictuer.files[0];
 
         // 写真が選択されてなければ処理を抜ける
@@ -53,16 +52,28 @@ const postPage: React.FC = () => {
 
         // 画像の圧縮
         new Compressor(file, {
-            quality: 0.6,
+            quality: 0.5,
             // 圧縮成功時の処理
             success(result) {
                 // base64変換後の処理
                 render.onload = () => {
                     body.image = render.result;
-                    console.log(body);
-                    // trueのときに送信し、送信しない際には画像をページに表示する
+                    // データを送信する
                     if (submit) {
-                        axios.post(`${ROOT_URL}/page`, body)
+                        axios.post(`${ROOT_URL}/page`, body, config)
+                        .then((response) => {
+                            // JWTが期限ぎれのときの処理
+                            if (response.data.error == "exp error") {
+                                navigate("/accout/login");
+                                return
+                            }
+                            setStatus("成功");
+                            navigate("/post/check");
+                        })
+                        .catch(() => {
+                            setStatus("失敗");
+                        })
+                    // 送信せずに画像をページに表示する
                     } else {
                         setPic(body.image.toString())
                     }
@@ -85,7 +96,7 @@ const postPage: React.FC = () => {
                     <div><input type="text" value={title} onChange={(event) => setTitle(event.target.value)}></input></div>
                 </div>
                 <div className="picture-block">
-                    <div className="input-picture"><label>写真を選択<input type="file" accept="image/*" onChange={(event) => submitPage(false)} /></label></div>
+                    <div className="input-picture"><label>写真を選択<input id="picture" type="file" accept="image/*" onChange={(event) => submitPage(false)} /></label></div>
                     <div className="picture-box"><img src={pic}></img></div>
                 </div>
                 <div className="select-tag-block">
@@ -104,6 +115,7 @@ const postPage: React.FC = () => {
                 <div className="submit-button">
                     <button type="submit" onClick={() => submitPage(true)}>送信</button>
                 </div>
+                <div>{status}</div>
             </div>
         </div>
     )

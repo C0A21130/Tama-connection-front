@@ -1,45 +1,34 @@
 import * as React from "react";
 import { useParams } from "react-router-dom";
-import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+import axios, { AxiosResponse } from "axios";
+import { constant } from "./../constant";
 
 import "./../static/css/page.scss"
 
-const pic_datas = require("./../pic.json");
-
-// const ROOT_URL:string = "http://localhost:5000";
-const ROOT_URL = "https://tama-connection-backend.herokuapp.com";
-
-interface Other {
-    user: string,
-    location_information: {
-        x: number,
-        y: number
-    },
-    good: number
-
-}
+const ROOT_URL = constant.ROOT_URL;
 
 interface ResponsPage{
     file_name: number,
     title: string,
     tag: string,
     text: string,
-    other: Other | null
+    user: number,
+    location: {
+        x: number,
+        y: number
+    },
     image: string
 }
 
 const testPage: ResponsPage = {
-    file_name: 2,
-    title: "",
-    tag: "",
-    text: "",
-    other: {
-        user: "",
-        location_information: {
-            x: 0,
-            y: 0
-        },
-        good: 0
+    file_name: 1,
+    title: "ネットワークエラー",
+    tag: "kankou",
+    text: "ネットワークと接続してください",
+    user: 1,
+    location: {
+        x: 120,
+        y: 200
     },
     image: ""
 }
@@ -49,21 +38,15 @@ const GetPage: React.FC = () => {
 
     const [pageData, setPageData] = React.useState<ResponsPage>();
 
-    const option: AxiosRequestConfig = {
-        url: `${ROOT_URL}/page/${pageId}`,
-        method: "GET"
-    }
-
     React.useEffect(()=>{
-        axios(option)
+        axios.get(`${ROOT_URL}/page/${pageId}`)
         .then((respons: AxiosResponse<ResponsPage>)=>{
             const {data} = respons;
             setPageData(data)
             console.log(pageData)
         })
-        .catch((eroor)=>{
+        .catch(()=>{
             setPageData(testPage)
-            console.log(testPage);
         })
     }, [])
 
