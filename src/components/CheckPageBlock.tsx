@@ -23,7 +23,7 @@ const CheckPageBlock: React.FC<PageProps> = (props) => {
 
     return (
         <div className="check-page-block">
-            <h3>タグ：{title}</h3>
+            <h3>タイトル：{title}</h3>
             <div className="pic"><img alt={title} src={image}></img></div>
             <p>タグ：{tagName}</p>
             <p>文章：{text}</p>
