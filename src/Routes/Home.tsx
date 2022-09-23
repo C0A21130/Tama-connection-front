@@ -13,6 +13,7 @@ import "./../static/css/home.scss";
 
 const ROOT_URL = constant.ROOT_URL;
 
+// 投稿されたページ情報の型
 interface PageData {
     file_name: number,
     title: string,
@@ -26,14 +27,14 @@ interface PageData {
     image: string
 }
 
-interface ResponsePageData {
-    kankou: PageData[],
-    gurume: PageData[],
-    tamasanpo: PageData[],
-    omiyage: PageData[]
-}
-
+// タグ情報の型
 type Tag = "kankou" | "gurume" | "tamasanpo" | "omiyage";
+
+// 現在のタグとページの番号を保存する型
+interface State {
+    tag: Tag,
+    pageNum: number
+}
 
 // 記事の配列から2つの画像を取り出す
 const makeRandomPage = (pages:PageData[]):string[] => {
@@ -47,58 +48,68 @@ const makeRandomPage = (pages:PageData[]):string[] => {
     }
 }
 
-const Home: React.FC = ()=>{
-    const [tag, setTag] = React.useState<Tag>("kankou");
+// タグとページ番号の初期位置
+const init: State = {
+    tag: "kankou",
+    pageNum: 0
+}
+
+const Home: React.FC = () => {
+    // タグごとのページ情報を管理する変数
+    const [kankouData, setKankouData] = React.useState<PageData[][]>();
+    const [gurumeData, setGurumeData] = React.useState<PageData[][]>();
+    const [tamasanpoData, setTamasanpoData] = React.useState<PageData[][]>();
+    const [omiyageData, setOmiyageData] = React.useState<PageData[][]>();
+
+    // 表示するページと写真ボックスの変数
     const [displayPage, setDisplayPage] = React.useState<PageData[]>();
-    const [pageData, setPageData] = React.useState<ResponsePageData>();
     const [picBox, setPicBox] = React.useState<string[]>(["", ""]);
 
-    React.useEffect(() => {
-        const getPage = async () => {
-            axios.get<ResponsePageData>(`${ROOT_URL}/page`)
+    // 表示するページを変える関数
+    const changePage = (tag:Tag, pages: PageData[][], setPages: React.Dispatch<React.SetStateAction<PageData[][]>>, pageNum: number)=> {
+        // ページが保存されていない場合にAPIサーバから受け取る
+        if (pages[pageNum] === undefined) {
+            axios.get<PageData[]>(`${ROOT_URL}/page?tag=${tag}`)
             .then((response) => {
-                setPageData(response.data);
-                setDisplayPage(response.data.kankou);
-                setPicBox(makeRandomPage(response.data.kankou));
+                setDisplayPage(response.data);
+                setPages([...pages, response.data])
             })
-            .catch(() => {
-                setDisplayPage([])
-            })
-        }
-        getPage();
-    }, [])
-
-    // タグメニューのボタンを押したときにタグを切り替える
-    const changeTag = (t: Tag) => {
-        setTag(t)
-        switch (t) {
-            case "kankou":
-                setDisplayPage(pageData.kankou);
-                setPicBox(makeRandomPage(pageData.kankou))
-                break;
-            case "gurume":
-                setDisplayPage(pageData.gurume);
-                setPicBox(makeRandomPage(pageData.gurume))
-                break;
-            case "tamasanpo":
-                setDisplayPage(pageData.tamasanpo);
-                setPicBox(makeRandomPage(pageData.tamasanpo))
-                break;
-            case "omiyage":
-                setDisplayPage(pageData.omiyage);
-                setPicBox(makeRandomPage(pageData.omiyage))
-                break;
+        // ページが保存されている場合にはそのまま利用する
+        } else {
+            setDisplayPage(pages[pageNum]);
         }
     }
+
+    // タグと番号を同時変更する変数
+    const reduser = (state: State, action: State) => {
+        switch(action.tag){
+            case "kankou":
+                changePage(action.tag, kankouData, setKankouData, action.pageNum);
+                break;
+            case "gurume":
+                changePage(action.tag, gurumeData, setGurumeData, action.pageNum);
+                break;
+            case "tamasanpo":
+                changePage(action.tag, tamasanpoData, setTamasanpoData, action.pageNum);
+                break;
+            case "omiyage":
+                changePage(action.tag, omiyageData, setOmiyageData, action.pageNum);
+                break;
+            default:
+                return state;
+        }
+        return action
+    }
+    const [state, dispath] = React.useReducer(reduser, init);  
 
     return(
         <div className="home">
             <div className="tag-menu-block">
                 <ul>
-                    <li onClick={() => changeTag("kankou")} className={tag == "kankou" ? "active" : "noactive"}><div className="icon"><Sightseeing /></div><p>観光地</p></li>
-                    <li onClick={() => changeTag("gurume")} className={tag == "gurume" ? "active" : "noactive"}><div className="icon"><Gourmet /></div><p>グルメ</p></li>
-                    <li onClick={() => changeTag("tamasanpo")} className={tag == "tamasanpo" ? "active" : "noactive"}><div className="icon"><Walking /></div><p>たまさんぽ</p></li>
-                    <li onClick={() => changeTag("omiyage")} className={tag == "omiyage" ? "active" : "noactive"}><div className="icon"><Souvenir /></div><p>お土産</p></li>
+                    <li onClick={() => dispath({tag: "kankou", pageNum:0})} className={state.tag == "kankou" ? "active" : "noactive"}><div className="icon"><Sightseeing /></div><p>観光地</p></li>
+                    <li onClick={() => dispath({tag: "gurume", pageNum: 0})} className={state.tag == "gurume" ? "active" : "noactive"}><div className="icon"><Gourmet /></div><p>グルメ</p></li>
+                    <li onClick={() => dispath({tag: "tamasanpo", pageNum: 0})} className={state.tag == "tamasanpo" ? "active" : "noactive"}><div className="icon"><Walking /></div><p>たまさんぽ</p></li>
+                    <li onClick={() => dispath({tag: "omiyage", pageNum: 0})} className={state.tag == "omiyage" ? "active" : "noactive"}><div className="icon"><Souvenir /></div><p>お土産</p></li>
                 </ul>
             </div>
             <div className="pictures-blck">
