@@ -36,6 +36,12 @@ interface State {
     pageNum: number
 }
 
+// axiosで受け取るデータの型
+interface ResponsePageData {
+    result: PageData[],
+    max: number
+}
+
 // 記事の配列から2つの画像を取り出す
 const makeRandomPage = (pages:PageData[]):string[] => {
     const rand1:number = Math.floor(Math.random() * pages.length);
@@ -56,10 +62,10 @@ const init: State = {
 
 const Home: React.FC = () => {
     // タグごとのページ情報を管理する変数
-    const [kankouData, setKankouData] = React.useState<PageData[][]>();
-    const [gurumeData, setGurumeData] = React.useState<PageData[][]>();
-    const [tamasanpoData, setTamasanpoData] = React.useState<PageData[][]>();
-    const [omiyageData, setOmiyageData] = React.useState<PageData[][]>();
+    const [kankouData, setKankouData] = React.useState<PageData[][]>([]);
+    const [gurumeData, setGurumeData] = React.useState<PageData[][]>([]);
+    const [tamasanpoData, setTamasanpoData] = React.useState<PageData[][]>([]);
+    const [omiyageData, setOmiyageData] = React.useState<PageData[][]>([]);
 
     // 表示するページと写真ボックスの変数
     const [displayPage, setDisplayPage] = React.useState<PageData[]>();
@@ -67,16 +73,21 @@ const Home: React.FC = () => {
 
     // 表示するページを変える関数
     const changePage = (tag:Tag, pages: PageData[][], setPages: React.Dispatch<React.SetStateAction<PageData[][]>>, pageNum: number)=> {
-        // ページが保存されていない場合にAPIサーバから受け取る
-        if (pages[pageNum] === undefined) {
-            axios.get<PageData[]>(`${ROOT_URL}/page?tag=${tag}`)
-            .then((response) => {
-                setDisplayPage(response.data);
-                setPages([...pages, response.data])
-            })
+        const num = pageNum * 4;
         // ページが保存されている場合にはそのまま利用する
-        } else {
-            setDisplayPage(pages[pageNum]);
+        try {
+            if (pages[num][0] == undefined) {
+                throw new Error("undefind");
+            }
+            setDisplayPage(pages[num]);
+        // ページが保存されていない場合はAPIサーバが記事を取得する
+        } catch(e) {
+            console.log(e);
+            axios.get<ResponsePageData>(`${ROOT_URL}/pages?tag=${tag}&pageNum=${pageNum}`)
+            .then((response) => {
+                setDisplayPage(response.data.result);
+                setPages([...pages, response.data.result]);
+            })
         }
     }
 
