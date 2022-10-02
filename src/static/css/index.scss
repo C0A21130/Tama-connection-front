@@ -89,17 +89,11 @@ li {
     .header {
         .header-block {
             display: flex;
-            align-items: center;
-            background-color: blanchedalmond;
-            
-            .icon {
-                text-align: center;
-                height: 50px;
-                width: 95px;
-            }
+            justify-content: center;
 
-            input {
-                height: 39px;
+            h1 {
+                font-size: 1.3rem;
+                color: #474747;
             }
         }
     }
@@ -107,23 +101,19 @@ li {
     // タブメニュー
     .tab-menu {
 
-        /*タブ切り替え全体のスタイル*/
+        // タブ切り替え全体のスタイル
         .tab {
-            background-color: #ffffff;
             margin: 0 auto;
+            background-color: #f5f5f5;
         }
 
-        /*タブのスタイル*/
+        // タブのスタイル
         .tab-item {
             width: 25%;
-            background-color: #d9d9d9;
             text-align: center;
-            transition: all 0.2s ease;
             list-style: none;
-
-            a {
-                text-decoration: none;
-            }
+            border-radius: 5px;
+            margin: 0 3px;
             
             svg {
                 width: 70%;
@@ -133,23 +123,32 @@ li {
                 font-size: 16px;
                 font-weight: bold;
                 text-align: center;
-                color: #565656;
                 margin: 0 auto;
             }
         }
 
-        /*選択されているタブのスタイルを変える*/
+        // 選択されているタブのスタイルを変える
         .tab #active {
-            background-color: #5abd80;
-
+            border: 1px solid #000;
             svg {
                 fill: #ffca8c;
             }
-
-            p {
-                color: #fff;
-            }
         }
 
+    }
+
+    // フッター
+    .footer {
+        background-color: #f5f5f5;
+        padding: 10px;
+        margin-top: 20px;
+        h3 {
+            margin: 20px 0 5px 0 ;
+        }
+        p {
+            color: black;
+            margin: 3px;
+            font-size: 0.9rem;
+        }
     }
 }

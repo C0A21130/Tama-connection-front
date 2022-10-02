@@ -4,6 +4,7 @@ import checkAccount from "./lib/checkAccount";
 
 import Header from "./components/Header";
 import TabMenu from "./components/TabMenu";
+import Footer from "./components/Footer";
 
 import Home from "./Routes/Home";
 import Map from "./Routes/Map";
@@ -51,6 +52,7 @@ const App: React.FC = () =>{
                     <Route path="success" element={<Success />} />
                 </Route>
             </Routes>
+            <Footer />
         </div>
     )
 }
