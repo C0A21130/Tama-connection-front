@@ -51,18 +51,18 @@ interface ResponsePageData {
 }
 
 // 記事の配列から2つの画像を取り出す
-const makeRandomPage = (pages:PageData[]):string[] => {
-    const rand1:number = Math.floor(Math.random() * pages.length);
-    while(true) {
-        const rand2:number = Math.floor(Math.random() * pages.length);
-        // 返却値が被らないように変更
-        if ((rand1 != rand2) || (pages.length === 1)) {
-            return [pages[rand1].image, pages[rand2].image];
-        }
+const makeRandomPage = (pages:PageData[][]) :string[] => {
+    let result: string[] = [];
+    // 保存されているデータから２個ランダムで画像を取り出して配列に追加する
+    for (let i=0; i<2; i++) {
+        const rand1: number = Math.floor(Math.random() * pages.length);
+        const rand2: number = Math.floor(Math.random() * pages[rand1].length);
+        result.push(pages[rand1][rand2].image)
     }
+    return result
 }
 
-// タグとページ番号の初期位置
+// タグとページ番号の初期設定
 const init: State = {
     tag: "kankou",
     pageNum: 0
@@ -84,11 +84,11 @@ const Home: React.FC = () => {
     const changePage = (action:State, pages: PageData[][], setPages: React.Dispatch<React.SetStateAction<PageData[][]>>)=> {
         // ページが保存されている場合にはそのまま利用する
         try {
-            console.log(maxPageNums)
             if (pages[action.pageNum][0] == undefined) {
                 throw new Error("undefind");
             }
             setDisplayPage(pages[action.pageNum]);
+            setPicBox(makeRandomPage(pages))
         // ページが保存されていない場合はAPIサーバが記事を取得する
         } catch(e) {
             axios.get<ResponsePageData>(`${ROOT_URL}/pages?tag=${action.tag}&pageNum=${action.pageNum}`)
@@ -96,6 +96,7 @@ const Home: React.FC = () => {
                 setDisplayPage(response.data.result);
                 setPages([...pages, response.data.result]);
                 setMaxPageNum(response.data.max);
+                setPicBox(makeRandomPage([...pages, response.data.result]))
             })
         }
     }
