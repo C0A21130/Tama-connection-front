@@ -104,17 +104,16 @@ li {
         // タブ切り替え全体のスタイル
         .tab {
             margin: 0 auto;
+            background-color: #f5f5f5;
         }
 
         // タブのスタイル
         .tab-item {
             width: 25%;
-            background-color: #f5f5f5;
             text-align: center;
             list-style: none;
             border-radius: 5px;
-            border: 0.25px solid #000;
-            margin: 0 1px;
+            margin: 0 3px;
             
             svg {
                 width: 70%;
@@ -130,7 +129,7 @@ li {
 
         // 選択されているタブのスタイルを変える
         .tab #active {
-
+            border: 1px solid #000;
             svg {
                 fill: #ffca8c;
             }
