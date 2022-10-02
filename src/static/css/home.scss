@@ -9,6 +9,17 @@
             }
         }
     }
+
+    .select-page-block {
+        display: flex;
+        justify-content: center;
+        width: 50px;
+        height: 35px;
+        margin: 5px auto;
+        p {
+            margin: auto 5px;
+        }
+    }
 }
 
 // パソコン表示
