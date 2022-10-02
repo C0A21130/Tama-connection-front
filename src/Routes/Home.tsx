@@ -170,7 +170,7 @@ const Home: React.FC = () => {
                     <PageEntry page={page.file_name} title={page.title} text={page.text} image={page.image} key={index} />
                 )}
             </div>
-            <div>
+            <div className="select-page-block">
                 <button onClick={() => { dispath({ tag: state.tag, pageNum: state.pageNum - 1 }) }}>＜</button>
                 <p>{state.pageNum}</p>
                 <button onClick={() => { dispath({ tag: state.tag, pageNum: state.pageNum + 1 }) }}>＞</button>
