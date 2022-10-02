@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import "./../static/css/library.scss";
 
 import Restaurant from "./../static/images/library/restaurant.svg";
-import Medal from "./../static/images/library/medal.svg";
+import Medal from "./../static/images/Library/medal.svg";
 
 const Library: React.FC = () =>{
     return(
