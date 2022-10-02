@@ -152,4 +152,18 @@ li {
         }
 
     }
+
+    // フッター
+    .footer {
+        background-color: blanchedalmond;
+        padding: 0 10px;
+        h3 {
+            margin: 20px 0 5px 0 ;
+        }
+        p {
+            color: black;
+            margin: 3px;
+            font-size: 0.9rem;
+        }
+    }
 }
