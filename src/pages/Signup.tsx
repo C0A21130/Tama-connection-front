@@ -27,7 +27,7 @@ const Signup: React.FC = () => {
     // ユーザーを作成してユーザーIDを保存
     const submit_user = async () =>  {
         // パスワードの文字数を確認する
-        if (password.length <= 8) {
+        if (password.length < 8) {
             setStatus("パスワードは8桁以上にしてください");
             return 
         }
