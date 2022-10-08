@@ -108,7 +108,7 @@ const Home: React.FC = () => {
 
         switch(action.tag){
             case "kankou":
-                flag = (-1 < action.pageNum) && (Math.floor(maxPageNums.gurume / PER_PAGE) >= action.pageNum);
+                flag = (-1 < action.pageNum) && (Math.ceil(maxPageNums.kankou / PER_PAGE) > action.pageNum);
                 // 上限に達していなければページを更新する
                 if (flag) {
                     changePage(action, kankouData, setKankouData);
@@ -116,7 +116,7 @@ const Home: React.FC = () => {
                 }
                 break;
             case "gurume":
-                flag = (-1 < action.pageNum) && (Math.floor(maxPageNums.gurume / PER_PAGE) >= action.pageNum);
+                flag = (-1 < action.pageNum) && (Math.ceil(maxPageNums.gurume / PER_PAGE) > action.pageNum);
                 // 上限に達していなければページを更新する
                 if (flag) {
                     changePage(action, gurumeData, setGurumeData);
@@ -124,7 +124,7 @@ const Home: React.FC = () => {
                 }
                 break;
             case "tamasanpo":
-                flag = (-1 < action.pageNum) && (Math.floor(maxPageNums.tamasanpo / PER_PAGE) >= action.pageNum);
+                flag = (-1 < action.pageNum) && (Math.ceil(maxPageNums.tamasanpo / PER_PAGE) > action.pageNum);
                 // 上限に達していなければページを更新する
                 if (flag) {
                     changePage(action, tamasanpoData, setTamasanpoData);
@@ -132,7 +132,7 @@ const Home: React.FC = () => {
                 }
                 break;
             case "omiyage":
-                flag = (-1 < action.pageNum) && (Math.floor(maxPageNums.omiyage / PER_PAGE) >= action.pageNum);
+                flag = (-1 < action.pageNum) && (Math.ceil(maxPageNums.omiyage / PER_PAGE) > action.pageNum);
                 // 上限に達していなければページを更新する
                 if (flag) {
                     changePage(action, omiyageData, setOmiyageData);
@@ -173,7 +173,7 @@ const Home: React.FC = () => {
             </div>
             <div className="select-page-block">
                 <button onClick={() => { dispath({ tag: state.tag, pageNum: state.pageNum - 1 }) }}>＜</button>
-                <p>{state.pageNum}</p>
+                <p>{state.pageNum + 1}</p>
                 <button onClick={() => { dispath({ tag: state.tag, pageNum: state.pageNum + 1 }) }}>＞</button>
             </div>
         </div>
