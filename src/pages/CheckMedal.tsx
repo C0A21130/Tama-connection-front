@@ -1,5 +1,4 @@
-import * as React from "react";
-import { useNavigate } from "react-router-dom";
+import * as React from "react"
 import axios, { AxiosRequestConfig } from "axios";
 import { constant } from "./../constant"
 import checkShop from "./../lib/checkShop";
@@ -53,8 +52,11 @@ const CheckMedal: React.FC = () => {
             <div>
                 {responseData?.checked.map((id, index) => {
                     const result = checkShop(id);
-                    return result.map(() => 
-                        <div key={index}>{result[0].shopName}</div>
+                    return result.map(() =>
+                        <div key={index}>
+                            <div><img src=""></img></div>
+                            <div>{result[0].shopName}</div>
+                        </div>
                     )
                 })}
             </div>
