@@ -1,3 +1,15 @@
+.library {
+    li {
+        background-color: #F5F5F5;
+        filter: drop-shadow(0 4px 4px #00000033);
+    }
+
+    .medal-block {
+        background-color: #F5F5F5;
+        filter: drop-shadow(0 4px 4px #00000033);
+    }
+}
+
 // パソコン表示
 @media screen and (min-width: 481px) {
     // ライブラリのメニュー
@@ -9,10 +21,9 @@
             li {
                 width: 200px;
                 height: 180px;
-                background-color: #F5F5F5;
                 margin: 0 10px;
                 border-radius: 30px;
-                filter: drop-shadow(0 4px 4px #00000033);
+                
 
                 .picture {
                     width: 120px;
@@ -33,13 +44,11 @@
         }
     }
 
-    .get-medal {
+    .medal-block {
         width: 400px;
         margin: 20px auto;
-        background-color: #F5F5F5;
         padding: 20px;
         border-radius: 30px;
-        filter: drop-shadow(0 4px 4px #00000033);
     }
 }
 
@@ -50,17 +59,12 @@
         li {
             width: 145px;
             height: 145px;
-            background-color: #F5F5F5;
             border-radius: 10px;
             margin: 0 auto;
-            filter: drop-shadow(0 4px 4px #00000033);
 
             .picture {
                 width: 80%;
                 margin: 10px auto;
-                svg {
-                    width: 100%;
-                }
             }
         
             p {
@@ -71,13 +75,11 @@
     }
 
     // 取得したメダルを確認
-    .get-medal {
+    .medal-block {
         width: 80%;
-        margin: 0 auto;
-        background-color: #F5F5F5;
+        margin: 10px auto;
         padding: 5px 20px;
         border-radius: 10px;
-        filter: drop-shadow(0 4px 4px #00000033);
 
         .input-number-box {
             display: flex;
@@ -92,18 +94,17 @@
             }
         }
 
-        p {
-            font-size: 2rem;
-            text-align: center;
+        .display-medal-block {
+            .medal-box {
+                display: flex;
+                margin: 0 10px;
+                .medal {
+                    width: 20%;
+                }
+                .text-block {
+                    margin: auto 15px;
+                }
+            }
         }
     }
-
-    // 取得したメダル確認
-    .check-medal {
-        width: 80%;
-        margin: 0 auto;
-        background-color: #F5F5F5;
-        border-radius: 10px;
-    }
 }
-
