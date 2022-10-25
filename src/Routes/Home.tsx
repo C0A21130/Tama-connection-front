@@ -152,6 +152,7 @@ const Home: React.FC = () => {
 
     return(
         <div className="home">
+            <p>タグを選択しよう</p>
             <div className="tag-menu-block">
                 <ul>
                     <li onClick={() => dispath({tag: "kankou", pageNum: 0})} className={state.tag == "kankou" ? "active" : "noactive"}><div className="icon"><Sightseeing /></div><p>たまファーム</p></li>
