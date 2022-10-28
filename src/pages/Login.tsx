@@ -39,16 +39,16 @@ const Login: React.FC = () => {
         <div className="login">
             <h2>ログイン</h2>
             <div>
-                <Link to="/account/signup"><p>アカウントを持っていない</p></Link>
+                <Link to="/account/signup"><p>アカウントを持っていない場合は<span>新規登録</span>しよう</p></Link>
             </div>
             <div className="name-input">
-                <label>名前</label><input type="text" value={name} onChange={(event) => setName(event.target.value)}></input>
+                <label>ユーザー名</label><input type="text" value={name} onChange={(event) => setName(event.target.value)}></input>
             </div>
             <div className="pass-input">
-                <label>パスワード</label><input type="text" value={password} onChange={(event) => setPassword(event.target.value)}></input>
+                <label>パスワード</label><input type="password" value={password} onChange={(event) => setPassword(event.target.value)}></input>
             </div>
             <div>
-                <button type="submit" onClick={() => submit_user()}>送信</button>
+                <button type="submit" onClick={() => submit_user()}>ログイン</button>
             </div>
         </div>
     )

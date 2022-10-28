@@ -1,6 +1,14 @@
 import * as React from "react";
 
 const Footer: React.FC = () => {
+    const [count, setCount] = React.useState(0);
+    const delAccout = ():void => {
+        setCount(count + 1);
+        if (count > 5) {
+            localStorage.removeItem("token")
+        }
+    }
+
     return (
         <div className="footer">
         <footer>
@@ -18,7 +26,7 @@ const Footer: React.FC = () => {
                 <p>たまファーム：収穫体験や収穫した野菜、農地の美しい自然を投稿</p>
                 <p>グルメ：多摩地域で食べた料理を投稿</p>
                 <p>たまさんぽ：お散歩中に見つけた新しい発見を投稿</p>
-                <p>お土産：多摩地域で購入したお土産を投稿</p>
+                <p onClick={() => delAccout()}>お土産：多摩地域で購入したお土産を投稿</p>
             </div>
         </footer>
         </div>
