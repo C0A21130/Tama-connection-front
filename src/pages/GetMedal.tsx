@@ -51,7 +51,7 @@ const GetMedal: React.FC = () => {
                     <input type="text" value={inputNum.toString()} onChange={(event) => setInputNum(event.target.value)}/>
                 </div>
                 <div>
-                    <button onClick={() => getShop()}>送信</button>
+                    <button onClick={() => getShop()}>ゲット</button>
                 </div>
                 <div>
                     <p>{state}</p>

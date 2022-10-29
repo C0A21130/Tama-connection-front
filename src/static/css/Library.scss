@@ -63,12 +63,14 @@
             margin: 0 auto;
 
             .picture {
-                width: 80%;
+                width: 70%;
+                height: 60%;
                 margin: 10px auto;
             }
         
             p {
                 text-align: center;
+                font-size: 1.1rem;
                 margin: 5px auto;
             }
         }
@@ -81,13 +83,13 @@
         padding: 5px 20px;
         border-radius: 10px;
 
+        h2 {
+            font-size: 1.4rem;
+        }
+
         .input-number-box {
             display: flex;
             flex-direction: column;
-
-            label {
-                font-size: 0.9rem;
-            }
 
             input {
                 font-size: 1.5rem;
