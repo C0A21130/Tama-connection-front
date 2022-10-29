@@ -17,8 +17,8 @@ const Footer: React.FC = () => {
                 <a href="https://sites.google.com/d/1FqlL4lFenh7EqO03_cBpDhnI1eUZ_L14/p/1ztR1fQ4chkE8zqWthh7TGH51bjHd2aZV/edit">
                     <p>ホームページ</p>
                 </a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf6GxLNn_mkP2j_jzppZb2K2-9hzKOLrAr1XDS2BkVd3TRCew/viewform">
-                    <p>お問い合わせフォーム</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeT0MGdGbpRLZp7F63V9n_bZsjm72PS0GcY0cMME92Z1VC9eA/viewform?usp=sf_link">
+                    <p>アンケートフォーム</p>
                 </a>
             </div>
             <div className="tag-block">
