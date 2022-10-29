@@ -11,6 +11,7 @@ import Map from "./Routes/Map";
 import Library from "./Routes/Library";
 import Post from "./Routes/Post";
 import Account from "./Routes/Account";
+import Eroor from "./Routes/Eroor";
 
 import GetPage from "./pages/GetPage";
 import GetMedal from "./pages/GetMedal";
@@ -51,6 +52,7 @@ const App: React.FC = () =>{
                     <Route path="login" element={<Login />} />
                     <Route path="success" element={<Success />} />
                 </Route>
+                <Route path="*" element={<Eroor />} />
             </Routes>
             <Footer />
         </div>
