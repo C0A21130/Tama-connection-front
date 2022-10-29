@@ -43,7 +43,7 @@ const GetMedal: React.FC = () => {
     }
 
     return (
-        <div className="get-medal">
+        <div className="medal-block">
             <div className="get-medal-block">
                 <h2>店舗コードを入力しよう!!</h2>
                 <div className="input-number-box">
@@ -51,7 +51,7 @@ const GetMedal: React.FC = () => {
                     <input type="text" value={inputNum.toString()} onChange={(event) => setInputNum(event.target.value)}/>
                 </div>
                 <div>
-                    <button onClick={() => getShop()}>送信</button>
+                    <button onClick={() => getShop()}>ゲット</button>
                 </div>
                 <div>
                     <p>{state}</p>

@@ -7,7 +7,6 @@ const Account: React.FC = () => {
 
     return (
         <div className="account">
-            <h1>たまこねくしょん<br />にログイン</h1>
             <Outlet />
         </div>
     )

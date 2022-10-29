@@ -1,3 +1,15 @@
+.library {
+    li {
+        background-color: #F5F5F5;
+        filter: drop-shadow(0 4px 4px #00000033);
+    }
+
+    .medal-block {
+        background-color: #F5F5F5;
+        filter: drop-shadow(0 4px 4px #00000033);
+    }
+}
+
 // パソコン表示
 @media screen and (min-width: 481px) {
     // ライブラリのメニュー
@@ -35,87 +47,56 @@
         }
     }
 
-    .get-medal {
-        .get-medal-block {
-            width: 400px;
-            margin: 20px auto;
-            background-color: #F5F5F5;
-            padding: 20px;
-            border-radius: 30px;
-            filter: drop-shadow(0 4px 4px #00000033);
-        }
+    .medal-block {
+        width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 30px;
     }
 }
 
 // スマホ表示
 @media screen and (max-width: 480px) {
     // ライブラリのメニュー
-    .library {
-        .library-block {
-            ul {
-        
-                li {
-                    width: 145px;
-                    height: 145px;
-                    background-color: #F5F5F5;
-                    border: 1px solid white;
-                    border-radius: 10px;
-                    margin: 0 auto;
-                    filter: drop-shadow(0 4px 4px #00000033);
-        
-                    a {
-                        padding: 10px;
+    .library { 
+        li {
+            width: 145px;
+            height: 145px;
+            border-radius: 10px;
+            margin: 0 auto;
 
-                        svg {
-                            width: 90%;
-                            height: 50%;
-                            margin: 0 auto;
-                        }
-                    
-                        p {
-                            font-size: 0.9rem;
-                            width: 80%;
-                            margin: 10px auto;
-                        }
-                    }
-                }
+            .picture {
+                width: 70%;
+                height: 60%;
+                margin: 10px auto;
             }
-
+        
+            p {
+                text-align: center;
+                font-size: 1.1rem;
+                margin: 5px auto;
+            }
         }
     }
 
-    .get-medal {
-        .get-medal-block {
-            width: 90%;
-            margin: 0 auto;
-            background-color: #F5F5F5;
-            padding: 5px 20px;
-            border-radius: 10px;
-            filter: drop-shadow(0 4px 4px #00000033);
-            
-            h2 {
-                margin: 10px auto;
-            }
+    // 取得したメダルを確認
+    .medal-block {
+        width: 80%;
+        margin: 10px auto;
+        padding: 5px 20px;
+        border-radius: 10px;
 
-            .input-number-box {
-                display: flex;
-                flex-direction: column;
+        h2 {
+            font-size: 1.4rem;
+        }
 
-                label {
-                    font-size: 0.9rem;
-                }
+        .input-number-box {
+            display: flex;
+            flex-direction: column;
 
-                input {
-                    font-size: 1.5rem;
-                }
-            }
-
-            p {
-                font-size: 2rem;
-                text-align: center;
-                margin: 10px auto;
+            input {
+                font-size: 1.5rem;
             }
         }
     }
 }
-

@@ -1,4 +1,8 @@
 // リセット
+* {
+    font-family: 'Kosugi Maru', sans-serif;
+}
+
 a {
     display: block;
     text-decoration: none;
@@ -17,6 +21,14 @@ li {
     list-style: none;
 }
 
+svg {
+    width: 100%;
+}
+
+label {
+    font-size: 1.2rem;
+}
+
 // パソコン表示
 @media screen and (min-width: 481px) {
     // ヘッダー
@@ -24,6 +36,11 @@ li {
         .header-block {
             display: flex;
             justify-content: center;
+
+            background-image: url("./../images/header/header_pic.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: top center;
 
             input {
                 margin: 0 10px;
@@ -90,6 +107,11 @@ li {
         .header-block {
             display: flex;
             justify-content: center;
+
+            background-image: url("./../images/header/header_pic.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: top center;
 
             h1 {
                 font-size: 1.3rem;
