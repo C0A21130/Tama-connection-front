@@ -37,6 +37,11 @@ label {
             display: flex;
             justify-content: center;
 
+            background-image: url("./../images/header/header_pic.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: top center;
+
             input {
                 margin: 0 10px;
             }
@@ -102,6 +107,11 @@ label {
         .header-block {
             display: flex;
             justify-content: center;
+
+            background-image: url("./../images/header/header_pic.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: top center;
 
             h1 {
                 font-size: 1.3rem;
