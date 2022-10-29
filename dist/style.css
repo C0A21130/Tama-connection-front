@@ -1,108 +1,48 @@
-/*!*****************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./static/css/components.scss ***!
-  \*****************************************************************************************************************************************************************************/
-@charset "UTF-8";
-@media screen and (max-width: 480px) {
-  .header .header-block {
-    display: flex;
-    align-items: center;
-    background-color: blanchedalmond;
-  }
-  .header .header-block input {
-    height: 39px;
-  }
-  .header .header-block {
-    background-image: image-url(5e3667d337a7a614a61a.svg);
-  }
-  .header .icon {
-    text-align: center;
-    height: 50px;
-    width: 95px;
-  }
-  .header .window {
-    width: 50%;
-  }
-  .tab-menu {
-    /*タブ切り替え全体のスタイル*/
-    /*タブのスタイル*/
-    /*選択されているタブのスタイルを変える*/
-  }
-  .tab-menu .tab {
-    display: flex;
-    padding: 0;
-    background-color: #ffffff;
-    margin: 0 auto;
-  }
-  .tab-menu .tab-item {
-    width: 25%;
-    background-color: #d9d9d9;
-    text-align: center;
-    transition: all 0.2s ease;
-    list-style: none;
-  }
-  .tab-menu .tab-item a {
-    text-decoration: none;
-  }
-  .tab-menu .tab-item svg {
-    width: 70%;
-  }
-  .tab-menu .tab-item p {
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    color: #565656;
-    margin: 0 auto;
-  }
-  .tab-menu .tab #active {
-    background-color: #5abd80;
-  }
-  .tab-menu .tab #active svg {
-    fill: #ffca8c;
-  }
-  .tab-menu .tab #active p {
-    color: #fff;
-  }
+/*!***************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/static/css/home.scss ***!
+  \***************************************************************************************************************************************************************************/
+.home .tag-menu-block .icon {
+  width: 45px;
+  height: 45px;
 }
-/*!***********************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./static/css/home.scss ***!
-  \***********************************************************************************************************************************************************************/
+.home .tag-menu-block .icon svg {
+  width: 100%;
+  height: 100%;
+}
+.home .select-page-block {
+  display: flex;
+  justify-content: center;
+  width: 50px;
+  height: 35px;
+  margin: 5px auto;
+}
+.home .select-page-block p {
+  margin: auto 5px;
+}
+
 @media screen and (min-width: 481px) {
-  .home {
-    display: flex;
-    flex-direction: column;
-  }
   .home .tag-menu-block {
     background-color: #5abd80;
     padding: 10px 0;
   }
   .home .tag-menu-block ul {
-    width: 60%;
-    display: flex;
-    padding: 0;
     margin: 0 auto;
-    justify-content: space-around;
+    justify-content: center;
   }
   .home .tag-menu-block ul li {
     display: flex;
     list-style-type: none;
-    width: 20%;
+    width: 130px;
     padding: 5px;
     border-radius: 20px;
-    background-color: rgb(245, 245, 245);
-  }
-  .home .tag-menu-block ul li div {
-    width: 30%;
-    height: max-content;
-  }
-  .home .tag-menu-block ul li div svg {
-    width: 100%;
+    background-color: #f5f5f5;
+    margin: 0 5px;
   }
   .home .tag-menu-block ul li p {
-    width: 70%;
-    font-size: 1.5vw;
-    margin: auto 0;
+    font-size: 0.9rem;
+    margin: auto;
   }
-  .home .tag-menu-block ul .active div svg {
+  .home .tag-menu-block ul .active svg {
     stroke: #7de8ff;
   }
   .home .tag-menu-block ul .active p {
@@ -129,7 +69,6 @@
     position: relative;
     width: 500px;
     height: 350px;
-    padding: 0;
     margin: 10px auto;
     overflow: hidden;
   }
@@ -137,8 +76,6 @@
     display: flex;
     width: 100%;
     height: 100%;
-    list-style-type: none;
-    padding: 0;
     position: absolute;
     animation: slideshow 16s linear infinite;
     align-items: center;
@@ -146,34 +83,36 @@
   }
   .home .pictures-blck ul li img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 15px;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
   }
   .home .pictures-blck ul li:last-child {
     animation-delay: 8s;
   }
   .home .pages-block {
-    width: 50%;
+    width: 500px;
     margin: 0 auto;
   }
   .home .pages-block .page-entry {
     display: flex;
-    margin: 10px auto;
+    margin: 20px auto;
+    background-color: #f5f5f5;
+    border-radius: 30px;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
   }
   .home .pages-block .page-entry a {
     display: flex;
-    text-decoration: none;
-    color: #5e5e5e;
   }
   .home .pages-block .page-entry a #image {
-    width: 220px;
-    height: 180px;
     display: flex;
-    align-items: center;
+    width: 200px;
+    height: 120px;
+    justify-content: center;
     overflow: hidden;
+    margin: 30px 20px;
   }
   .home .pages-block .page-entry a #image img {
-    width: 100%;
-    border-radius: 10px;
+    height: 100%;
   }
   .home .pages-block .page-entry a #text {
     margin: 5px 10px;
@@ -181,28 +120,19 @@
 }
 @media screen and (max-width: 480px) {
   .home .tag-menu-block ul {
-    display: flex;
-    padding: 0;
     justify-content: space-around;
   }
   .home .tag-menu-block ul li {
-    list-style-type: none;
-    width: 20vw;
-    height: fit-content;
+    width: 85px;
   }
-  .home .tag-menu-block ul li div {
-    height: 47px;
+  .home .tag-menu-block ul li .icon {
     margin: 0 auto;
-    text-align: center;
-  }
-  .home .tag-menu-block ul li div svg {
-    width: 65%;
   }
   .home .tag-menu-block ul li p {
-    height: 25px;
+    height: 23px;
     text-align: center;
-    margin: 0;
-    font-size: 0.9rem;
+    margin: 2px 0;
+    font-size: 0.85rem;
   }
   .home .tag-menu-block ul li p::after {
     content: "";
@@ -210,10 +140,10 @@
     height: 3px;
     display: inline-block;
     position: relative;
-    bottom: 15px;
+    bottom: 9px;
     background-color: #5e5e5e;
   }
-  .home .tag-menu-block ul .active div svg {
+  .home .tag-menu-block ul .active svg {
     stroke: #7de8ff;
   }
   .home .tag-menu-block ul .active p {
@@ -223,250 +153,391 @@
     background-color: #7de8ff;
   }
   .home .pictures-blck ul {
-    display: flex;
-    padding: 0;
     justify-content: space-around;
   }
   .home .pictures-blck ul li {
     width: 45vw;
     height: 45vw;
     border-radius: 10px;
-    list-style-type: none;
     overflow: hidden;
   }
   .home .pictures-blck ul li img {
     height: 100%;
   }
-  .home .pages-block .page-entry {
+  .home .page-entry {
     display: flex;
     background-color: #f5f5f5;
     border-radius: 10px;
     margin: 15px 0;
     filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
   }
-  .home .pages-block .page-entry a {
+  .home .page-entry a {
     width: 100%;
     display: flex;
-    text-decoration: none;
-    color: #5e5e5e;
   }
-  .home .pages-block .page-entry a #image {
-    width: 35vw;
-    height: 74px;
+  .home .page-entry a #image {
+    width: 115px;
+    height: 75px;
     margin: 10px;
-    border-radius: 10px;
     display: flex;
-    align-items: center;
     overflow: hidden;
-  }
-  .home .pages-block .page-entry a #image img {
-    width: 100%;
-    margin: auto 0;
     border-radius: 10px;
   }
-  .home .pages-block .page-entry a #text {
-    width: 60vw;
-    height: auto;
+  .home .page-entry a #image img {
+    height: 100%;
+    border-radius: 10px;
+  }
+  .home .page-entry a #text {
+    width: 270px;
     padding: 10px;
   }
-  .home .pages-block .page-entry a #text h2 {
+  .home .page-entry a #text h2 {
     margin: 5px 0;
-    font-size: 1rem;
-    color: #000000;
+    font-size: 1.2rem;
+    color: #000;
   }
-  .home .pages-block .page-entry a #text p {
-    margin: 5px 0 10px 0;
-    font-size: 0.8rem;
+  .home .page-entry a #text p {
+    margin: 5px 0;
     color: #505050;
   }
 }
 /*!**************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./static/css/library.scss ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/static/css/map.scss ***!
   \**************************************************************************************************************************************************************************/
-@media screen and (max-width: 480px) {
-  .library .library-block ul {
-    padding: 0;
-    display: flex;
-  }
-  .library .library-block ul li {
-    width: 145px;
-    height: 145px;
-    list-style: none;
-    background-color: #F5F5F5;
-    border: 1px solid white;
-    border-radius: 10px;
+.map #svg {
+  transform: matrix(1, 0, 0, -1, 0, 0);
+  -webkit-transform: matrix(1, 0, 0, -1, 0, 0);
+  overflow: hidden;
+  border: 1px solid black;
+}
+.map text {
+  display: inline-block;
+  transform-origin: center center 0;
+}
+.map .page-block {
+  width: 90%;
+  background-color: #F5F5F5;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px auto;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
+}
+.map .page-block .pic {
+  width: 90%;
+  height: 150px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.map .page-block .pic img {
+  height: 100%;
+}
+/*!******************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/static/css/library.scss ***!
+  \******************************************************************************************************************************************************************************/
+.library li {
+  background-color: #F5F5F5;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
+}
+.library .medal-block {
+  background-color: #F5F5F5;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
+}
+
+@media screen and (min-width: 481px) {
+  .library ul {
+    width: 400px;
     margin: 0 auto;
-    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
   }
-  .library .library-block ul li a {
-    display: block;
-    text-decoration: none;
-    color: #5e5e5e;
+  .library ul li {
+    width: 200px;
+    height: 180px;
+    margin: 0 10px;
+    border-radius: 30px;
+  }
+  .library ul li .picture {
+    width: 120px;
+    height: 90px;
+    margin: 10px auto;
+  }
+  .library ul li .picture svg {
     width: 100%;
     height: 100%;
-    padding: 10px;
   }
-  .library .library-block ul li a svg {
-    width: 90%;
-    height: 50%;
+  .library ul li p {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .medal-block {
+    width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 30px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .library li {
+    width: 145px;
+    height: 145px;
+    border-radius: 10px;
     margin: 0 auto;
   }
-  .library .library-block ul li a p {
-    font-size: 0.9rem;
+  .library li .picture {
+    width: 70%;
+    height: 60%;
+    margin: 10px auto;
+  }
+  .library li p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 5px auto;
+  }
+  .medal-block {
     width: 80%;
     margin: 10px auto;
-  }
-  .get-medal .get-medal-block {
-    width: 90%;
-    margin: 0 auto;
-    background-color: #F5F5F5;
     padding: 5px 20px;
     border-radius: 10px;
-    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
   }
-  .get-medal .get-medal-block h2 {
-    margin: 10px auto;
+  .medal-block h2 {
+    font-size: 1.4rem;
   }
-  .get-medal .get-medal-block .input-number-box {
+  .medal-block .input-number-box {
     display: flex;
     flex-direction: column;
   }
-  .get-medal .get-medal-block .input-number-box label {
-    font-size: 0.9rem;
-  }
-  .get-medal .get-medal-block .input-number-box input {
+  .medal-block .input-number-box input {
     font-size: 1.5rem;
   }
-  .get-medal .get-medal-block p {
-    font-size: 2rem;
-    text-align: center;
-    margin: 10px auto;
+  .medal-block .display-medal-block .medal-box {
+    display: flex;
+    margin: 0 10px;
+  }
+  .medal-block .display-medal-block .medal-box .medal {
+    width: 20%;
+  }
+  .medal-block .display-medal-block .medal-box .text-block {
+    margin: auto 15px;
   }
 }
-/*!***************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./static/css/postpage.scss ***!
-  \***************************************************************************************************************************************************************************/
-@media screen and (max-width: 480px) {
-  .post .post-block ul {
-    padding: 0;
-    display: flex;
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/static/css/postpage.scss ***!
+  \*******************************************************************************************************************************************************************************/
+@media screen and (min-width: 481px) {
+  .post ul {
+    width: 400px;
+    margin: 0 auto;
   }
-  .post .post-block ul li {
+  .post ul li {
+    width: 200px;
+    height: 180px;
+    background-color: #F5F5F5;
+    margin: 0 10px;
+    border-radius: 30px;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
+  }
+  .post ul li .picture {
+    width: 120px;
+    height: 90px;
+    margin: 10px auto;
+  }
+  .post ul li .picture svg {
+    width: 100%;
+    height: 100%;
+  }
+  .post ul li p {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .post-page {
+    width: 400px;
+    margin: 20px auto;
+    background-color: #F5F5F5;
+    padding: 20px;
+    border-radius: 30px;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
+  }
+  .post-page label {
+    font-size: 0.9rem;
+  }
+  .post-page input {
+    font-size: 1.3rem;
+  }
+  .post-page select {
+    font-size: 1.3rem;
+  }
+  .post-page textarea {
+    font-size: 1.3rem;
+  }
+  .post-page .picture-block input {
+    display: none;
+  }
+  .post-page .picture-block .input-picture {
+    width: 100px;
+    height: 30px;
+    background-color: #f0f0f0;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 20px;
+    margin: 10px 0;
+  }
+  .post-page .picture-block .input-picture label {
+    font-size: 1.1rem;
+  }
+  .post-page .submit-button {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+  }
+  .post-page .submit-button button {
+    width: 120px;
+    font-size: 1.1rem;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .post .post-block li {
     width: 145px;
     height: 145px;
-    list-style: none;
     background-color: #F5F5F5;
-    border: 1px solid white;
     border-radius: 10px;
     margin: 0 auto;
     filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
   }
-  .post .post-block ul li a {
-    display: block;
-    text-decoration: none;
-    color: #5e5e5e;
-    width: 100%;
-    height: 100%;
-    padding: 10px;
+  .post .post-block li a .picture {
+    width: 50%;
+    height: 60%;
+    margin: 10px auto;
   }
-  .post .post-block ul li a svg {
-    width: 90%;
-    height: 50%;
-    margin: 0 auto;
-  }
-  .post .post-block ul li a p {
-    width: 80%;
+  .post .post-block li a p {
+    text-align: center;
+    font-size: 1.1rem;
     margin: 5px auto;
   }
-  .post-page {
+  .post .post-page {
     background-color: #f5f5f5;
     width: 90%;
     border-radius: 10px;
     padding: 10px 5px;
-    margin: 10px auto;
+    margin: 15px auto;
     box-shadow: 4px 4px 8px #dddddd;
   }
-  .post-page .post-page-block .title-block {
+  .post .post-page .post-page-block .title-block {
     display: flex;
     flex-direction: column;
     padding: 10px 15px;
   }
-  .post-page .post-page-block .title-block label {
-    font-size: 0.8rem;
-  }
-  .post-page .post-page-block .title-block input {
+  .post .post-page .post-page-block .title-block input {
     font-size: 1.3rem;
   }
-  .post-page .post-page-block .picture-block {
+  .post .post-page .post-page-block .picture-block {
     margin: 10px 15px;
   }
-  .post-page .post-page-block .picture-block input {
+  .post .post-page .post-page-block .picture-block input {
     display: none;
   }
-  .post-page .post-page-block .picture-block .picture-label {
+  .post .post-page .post-page-block .picture-block .input-picture {
+    width: 100px;
     font-size: 1.1rem;
     background-color: #f0f0f0;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid black;
   }
-  .post-page .post-page-block .picture-block .picture-label:hover {
-    background-color: #afafaf;
-  }
-  .post-page .post-page-block .picture-block .picture-box {
+  .post .post-page .post-page-block .picture-block .picture-box {
     width: 80%;
-    margin: 15px auto;
+    margin: 15px 0;
   }
-  .post-page .post-page-block .picture-block .picture-box img {
+  .post .post-page .post-page-block .picture-block .picture-box img {
     width: 100%;
   }
-  .post-page .post-page-block .select-tag-block {
+  .post .post-page .post-page-block .select-tag-block {
     padding: 10px 15px;
     display: flex;
     flex-direction: column;
   }
-  .post-page .post-page-block .select-tag-block label {
-    font-size: 0.9rem;
+  .post .post-page .post-page-block .select-tag-block select {
+    font-size: 1.4rem;
   }
-  .post-page .post-page-block .select-tag-block select {
-    font-size: 1.2rem;
-  }
-  .post-page .post-page-block .text-block {
+  .post .post-page .post-page-block .text-block {
     padding: 10px 15px;
-    font-size: 1.2rem;
   }
-  .post-page .post-page-block .text-block label {
-    font-size: 0.9rem;
-  }
-  .post-page .post-page-block .text-block textarea {
+  .post .post-page .post-page-block .text-block textarea {
     font-size: 1.2rem;
     width: 100%;
     resize: none;
   }
-  .post-page .post-page-block .submit-button {
+  .post .post-page .post-page-block .submit-button {
     display: flex;
     flex-direction: column;
     padding: 10px 15px;
     font-size: 1.2rem;
   }
-  .post-page .post-page-block .submit-button button {
+  .post .post-page .post-page-block .submit-button button {
     width: 50%;
     font-size: 1.1rem;
     margin: 0 auto;
     padding: 5px;
     border-radius: 10px;
   }
-  .check-page .check-page-block {
+  .post .check-page .check-page-block {
     width: 90%;
     background-color: #F5F5F5;
+    padding: 10px;
     border-radius: 10px;
-    margin: 0 auto;
+    margin: 20px auto;
     filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
   }
+  .post .check-page .check-page-block h3 {
+    font-size: 1.1rem;
+    margin: 5px;
+  }
+  .post .check-page .check-page-block p {
+    margin: 10px;
+    word-wrap: break-word;
+  }
+  .post .check-page .check-page-block .pic {
+    width: 90%;
+    height: 150px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .post .check-page .check-page-block .pic img {
+    height: 100%;
+  }
 }
-/*!***********************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./static/css/page.scss ***!
-  \***********************************************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/static/css/account.scss ***!
+  \******************************************************************************************************************************************************************************/
+span {
+  color: #337ab7;
+}
+
+@media screen and (max-width: 480px) {
+  .account {
+    width: 90%;
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px auto;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+  }
+  .account ul {
+    flex-direction: column;
+  }
+  .name-input {
+    display: flex;
+    flex-direction: column;
+  }
+  .pass-input {
+    display: flex;
+    flex-direction: column;
+  }
+}
+/*!***************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/static/css/page.scss ***!
+  \***************************************************************************************************************************************************************************/
 @media screen and (max-width: 480px) {
   .page .picture-block {
     width: 90%;
@@ -520,10 +591,10 @@
   .page .text-blok p {
     font-size: 1.4rem;
   }
-  .page #kankou .picture-block .picture-box {
+  .page #kankou .picture-box {
     background-color: #fffeed;
   }
-  .page #kankou .picture-block .picture-box::before {
+  .page #kankou .picture-box::before {
     background-color: rgba(255, 153, 0, 0.3019607843);
   }
   .page #kankou .title-box {
@@ -532,10 +603,10 @@
   .page #kankou .title-box .tag {
     background-color: #fcff74;
   }
-  .page #gurume .picture-block .picture-box {
+  .page #gurume .picture-box {
     background-color: #feedff;
   }
-  .page #gurume .picture-block .picture-box::before {
+  .page #gurume .picture-box::before {
     background-color: rgba(255, 0, 122, 0.3019607843);
   }
   .page #gurume .title-box {
@@ -544,10 +615,10 @@
   .page #gurume .title-box .tag {
     background-color: #f477ff;
   }
-  .page #tamasanpo .picture-block .picture-box {
+  .page #tamasanpo .picture-box {
     background-color: #efffed;
   }
-  .page #tamasanpo .picture-block .picture-box::before {
+  .page #tamasanpo .picture-box::before {
     background-color: rgba(128, 255, 0, 0.3019607843);
   }
   .page #tamasanpo .title-box {
@@ -556,10 +627,10 @@
   .page #tamasanpo .title-box .tag {
     background-color: #bcfe9d;
   }
-  .page #omiyage .picture-block .picture-box {
+  .page #omiyage .picture-box {
     background-color: #edfffe;
   }
-  .page #omiyage .picture-block .picture-box::before {
+  .page #omiyage .picture-box::before {
     background-color: rgba(0, 133, 255, 0.3019607843);
   }
   .page #omiyage .title-box {
@@ -567,5 +638,144 @@
   }
   .page #omiyage .title-box .tag {
     background-color: #9decfe;
+  }
+}
+/*!****************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/static/css/index.scss ***!
+  \****************************************************************************************************************************************************************************/
+* {
+  font-family: "Kosugi Maru", sans-serif;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  color: #5e5e5e;
+}
+
+ul {
+  display: flex;
+  padding: 0;
+  margin: 5px 0;
+}
+
+li {
+  list-style: none;
+}
+
+svg {
+  width: 100%;
+}
+
+label {
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width: 481px) {
+  .header .header-block {
+    display: flex;
+    justify-content: center;
+    background-image: url(e65e425723e5ad99ee2a.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+  .header .header-block input {
+    margin: 0 10px;
+  }
+  .tab-menu .tab {
+    justify-content: center;
+    padding: 0;
+    margin: 0 auto;
+    background-color: #d9d9d9;
+  }
+  .tab-menu .tab .tab-item {
+    width: 140px;
+    list-style: none;
+    margin: 0 5px;
+    border-radius: 15px 15px 0 0;
+  }
+  .tab-menu .tab .tab-item a {
+    display: block;
+    height: 100%;
+    color: #565656;
+    text-decoration: none;
+  }
+  .tab-menu .tab .tab-item .item {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+  .tab-menu .tab .tab-item .item .pic {
+    width: 50px;
+    height: 50px;
+  }
+  .tab-menu .tab .tab-item .item p {
+    margin: auto;
+    font-size: 1rem;
+  }
+  .tab-menu .tab #active {
+    background-color: #5abd80;
+  }
+  .tab-menu .tab #active svg {
+    fill: #ffca8c;
+  }
+  .tab-menu .tab #active p {
+    color: #fff;
+  }
+}
+@media screen and (max-width: 480px) {
+  .header .header-block {
+    display: flex;
+    justify-content: center;
+    background-image: url(e65e425723e5ad99ee2a.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+  .header .header-block h1 {
+    font-size: 1.3rem;
+    color: #474747;
+  }
+  .tab-menu .tab {
+    margin: 0 auto;
+    background-color: #f5f5f5;
+  }
+  .tab-menu .tab-item {
+    width: 25%;
+    text-align: center;
+    list-style: none;
+    border-radius: 5px;
+    margin: 0 3px;
+  }
+  .tab-menu .tab-item svg {
+    width: 70%;
+  }
+  .tab-menu .tab-item p {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .tab-menu .tab #active {
+    border: 1px solid #000;
+  }
+  .tab-menu .tab #active svg {
+    fill: #ffca8c;
+  }
+  .footer {
+    background-color: #f5f5f5;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  .footer h3 {
+    margin: 20px 0 5px 0;
+  }
+  .footer p {
+    color: black;
+    margin: 3px;
+    font-size: 0.9rem;
   }
 }
