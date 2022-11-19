@@ -67,7 +67,7 @@ const postPage: React.FC = () => {
 
         // 画像の圧縮
         new Compressor(file, {
-            quality: 0.4,
+            quality: 0.6,
             // 圧縮成功時の処理
             success(result) {
                 // base64変換後の処理
@@ -77,11 +77,6 @@ const postPage: React.FC = () => {
                     if (submit) {
                         axios.post(`${ROOT_URL}/page`, body, config)
                         .then((response) => {
-                            // JWTが期限ぎれのときの処理
-                            if (response.data.error == "exp error") {
-                                navigate("/accout/login");
-                                return
-                            }
                             setStatus("成功");
                             navigate("/post/check");
                         })
@@ -117,7 +112,7 @@ const postPage: React.FC = () => {
                 <div className="select-tag-block">
                     <label>タグを選択</label>
                     <select value={tag} onChange={(event) => setTag(event.target.value)}>
-                        <option value="kankou">観光</option>
+                        <option value="kankou">たまファーム</option>
                         <option value="gurume">グルメ</option>
                         <option value="tamasanpo">たまさんぽ</option>
                         <option value="omiyage">お土産</option>
