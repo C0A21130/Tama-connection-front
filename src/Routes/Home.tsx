@@ -77,7 +77,7 @@ const Home: React.FC = () => {
 
     // 表示するページと写真ボックスの変数
     const [displayPage, setDisplayPage] = React.useState<PageData[]>();
-    const [maxPageNums, setMaxPageNum] = React.useState<Max>();
+    const [maxPageNums, setMaxPageNum] = React.useState<Max>({"kankou":0, "gurume":0, "tamasanpo":0, "omiyage":0});
     const [picBox, setPicBox] = React.useState<string[]>(["", ""]);
 
     // 表示するページを変える関数
