@@ -23,11 +23,16 @@ import Login from "./pages/Login";
 import Success from "./pages/Success";
 
 const App: React.FC = () =>{
-    const location = useLocation();
+    const loc = useLocation();
     const [isLogin, setIsLogin] = React.useState(false);
     React.useEffect(()=>{
+        // azureの場合リダイレクトするように変更
+        if (location.hostname == "lemon-bush-0663dd310.1.azurestaticapps.net") {
+            location.href = "http://tk2-123-61896.vs.sakura.ne.jp/";
+        }
+
         setIsLogin(checkAccount())
-    }, [location])
+    }, [loc])
     
     return(
         <div className="app">
