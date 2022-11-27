@@ -67,7 +67,7 @@ const postPage: React.FC = () => {
 
         // 画像の圧縮
         new Compressor(file, {
-            quality: 0.6,
+            quality: 0.4,
             // 圧縮成功時の処理
             success(result) {
                 // base64変換後の処理

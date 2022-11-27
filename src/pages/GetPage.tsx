@@ -35,38 +35,38 @@ const testPage: ResponsPage = {
 
 const GetPage: React.FC = () => {
     const {pageId} = useParams();
-    const [pageData, setPageData] = React.useState<ResponsPage>();
+    const [page, setPage] = React.useState<ResponsPage>();
 
     React.useEffect(()=>{
         axios.get(`${ROOT_URL}/page/${pageId}`)
         .then((respons: AxiosResponse<ResponsPage>)=>{
             const {data} = respons;
-            setPageData(data)
+            setPage(data)
         })
         .catch(()=>{
-            setPageData(testPage)
+            setPage(testPage)
         })
     }, [])
 
     return(
         <div className="page">
-        <div id={pageData?.tag}>
+        <div id={page?.tag}>
             <div className="picture-block">
                 <div className="picture-box">
                     <div className="picture">
-                        <img src={pageData?.image}></img>
+                        <img src={page?.image}></img>
                     </div>
                 </div>
             </div>
             <div className="title-block">
                 <div className="title-box">
                     <div className="tag"></div>
-                    <h2>{pageData?.title}</h2>
+                    <h2>{page?.title}</h2>
                 </div>
             </div>
             <div className="text-blok">
                 <div className="text-box">
-                    <p>{pageData?.text}</p>
+                    <p>{page?.text}</p>
                 </div>
             </div>
         </div>
