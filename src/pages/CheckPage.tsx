@@ -21,7 +21,7 @@ interface Page {
 interface Data {
     name: string,
     checked: number[],
-    pages: Page[]
+    files: Page[]
 }
 
 const CheckPage: React.FC = () => {
@@ -38,7 +38,7 @@ const CheckPage: React.FC = () => {
     React.useEffect(() => {
         axios.get<Data>(`${ROOT_URL}/user`, config)
         .then((response) => {
-            setPages(response.data.pages.reverse())
+            setPages(response.data.files.reverse())
         })
         .catch(()=>{
             setPages([])
@@ -47,8 +47,8 @@ const CheckPage: React.FC = () => {
 
     return (
         <div className="check-page">
-            {pages?.map((page, index) => 
-                <CheckPageBlock title={page.title} image={page.image} tag={page.tag} text={page.text} key={index} />
+            {pages?.map((page, index) =>
+                <CheckPageBlock file_name={page.file_name} title={page.title} image={page.image} tag={page.tag} text={page.text} key={index} />
             )}
         </div>
     )
