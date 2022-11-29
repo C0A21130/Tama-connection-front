@@ -188,24 +188,33 @@
                     padding: 10px 15px;
 
                     textarea {
-                        font-size: 1.2rem;
-                        width: 100%;
+                        width: 90%;
+                        font-size: 1rem;
                         resize: none;
+                        padding: 5px 10px;
                     }
                 }
 
                 .submit-button {
                     display: flex;
-                    flex-direction: column;
-                    padding: 10px 15px;
-                    font-size: 1.2rem;
+                    width: 35%;
+                    padding: 3px 15px;
+                    margin: 10px auto;
+                    border-radius: 15px;
+                    border: none;
+                    background-color: #fff;
+                    appearance: none;
+                    outline: none;
+                    filter: drop-shadow(0 4px 4px #00000033);
 
-                    button {
-                        width: 50%;
-                        font-size: 1.1rem;
-                        margin: 0 auto;
-                        padding: 5px;
-                        border-radius: 10px;
+                    .upload {
+                        width: 35%;
+                        margin: auto 0;
+                    }
+
+                    p {
+                        width: 65%;
+                        font-size: 1rem;
                     }
                 }
             }
