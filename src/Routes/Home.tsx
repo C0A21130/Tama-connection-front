@@ -173,9 +173,9 @@ const Home: React.FC = () => {
                 )}
             </div>
             <div className="select-page-block">
-                <button onClick={() => { dispath({ tag: state.tag, pageNum: state.pageNum - 1 }) }}>＜</button>
+                <button onClick={() => { dispath({ tag: state.tag, pageNum: state.pageNum - 1 }) }}>＜前へ</button>
                 <p>{state.pageNum + 1}</p>
-                <button onClick={() => { dispath({ tag: state.tag, pageNum: state.pageNum + 1 }) }}>＞</button>
+                <button onClick={() => { dispath({ tag: state.tag, pageNum: state.pageNum + 1 }) }}>次へ＞</button>
             </div>
         </div>
     )
