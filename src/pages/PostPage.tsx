@@ -4,6 +4,8 @@ import Compressor from "compressorjs";
 import axios, { AxiosRequestConfig } from "axios";
 import { constant } from "./../constant";
 
+import Upload from "./../static/images/post/upload.svg"
+
 const ROOT_URL = constant.ROOT_URL;
 
 interface sendBody {
@@ -101,13 +103,12 @@ const postPage: React.FC = () => {
     return(
         <div className="post-page">
             <div className="post-page-block">
-                <div className="title-block">
-                    <label>タイトルの追加</label>
-                    <div><input type="text" value={title} onChange={(event) => setTitle(event.target.value)}></input></div>
-                </div>
                 <div className="picture-block">
                     <div className="input-picture"><label>写真を選択<input id="picture" type="file" accept="image/*" onChange={(event) => submitPage(false)} /></label></div>
                     <div className="picture-box"><img src={pic}></img></div>
+                </div>
+                <div className="title-block">
+                    <div><input type="text" value={title} placeholder="タイトル" onChange={(event) => setTitle(event.target.value)}></input></div>
                 </div>
                 <div className="select-tag-block">
                     <label>タグを選択</label>
@@ -119,12 +120,12 @@ const postPage: React.FC = () => {
                     </select>
                 </div>
                 <div className="text-block">
-                    <label>説明の追加</label>
-                    <textarea value={text} cols={20} rows={5} onChange={(event) => setText(event.target.value)}></textarea>
+                    <textarea value={text} cols={20} rows={5} placeholder="文章" onChange={(event) => setText(event.target.value)}></textarea>
                 </div>
-                <div className="submit-button">
-                    <button type="submit" onClick={() => submitPage(true)}>送信</button>
-                </div>
+                <button className="submit-button" type="submit" onClick={() => submitPage(true)}>
+                    <div className="upload"><Upload /></div>
+                    <p>送信</p>
+                </button>
                 <div>{status}</div>
             </div>
         </div>
