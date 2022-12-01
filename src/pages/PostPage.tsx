@@ -25,7 +25,7 @@ const postPage: React.FC = () => {
     const [tag, setTag] = React.useState<string>("kankou");
     const [text, setText] = React.useState<string>("");
     const [pic, setPic] = React.useState<string>("")
-    const [status, setStatus] = React.useState<"成功"|"失敗">()
+    const [status, setStatus] = React.useState<"送信"|"送信中"|"成功"|"失敗">("送信");
 
     // 現在地を保存する
     const [myx, setMyx] = React.useState(0);
@@ -77,8 +77,9 @@ const postPage: React.FC = () => {
                     body.image = render.result;
                     // データを送信する
                     if (submit) {
+                        setStatus("送信中");
                         axios.post(`${ROOT_URL}/page`, body, config)
-                        .then((response) => {
+                        .then(() => {
                             setStatus("成功");
                             navigate("/post/check");
                         })
@@ -124,9 +125,8 @@ const postPage: React.FC = () => {
                 </div>
                 <button className="submit-button" type="submit" onClick={() => submitPage(true)}>
                     <div className="upload"><Upload /></div>
-                    <p>送信</p>
+                    <p>{status}</p>
                 </button>
-                <div>{status}</div>
             </div>
         </div>
     )

@@ -167,7 +167,7 @@
 
                     input {
                         width: 90%;
-                        font-size: 1rem;
+                        font-size: 0.9rem;
                         padding: 5px 10px;
                     }
                 }
@@ -189,7 +189,7 @@
 
                     textarea {
                         width: 90%;
-                        font-size: 1rem;
+                        font-size: 0.9rem;
                         resize: none;
                         padding: 5px 10px;
                     }
@@ -197,25 +197,32 @@
 
                 .submit-button {
                     display: flex;
-                    width: 35%;
-                    padding: 3px 15px;
-                    margin: 10px auto;
-                    border-radius: 15px;
-                    border: none;
-                    background-color: #fff;
+                    width: 40%;
+                    border-radius: 5px;
+                    margin: auto;
+                    border: 1.5px solid #000;
                     appearance: none;
                     outline: none;
-                    filter: drop-shadow(0 4px 4px #00000033);
 
                     .upload {
-                        width: 35%;
-                        margin: auto 0;
+                        width: 30%;
+                        margin: 3px 0 3px 10px;
+                        svg {
+                            stroke-width: 1.5px;
+                            stroke: #000;
+                        }
                     }
 
                     p {
-                        width: 65%;
-                        font-size: 1rem;
+                        width: 70%;
+                        font-size: 1.1rem;
+                        color: #000;
+                        margin: auto 7px auto 0;
                     }
+                }
+                
+                .submit-button:active {
+                    background-color: #b6b6b6;
                 }
             }
         }
