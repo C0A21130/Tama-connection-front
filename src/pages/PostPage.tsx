@@ -4,6 +4,7 @@ import Compressor from "compressorjs";
 import axios, { AxiosRequestConfig } from "axios";
 import { constant } from "./../constant";
 
+import Imagae from "./../static/images/post/image.svg";
 import Upload from "./../static/images/post/upload.svg"
 
 const ROOT_URL = constant.ROOT_URL;
@@ -105,7 +106,10 @@ const postPage: React.FC = () => {
         <div className="post-page">
             <div className="post-page-block">
                 <div className="picture-block">
-                    <div className="input-picture"><label>写真を選択<input id="picture" type="file" accept="image/*" onChange={(event) => submitPage(false)} /></label></div>
+                    <div className="input-picture">
+                        <div className="image"><Imagae /></div>
+                        <label>写真を選択<input id="picture" type="file" accept="image/*" onChange={() => submitPage(false)} /></label>
+                    </div>
                     <div className="picture-box"><img src={pic}></img></div>
                 </div>
                 <div className="title-block">

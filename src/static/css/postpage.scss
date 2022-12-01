@@ -137,18 +137,30 @@
             .post-page-block {
                 .picture-block {
                     margin: 10px 15px;
-
-                    input {
-                        display: none;
-                    }
-
+                
                     .input-picture {
-                        width: 100px;
-                        font-size: 1.1rem;
+                        display: flex;
+                        width: 45%;
                         background-color: #f0f0f0;
-                        padding: 10px;
+                        padding: 5px 10px;
                         border-radius: 5px;
                         border: 1px solid black;
+
+                        .image {
+                            width: 25%;
+                        }
+                        
+                        label {
+                            font-size: 1rem;
+                            margin: auto 0;
+                            input {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    .input-picture:active {
+                        background-color: #b6b6b6;
                     }
 
                     .picture-box {
@@ -167,7 +179,7 @@
 
                     input {
                         width: 90%;
-                        font-size: 0.9rem;
+                        font-size: 1rem;
                         padding: 5px 10px;
                     }
                 }
@@ -189,7 +201,7 @@
 
                     textarea {
                         width: 90%;
-                        font-size: 0.9rem;
+                        font-size: 1rem;
                         resize: none;
                         padding: 5px 10px;
                     }
