@@ -134,108 +134,107 @@
             padding: 10px 5px;
             margin: 15px auto;
 
-            .post-page-block {
-                .picture-block {
-                    margin: 10px 15px;
-                
-                    .input-picture {
-                        display: flex;
-                        width: 45%;
-                        background-color: #f0f0f0;
-                        padding: 5px 10px;
-                        border-radius: 5px;
-                        border: 1px solid black;
-
-                        .image {
-                            width: 25%;
-                        }
-                        
-                        label {
-                            font-size: 1rem;
-                            margin: auto 0;
-                            input {
-                                display: none;
-                            }
-                        }
-                    }
-
-                    .input-picture:active {
-                        background-color: #b6b6b6;
-                    }
-
-                    .picture-box {
-                        width: 80%;
-                        margin: 15px 0;
-
-                        img {
-                            width: 100%;
-                        }
-                    }
-
-                }
-
-                .title-block {
-                    margin: 10px 15px;
-
-                    input {
-                        width: 90%;
-                        font-size: 1rem;
-                        padding: 5px 10px;
-                    }
-                }
-
-                .select-tag-block {
-                    padding: 10px 15px;
+            .picture-block {
+                margin: 10px 15px;
+            
+                .input-picture {
                     display: flex;
-                    flex-direction: column;
-
-                    select {
-                        width: 90%;
-                        font-size: 1rem;
-                        padding: 5px 10px;
-                    }
-                }
-
-                .text-block {
-                    padding: 10px 15px;
-
-                    textarea {
-                        width: 90%;
-                        font-size: 1rem;
-                        resize: none;
-                        padding: 5px 10px;
-                    }
-                }
-
-                .submit-button {
-                    display: flex;
-                    width: 40%;
+                    width: 45%;
+                    background-color: #f0f0f0;
+                    padding: 5px 10px;
                     border-radius: 5px;
-                    margin: auto;
-                    border: 1.5px solid #000;
-                    appearance: none;
-                    outline: none;
+                    border: 1px solid black;
 
-                    .upload {
-                        width: 30%;
-                        margin: 3px 0 3px 10px;
-                        svg {
-                            stroke-width: 1.5px;
-                            stroke: #000;
+                    .image {
+                        width: 25%;
+                        margin: auto 10px auto 0;
+                    }
+                    
+                    label {
+                        font-size: 1rem;
+                        margin: auto 0;
+                        input {
+                            display: none;
                         }
                     }
-
-                    p {
-                        width: 70%;
-                        font-size: 1.1rem;
-                        color: #000;
-                        margin: auto 7px auto 0;
-                    }
                 }
-                
-                .submit-button:active {
+
+                .input-picture:active {
                     background-color: #b6b6b6;
                 }
+
+                .picture-box {
+                    width: 80%;
+                    margin: 15px 0;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+            }
+
+            .title-block {
+                margin: 10px 15px;
+
+                input {
+                    width: 90%;
+                    font-size: 1rem;
+                    padding: 5px 10px;
+                }
+            }
+
+            .select-tag-block {
+                padding: 10px 15px;
+                display: flex;
+                flex-direction: column;
+
+                select {
+                    width: 90%;
+                    font-size: 1rem;
+                    padding: 5px 10px;
+                }
+            }
+
+            .text-block {
+                padding: 10px 15px;
+
+                textarea {
+                    width: 90%;
+                    font-size: 1rem;
+                    resize: none;
+                    padding: 5px 10px;
+                }
+            }
+
+            .submit-button {
+                display: flex;
+                width: 40%;
+                border-radius: 8px;
+                margin: auto;
+                border: 1.5px solid #000;
+                appearance: none;
+                outline: none;
+
+                .upload {
+                    width: 30%;
+                    margin: 3px 0 3px 10px;
+                    svg {
+                        stroke-width: 1.5px;
+                        stroke: #000;
+                    }
+                }
+
+                p {
+                    width: 70%;
+                    font-size: 1.1rem;
+                    color: #000;
+                    margin: auto 7px auto 0;
+                }
+            }
+            
+            .submit-button:active {
+                background-color: #b6b6b6;
             }
         }
 

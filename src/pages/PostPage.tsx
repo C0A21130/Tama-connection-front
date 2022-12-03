@@ -104,34 +104,32 @@ const postPage: React.FC = () => {
 
     return(
         <div className="post-page">
-            <div className="post-page-block">
-                <div className="picture-block">
-                    <div className="input-picture">
-                        <div className="image"><Imagae /></div>
-                        <label>写真を選択<input id="picture" type="file" accept="image/*" onChange={() => submitPage(false)} /></label>
-                    </div>
-                    <div className="picture-box"><img src={pic}></img></div>
+            <div className="picture-block">
+                <div className="input-picture">
+                    <div className="image"><Imagae /></div>
+                    <label>写真を選択<input id="picture" type="file" accept="image/*" onChange={() => submitPage(false)} /></label>
                 </div>
-                <div className="title-block">
-                    <div><input type="text" value={title} placeholder="タイトル" onChange={(event) => setTitle(event.target.value)}></input></div>
-                </div>
-                <div className="select-tag-block">
-                    <label>タグを選択</label>
-                    <select value={tag} onChange={(event) => setTag(event.target.value)}>
-                        <option value="kankou">たまファーム</option>
-                        <option value="gurume">グルメ</option>
-                        <option value="tamasanpo">たまさんぽ</option>
-                        <option value="omiyage">お土産</option>
-                    </select>
-                </div>
-                <div className="text-block">
-                    <textarea value={text} cols={20} rows={5} placeholder="文章" onChange={(event) => setText(event.target.value)}></textarea>
-                </div>
-                <button className="submit-button" type="submit" onClick={() => submitPage(true)}>
-                    <div className="upload"><Upload /></div>
-                    <p>{status}</p>
-                </button>
+                <div className="picture-box"><img src={pic}></img></div>
             </div>
+            <div className="title-block">
+                <div><input type="text" value={title} placeholder="タイトル" onChange={(event) => setTitle(event.target.value)}></input></div>
+            </div>
+            <div className="select-tag-block">
+                <label>タグを選択</label>
+                <select value={tag} onChange={(event) => setTag(event.target.value)}>
+                    <option value="kankou">たまファーム</option>
+                    <option value="gurume">グルメ</option>
+                    <option value="tamasanpo">たまさんぽ</option>
+                    <option value="omiyage">お土産</option>
+                </select>
+            </div>
+            <div className="text-block">
+                <textarea value={text} cols={20} rows={5} placeholder="文章" onChange={(event) => setText(event.target.value)}></textarea>
+            </div>
+            <button className="submit-button" type="submit" onClick={() => submitPage(true)}>
+                <div className="upload"><Upload /></div>
+                <p>{status}</p>
+            </button>
         </div>
     )
 }
