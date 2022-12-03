@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useNavigate } from "react-router-dom";
 import Compressor from "compressorjs";
 import axios, { AxiosRequestConfig } from "axios";
 import { constant } from "./../constant";
@@ -32,8 +31,6 @@ const postPage: React.FC = () => {
     const [myx, setMyx] = React.useState(0);
     const [myy, setMyy] = React.useState(0);
 
-    // 画面移動用メソッドを作成
-    const navigate = useNavigate();
     //画像圧縮モジュールの作成
     const render = new FileReader();
     // 送信のHTTPheaderの設定
@@ -82,7 +79,6 @@ const postPage: React.FC = () => {
                         axios.post(`${ROOT_URL}/page`, body, config)
                         .then(() => {
                             setStatus("成功");
-                            navigate("/post/check");
                         })
                         .catch(() => {
                             setStatus("失敗");
