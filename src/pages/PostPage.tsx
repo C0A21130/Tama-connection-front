@@ -1,8 +1,10 @@
 import * as React from "react";
-import { useNavigate } from "react-router-dom";
 import Compressor from "compressorjs";
 import axios, { AxiosRequestConfig } from "axios";
 import { constant } from "./../constant";
+
+import Imagae from "./../static/images/post/image.svg";
+import Upload from "./../static/images/post/upload.svg"
 
 const ROOT_URL = constant.ROOT_URL;
 
@@ -23,14 +25,12 @@ const postPage: React.FC = () => {
     const [tag, setTag] = React.useState<string>("kankou");
     const [text, setText] = React.useState<string>("");
     const [pic, setPic] = React.useState<string>("")
-    const [status, setStatus] = React.useState<"成功"|"失敗">()
+    const [status, setStatus] = React.useState<"送信"|"送信中"|"成功"|"失敗">("送信");
 
     // 現在地を保存する
     const [myx, setMyx] = React.useState(0);
     const [myy, setMyy] = React.useState(0);
 
-    // 画面移動用メソッドを作成
-    const navigate = useNavigate();
     //画像圧縮モジュールの作成
     const render = new FileReader();
     // 送信のHTTPheaderの設定
@@ -67,7 +67,7 @@ const postPage: React.FC = () => {
 
         // 画像の圧縮
         new Compressor(file, {
-            quality: 0.6,
+            quality: 0.4,
             // 圧縮成功時の処理
             success(result) {
                 // base64変換後の処理
@@ -75,10 +75,10 @@ const postPage: React.FC = () => {
                     body.image = render.result;
                     // データを送信する
                     if (submit) {
+                        setStatus("送信中");
                         axios.post(`${ROOT_URL}/page`, body, config)
-                        .then((response) => {
+                        .then(() => {
                             setStatus("成功");
-                            navigate("/post/check");
                         })
                         .catch(() => {
                             setStatus("失敗");
@@ -100,33 +100,32 @@ const postPage: React.FC = () => {
 
     return(
         <div className="post-page">
-            <div className="post-page-block">
-                <div className="title-block">
-                    <label>タイトルの追加</label>
-                    <div><input type="text" value={title} onChange={(event) => setTitle(event.target.value)}></input></div>
+            <div className="picture-block">
+                <div className="input-picture">
+                    <div className="image"><Imagae /></div>
+                    <label>写真を選択<input id="picture" type="file" accept="image/*" onChange={() => submitPage(false)} /></label>
                 </div>
-                <div className="picture-block">
-                    <div className="input-picture"><label>写真を選択<input id="picture" type="file" accept="image/*" onChange={(event) => submitPage(false)} /></label></div>
-                    <div className="picture-box"><img src={pic}></img></div>
-                </div>
-                <div className="select-tag-block">
-                    <label>タグを選択</label>
-                    <select value={tag} onChange={(event) => setTag(event.target.value)}>
-                        <option value="kankou">たまファーム</option>
-                        <option value="gurume">グルメ</option>
-                        <option value="tamasanpo">たまさんぽ</option>
-                        <option value="omiyage">お土産</option>
-                    </select>
-                </div>
-                <div className="text-block">
-                    <label>説明の追加</label>
-                    <textarea value={text} cols={20} rows={5} onChange={(event) => setText(event.target.value)}></textarea>
-                </div>
-                <div className="submit-button">
-                    <button type="submit" onClick={() => submitPage(true)}>送信</button>
-                </div>
-                <div>{status}</div>
+                <div className="picture-box"><img src={pic}></img></div>
             </div>
+            <div className="title-block">
+                <div><input type="text" value={title} placeholder="タイトル" onChange={(event) => setTitle(event.target.value)}></input></div>
+            </div>
+            <div className="select-tag-block">
+                <label>タグを選択</label>
+                <select value={tag} onChange={(event) => setTag(event.target.value)}>
+                    <option value="kankou">たまファーム</option>
+                    <option value="gurume">グルメ</option>
+                    <option value="tamasanpo">たまさんぽ</option>
+                    <option value="omiyage">お土産</option>
+                </select>
+            </div>
+            <div className="text-block">
+                <textarea value={text} cols={20} rows={5} placeholder="文章" onChange={(event) => setText(event.target.value)}></textarea>
+            </div>
+            <button className="submit-button" type="submit" onClick={() => submitPage(true)}>
+                <div className="upload"><Upload /></div>
+                <p>{status}</p>
+            </button>
         </div>
     )
 }

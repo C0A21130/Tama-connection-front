@@ -1,3 +1,17 @@
+.post {
+    .post-block {
+        li {
+            background-color: #f5f5f5;
+            filter: drop-shadow(0 4px 4px #00000033);
+        }
+    }
+
+    .post-page {
+        background-color: #f5f5f5;
+        filter: drop-shadow(0 4px 4px #00000033);
+    }
+}
+
 // パソコン表示
 @media screen and (min-width: 481px) {
     // 投稿ページのメニュー
@@ -9,10 +23,8 @@
             li {
                 width: 200px;
                 height: 180px;
-                background-color: #F5F5F5;
                 margin: 0 10px;
                 border-radius: 30px;
-                filter: drop-shadow(0 4px 4px #00000033);
     
                 .picture {
                     width: 120px;
@@ -37,10 +49,8 @@
     .post-page {
         width: 400px;
         margin: 20px auto;
-        background-color: #F5F5F5;
         padding: 20px;
         border-radius: 30px;
-        filter: drop-shadow(0 4px 4px #00000033);
 
         label {
             font-size: 0.9rem;
@@ -98,13 +108,10 @@
             li {
                 width: 145px;
                 height: 145px;
-                background-color: #F5F5F5;
                 border-radius: 10px;
                 margin: 0 auto;
-                filter: drop-shadow(0 4px 4px #00000033);
 
                 a {
-
                     .picture {
                         width: 50%;
                         height: 60%;
@@ -122,112 +129,155 @@
 
         // 投稿するページ
         .post-page {
-            background-color: #f5f5f5;
-            width: 90%;
+            width: 88%;
             border-radius: 10px;
             padding: 10px 5px;
             margin: 15px auto;
-            box-shadow: 4px 4px 8px #dddddd;
 
-            .post-page-block {
-                .title-block {
+            .picture-block {
+                margin: 10px 15px;
+            
+                .input-picture {
                     display: flex;
-                    flex-direction: column;
-                    padding: 10px 15px;
+                    width: 45%;
+                    background-color: #f0f0f0;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    border: 1px solid black;
 
-                    input {
-                        font-size: 1.3rem;
+                    .image {
+                        width: 25%;
+                        margin: auto 10px auto 0;
                     }
-                }
-
-                .picture-block {
-                    margin: 10px 15px;
-
-                    input {
-                        display: none;
-                    }
-
-                    .input-picture {
-                        width: 100px;
-                        font-size: 1.1rem;
-                        background-color: #f0f0f0;
-                        padding: 10px;
-                        border-radius: 5px;
-                        border: 1px solid black;
-                    }
-
-                    .picture-box {
-                        width: 80%;
-                        margin: 15px 0;
-
-                        img {
-                            width: 100%;
+                    
+                    label {
+                        font-size: 1rem;
+                        margin: auto 0;
+                        input {
+                            display: none;
                         }
                     }
-
                 }
 
-                .select-tag-block {
-                    padding: 10px 15px;
-                    display: flex;
-                    flex-direction: column;
-
-                    select {
-                        font-size: 1.4rem;
-                    }
+                .input-picture:active {
+                    background-color: #b6b6b6;
                 }
 
-                .text-block {
-                    padding: 10px 15px;
+                .picture-box {
+                    width: 80%;
+                    margin: 15px 0;
 
-                    textarea {
-                        font-size: 1.2rem;
+                    img {
                         width: 100%;
-                        resize: none;
                     }
                 }
 
-                .submit-button {
-                    display: flex;
-                    flex-direction: column;
-                    padding: 10px 15px;
-                    font-size: 1.2rem;
+            }
 
-                    button {
-                        width: 50%;
-                        font-size: 1.1rem;
-                        margin: 0 auto;
-                        padding: 5px;
-                        border-radius: 10px;
+            .title-block {
+                margin: 10px 15px;
+
+                input {
+                    width: 90%;
+                    font-size: 1rem;
+                    padding: 5px 10px;
+                }
+            }
+
+            .select-tag-block {
+                padding: 10px 15px;
+                display: flex;
+                flex-direction: column;
+
+                select {
+                    width: 90%;
+                    font-size: 1rem;
+                    padding: 5px 10px;
+                }
+            }
+
+            .text-block {
+                padding: 10px 15px;
+
+                textarea {
+                    width: 90%;
+                    font-size: 1rem;
+                    resize: none;
+                    padding: 5px 10px;
+                }
+            }
+
+            .submit-button {
+                display: flex;
+                width: 40%;
+                border-radius: 8px;
+                margin: auto;
+                border: 1.5px solid #000;
+                appearance: none;
+                outline: none;
+
+                .upload {
+                    width: 30%;
+                    margin: 3px 0 3px 10px;
+                    svg {
+                        stroke-width: 1.5px;
+                        stroke: #000;
                     }
                 }
+
+                p {
+                    width: 70%;
+                    font-size: 1.1rem;
+                    color: #000;
+                    margin: auto 7px auto 0;
+                }
+            }
+            
+            .submit-button:active {
+                background-color: #b6b6b6;
             }
         }
 
         // 投稿されたページを確認
         .check-page {
             .check-page-block {
-                width: 90%;
+                width: 80%;
                 background-color: #F5F5F5;
-                padding: 10px;
+                padding: 20px;
                 border-radius: 10px;
                 margin: 20px auto;
                 filter: drop-shadow(0 4px 4px #00000033);
 
+                .delete-button {
+                    display: block;
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                    margin: 0 0 0 auto;
+                    appearance: none;
+                    outline: none;
+                    border: none;
+                    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.15));
+                    svg {
+                        width: 75%;
+                        stroke: #000;
+                        stroke-width: 3px;
+                    }
+                }
+
                 h3 {
-                    font-size: 1.1rem;
-                    margin: 5px;
+                    font-size: 1.2rem;
+                    margin: 0;
                 }
 
                 p {
-                    margin: 10px;
                     word-wrap: break-word;
+                    margin: 10px 0 0 0;
                 }
 
                 .pic {
                     width: 90%;
                     height: 150px;
-                    margin: 0 auto;
                     overflow: hidden;
 
                     img {
@@ -238,6 +288,4 @@
 
         }
     }
-
-    
 }

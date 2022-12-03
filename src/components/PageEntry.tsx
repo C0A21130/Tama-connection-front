@@ -12,7 +12,7 @@ const PageEntty: React.FC<PageProps> = (props)=>{
     const {page, image, title, text} = props
 
     const reTitle = title.length > 15 ? `${title.substring(0, 14)}…` : title;
-    const reText = text.length > 25 ? `${text.substring(0, 24)}…`: text
+    const reText = text.length > 20 ? `${text.substring(0, 19)}…`: text
 
     return(
         <div className="page-entry">

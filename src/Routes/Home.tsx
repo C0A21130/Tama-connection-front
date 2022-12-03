@@ -84,12 +84,13 @@ const Home: React.FC = () => {
     const changePage = (action:State, pages: PageData[][], setPages: React.Dispatch<React.SetStateAction<PageData[][]>>)=> {
         // ページが保存されている場合にはそのまま利用する
         try {
+            // 投稿ページが配列に保存されていなければ例外処理へジャンプする
             if (pages[action.pageNum][0] == undefined) {
                 throw new Error("undefind");
             }
             setDisplayPage(pages[action.pageNum]);
             setPicBox(makeRandomPage(pages))
-        // ページが保存されていない場合はAPIサーバが記事を取得する
+        // ページが配列に保存されていない場合はAPIサーバから投稿ページを取得する
         } catch(e) {
             axios.get<ResponsePageData>(`${ROOT_URL}/pages?tag=${action.tag}&pageNum=${action.pageNum}`)
             .then((response) => {
@@ -172,9 +173,9 @@ const Home: React.FC = () => {
                 )}
             </div>
             <div className="select-page-block">
-                <button onClick={() => { dispath({ tag: state.tag, pageNum: state.pageNum - 1 }) }}>＜</button>
+                <button onClick={() => { dispath({ tag: state.tag, pageNum: state.pageNum - 1 }) }}>＜前へ</button>
                 <p>{state.pageNum + 1}</p>
-                <button onClick={() => { dispath({ tag: state.tag, pageNum: state.pageNum + 1 }) }}>＞</button>
+                <button onClick={() => { dispath({ tag: state.tag, pageNum: state.pageNum + 1 }) }}>次へ＞</button>
             </div>
         </div>
     )

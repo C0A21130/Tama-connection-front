@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useNavigate } from "react-router-dom";
 import axios, { AxiosRequestConfig } from "axios";
 import CheckPageBlock from "../components/CheckPageBlock";
 import { constant } from "./../constant";
@@ -20,14 +19,14 @@ interface Page {
 }
 
 interface Data {
-    error: string,
     name: string,
     checked: number[],
     files: Page[]
 }
 
 const CheckPage: React.FC = () => {
-    const [files, setFiles] = React.useState<Page[]>();
+    // ユーザーが投稿したページを保存する変数
+    const [pages, setPages] = React.useState<Page[]>();
 
     // ヘッダーにJWTを設定
     const config: AxiosRequestConfig = {
@@ -39,17 +38,17 @@ const CheckPage: React.FC = () => {
     React.useEffect(() => {
         axios.get<Data>(`${ROOT_URL}/user`, config)
         .then((response) => {
-            setFiles(response.data.files.reverse())
+            setPages(response.data.files.reverse())
         })
         .catch(()=>{
-            setFiles([])
+            setPages([])
         })
     }, [])
 
     return (
         <div className="check-page">
-            {files?.map((file, index) => 
-                <CheckPageBlock title={file.title} image={file.image} tag={file.tag} text={file.text} key={index} />
+            {pages?.map((page, index) =>
+                <CheckPageBlock file_name={page.file_name} title={page.title} image={page.image} tag={page.tag} text={page.text} key={index} />
             )}
         </div>
     )
