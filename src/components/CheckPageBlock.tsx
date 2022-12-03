@@ -1,6 +1,7 @@
 import * as React from "react";
 import axios from "axios";
 import { constant } from "./../constant";
+import Delete from "./../static/images/post/delete.svg";
 
 interface PageProps {
     file_name: number
@@ -41,9 +42,9 @@ const CheckPageBlock: React.FC<PageProps> = (props) => {
 
     return (
         <div className="check-page-block">
-            <button onClick={() => deletePage()}>削除</button>
-            <p>{result}</p>
+            <button className="delete-button" onClick={() => deletePage()}><Delete /></button>
             <h3>タイトル：{title}</h3>
+            <p>{result}</p>
             <div className="pic"><img alt={title} src={image}></img></div>
             <p>タグ：{tagName}</p>
             <p>文章：{text}</p>
