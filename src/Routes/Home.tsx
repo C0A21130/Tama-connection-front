@@ -8,6 +8,7 @@ import Sightseeing from "./../static/images/tag_menu/sightseeing.svg";
 import Gourmet from "./../static/images/tag_menu/gourmet.svg";
 import Walking from "./../static/images/tag_menu/walking.svg";
 import Souvenir from "./../static/images/tag_menu/souvenir.svg";
+import Load from "./../static/images/load.gif";
  
 import "./../static/css/home.scss";
 
@@ -98,6 +99,8 @@ const Home: React.FC = () => {
                 setPages([...pages, response.data.result]);
                 setMaxPageNum(response.data.max);
                 setPicBox(makeRandomPage([...pages, response.data.result]));
+            })
+            .finally(() => {
                 setLoad(false);
             })
         }
@@ -162,7 +165,9 @@ const Home: React.FC = () => {
                     <li onClick={() => dispath({tag: "omiyage", pageNum: 0})} className={state.tag == "omiyage" ? "active" : "noactive"}><div className="icon"><Souvenir /></div><p>お土産</p></li>
                 </ul>
             </div>
-            <p style={{display: load ? "block" : "none"}}>Loading...</p>
+            <div className="load">
+                <img src={Load} style={{ display: load ? "block" : "none" }}></img>
+            </div>
             <div className="pictures-blck">
                 <ul>
                     <li><img alt="" src={picBox[0]}></img></li>
