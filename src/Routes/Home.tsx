@@ -81,6 +81,7 @@ const Home: React.FC = () => {
     const [maxPageNums, setMaxPageNum] = React.useState<Max>({"kankou":0, "gurume":0, "tamasanpo":0, "omiyage":0});
     const [picBox, setPicBox] = React.useState<string[]>(["", ""]);
     const [load, setLoad] = React.useState<boolean>(true);
+    const [neterror, setNeterror] = React.useState<boolean>(false);
     // 表示するページを変える関数
     const changePage = (action:State, pages: PageData[][], setPages: React.Dispatch<React.SetStateAction<PageData[][]>>)=> {
         // ページが保存されている場合にはそのまま利用する
@@ -99,6 +100,9 @@ const Home: React.FC = () => {
                 setPages([...pages, response.data.result]);
                 setMaxPageNum(response.data.max);
                 setPicBox(makeRandomPage([...pages, response.data.result]));
+            })
+            .catch(() => {
+                setNeterror(true);
             })
             .finally(() => {
                 setLoad(false);
@@ -167,6 +171,7 @@ const Home: React.FC = () => {
             </div>
             <div className="load">
                 <img src={Load} style={{ display: load ? "block" : "none" }}></img>
+                <p style={{ display: neterror ? "block" : "none"}}>ネットワークエラー</p>
             </div>
             <div className="pictures-blck">
                 <ul>
