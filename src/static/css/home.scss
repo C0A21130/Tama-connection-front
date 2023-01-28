@@ -202,7 +202,8 @@
             width: 70%;
             margin: 0 auto;
             img {
-                width: 100%;
+                width: 70%;
+                margin: 0 auto;
             }
             p {
                 text-align: center;
@@ -273,6 +274,7 @@
 
         .select-page-block {
             button {
+                color: #000;
                 height: 40px;
                 padding: 5px 15px;
                 margin: auto 0;
