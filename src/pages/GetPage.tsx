@@ -8,7 +8,7 @@ import "./../static/css/page.scss"
 const ROOT_URL = constant.ROOT_URL;
 
 interface ResponsPage{
-    file_name: number,
+    page_id: number,
     title: string,
     tag: string,
     text: string,
@@ -21,7 +21,7 @@ interface ResponsPage{
 }
 
 const testPage: ResponsPage = {
-    file_name: 1,
+    page_id: 1,
     title: "ネットワークエラー",
     tag: "kankou",
     text: "ネットワークと接続してください",

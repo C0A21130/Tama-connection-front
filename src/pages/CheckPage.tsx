@@ -6,7 +6,7 @@ import { constant } from "./../constant";
 const ROOT_URL = constant.ROOT_URL;
 
 interface Page {
-    file_name: number,
+    page_id: number,
     title: string,
     tag: string,
     text: string,
@@ -48,7 +48,7 @@ const CheckPage: React.FC = () => {
     return (
         <div className="check-page">
             {pages?.map((page, index) =>
-                <CheckPageBlock file_name={page.file_name} title={page.title} image={page.image} tag={page.tag} text={page.text} key={index} />
+                <CheckPageBlock page_id={page.page_id} title={page.title} image={page.image} tag={page.tag} text={page.text} key={index} />
             )}
         </div>
     )

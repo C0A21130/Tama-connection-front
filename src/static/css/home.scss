@@ -198,6 +198,19 @@
             }
         }
 
+        .load {
+            width: 70%;
+            margin: 0 auto;
+            img {
+                width: 70%;
+                margin: 0 auto;
+            }
+            p {
+                text-align: center;
+                font-size: 1.5rem;
+            }
+        }
+
         .pictures-blck {
             ul {
                 justify-content: space-around;
@@ -261,6 +274,7 @@
 
         .select-page-block {
             button {
+                color: #000;
                 height: 40px;
                 padding: 5px 15px;
                 margin: auto 0;

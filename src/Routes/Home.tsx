@@ -8,6 +8,7 @@ import Sightseeing from "./../static/images/tag_menu/sightseeing.svg";
 import Gourmet from "./../static/images/tag_menu/gourmet.svg";
 import Walking from "./../static/images/tag_menu/walking.svg";
 import Souvenir from "./../static/images/tag_menu/souvenir.svg";
+import Load from "./../static/images/load.gif";
  
 import "./../static/css/home.scss";
 
@@ -16,7 +17,7 @@ const PER_PAGE = 3;
 
 // 投稿されたページ情報の型
 interface PageData {
-    file_name: number,
+    page_id: number,
     title: string,
     tag: string,
     text: string,
@@ -79,7 +80,8 @@ const Home: React.FC = () => {
     const [displayPage, setDisplayPage] = React.useState<PageData[]>();
     const [maxPageNums, setMaxPageNum] = React.useState<Max>({"kankou":0, "gurume":0, "tamasanpo":0, "omiyage":0});
     const [picBox, setPicBox] = React.useState<string[]>(["", ""]);
-
+    const [load, setLoad] = React.useState<boolean>(true);
+    const [neterror, setNeterror] = React.useState<boolean>(false);
     // 表示するページを変える関数
     const changePage = (action:State, pages: PageData[][], setPages: React.Dispatch<React.SetStateAction<PageData[][]>>)=> {
         // ページが保存されている場合にはそのまま利用する
@@ -97,7 +99,13 @@ const Home: React.FC = () => {
                 setDisplayPage(response.data.result);
                 setPages([...pages, response.data.result]);
                 setMaxPageNum(response.data.max);
-                setPicBox(makeRandomPage([...pages, response.data.result]))
+                setPicBox(makeRandomPage([...pages, response.data.result]));
+            })
+            .catch(() => {
+                setNeterror(true);
+            })
+            .finally(() => {
+                setLoad(false);
             })
         }
     }
@@ -161,6 +169,10 @@ const Home: React.FC = () => {
                     <li onClick={() => dispath({tag: "omiyage", pageNum: 0})} className={state.tag == "omiyage" ? "active" : "noactive"}><div className="icon"><Souvenir /></div><p>お土産</p></li>
                 </ul>
             </div>
+            <div className="load">
+                <img src={Load} style={{ display: load ? "block" : "none" }}></img>
+                <p style={{ display: neterror ? "block" : "none"}}>ネットワークエラー</p>
+            </div>
             <div className="pictures-blck">
                 <ul>
                     <li><img alt="" src={picBox[0]}></img></li>
@@ -169,7 +181,7 @@ const Home: React.FC = () => {
             </div>
             <div className="pages-block">
                 {displayPage?.map((page, index) =>
-                    <PageEntry page={page.file_name} title={page.title} text={page.text} image={page.image} key={index} />
+                    <PageEntry page={page.page_id} title={page.title} text={page.text} image={page.image} key={index} />
                 )}
             </div>
             <div className="select-page-block">
