@@ -17,7 +17,7 @@ const PER_PAGE = 3;
 
 // 投稿されたページ情報の型
 interface PageData {
-    file_name: number,
+    page_id: number,
     title: string,
     tag: string,
     text: string,
@@ -181,7 +181,7 @@ const Home: React.FC = () => {
             </div>
             <div className="pages-block">
                 {displayPage?.map((page, index) =>
-                    <PageEntry page={page.file_name} title={page.title} text={page.text} image={page.image} key={index} />
+                    <PageEntry page={page.page_id} title={page.title} text={page.text} image={page.image} key={index} />
                 )}
             </div>
             <div className="select-page-block">

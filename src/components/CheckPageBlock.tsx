@@ -4,7 +4,7 @@ import { constant } from "./../constant";
 import Delete from "./../static/images/post/delete.svg";
 
 interface PageProps {
-    file_name: number
+    page_id: number
     title: string,
     image: string,
     tag: string,
@@ -12,7 +12,7 @@ interface PageProps {
 }
 
 const CheckPageBlock: React.FC<PageProps> = (props) => {
-    const { file_name, title, image, tag, text } = props;
+    const { page_id, title, image, tag, text } = props;
 
     const [result, setResult] = React.useState<string>("");
 
@@ -31,7 +31,7 @@ const CheckPageBlock: React.FC<PageProps> = (props) => {
 
     // 削除ボタンを押した際にAPIサーバーに投稿ページの削除をリクエスト
     const deletePage = () => {
-        axios.delete(`${constant.ROOT_URL}/page/${file_name}`)
+        axios.delete(`${constant.ROOT_URL}/page/${page_id}`)
         .then(() => {
             setResult("この文章は削除されました。");
         })
