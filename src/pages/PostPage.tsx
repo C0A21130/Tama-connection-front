@@ -62,8 +62,8 @@ const postPage: React.FC = () => {
         const pictuer = document.querySelector<HTMLInputElement>("#picture");
         const file = pictuer.files[0];
 
-        // 写真が選択されてなければ処理を抜ける
-        if (file == undefined) { return }
+        // 写真とタイトルが選択されいないか送信中の場合は処理を抜ける
+        if (file == undefined || status == "送信中") { return }
 
         // 画像の圧縮
         new Compressor(file, {
@@ -73,8 +73,8 @@ const postPage: React.FC = () => {
                 // base64変換後の処理
                 render.onload = () => {
                     body.image = render.result;
-                    // データを送信する
-                    if (submit) {
+                    // 送信ボタンを押しタイトルを入力していればデータを投稿する
+                    if (submit && title != "") {
                         setStatus("送信中");
                         axios.post(`${ROOT_URL}/page`, body, config)
                         .then(() => {
