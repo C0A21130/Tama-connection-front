@@ -15,6 +15,7 @@ const CheckPageBlock: React.FC<PageProps> = (props) => {
     const { page_id, title, image, tag, text } = props;
 
     const [result, setResult] = React.useState<string>("");
+    const [confirmation, setConfirmation] = React.useState<boolean>(false);
 
     // タグ名を日本語に変換
     let tagName;
@@ -42,7 +43,16 @@ const CheckPageBlock: React.FC<PageProps> = (props) => {
 
     return (
         <div className="check-page-block">
-            <button className="delete-button" onClick={() => deletePage()}><Delete /></button>
+            <div className="delete-block">
+                <div style={{ display: confirmation ? "block" : "none" }} className="confilrm">
+                    <p>本当に削除してもいいですか？</p>
+                    <button onClick={() => deletePage()}>はい</button>
+                    <button onClick={() => setConfirmation(false)}>いいえ</button>
+                </div>
+                <button className="delete-button" onClick={() => setConfirmation(true)}>
+                    <div className="icon"><Delete /></div>
+                </button>
+            </div>
             <h3>タイトル：{title}</h3>
             <p>{result}</p>
             <div className="pic"><img alt={title} src={image}></img></div>
