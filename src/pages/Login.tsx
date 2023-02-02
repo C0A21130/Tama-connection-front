@@ -31,7 +31,7 @@ const Login: React.FC = () => {
             navigate("/account/success", { state: { s: true } })
         })
         .catch(() => {
-            navigate("/account/signup");
+            navigate("/account/login");
         })
     }
 

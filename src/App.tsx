@@ -24,14 +24,12 @@ import Success from "./pages/success";
 
 const App: React.FC = () =>{
     const loc = useLocation();
-    const [isLogin, setIsLogin] = React.useState(false);
+    
     React.useEffect(()=>{
         // azureの場合リダイレクトするように変更
         if (location.hostname == "lemon-bush-0663dd310.1.azurestaticapps.net") {
             location.href = "http://tk2-123-61896.vs.sakura.ne.jp/";
         }
-
-        setIsLogin(checkAccount())
     }, [loc])
     
     return(
@@ -44,11 +42,11 @@ const App: React.FC = () =>{
                     <Route path=":pageId" element={<GetPage />} />
                 </Route>
                 <Route path="/map" element={<Map />} />
-                <Route path="/library" element={isLogin?<Library />:<Navigate to="/account/signup" />}>
+                <Route path="/library" element={checkAccount() ?<Library />:<Navigate to="/account/signup" />}>
                     <Route path="get" element={<GetMedal />}/>
                     <Route path="check" element={<CheckMedal />} />
                 </Route>
-                <Route path="/post" element={isLogin?<Post />:<Navigate to="/account/signup"/>}>
+                <Route path="/post" element={checkAccount() ?<Post />:<Navigate to="/account/signup"/>}>
                     <Route path="page" element={<PostPage />} />
                     <Route path="check" element={<CheckPage />} />
                 </Route>
