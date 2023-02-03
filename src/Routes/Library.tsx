@@ -5,6 +5,7 @@ import "./../static/css/Library.scss";
 
 import Restaurant from "./../static/images/library/restaurant.svg";
 import Medal from "./../static/images/library/medals.svg";
+import AR from "./../static/images/library/ar_pic.svg";
 
 const Library: React.FC = () =>{
     return(
@@ -14,7 +15,7 @@ const Library: React.FC = () =>{
             <ul>
                 <li>
                     <a href="https://palanar.app/v2/ar_contents/79f4934a308d2fea">
-                        <div className="picture"><Restaurant /></div>
+                        <div className="picture"><AR /></div>
                         <p>AR撮影</p>
                     </a>
                 </li>
