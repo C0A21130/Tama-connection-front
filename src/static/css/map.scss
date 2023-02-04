@@ -23,15 +23,17 @@
         filter: drop-shadow(0 4px 4px #00000033);
         
         .pic {
-                width: 90%;
-                height: 150px;
-                margin: 0 auto;
-                overflow: hidden;
-        
-                img {
-                    height: 100%;
-                }
-            }
+            width: 90%;
+            height: 150px;
+            margin: 8px auto;
+            overflow: hidden;
+        }
+
+        button {
+            font-size: 1.2rem;
+            border-radius: 10px;
+            padding: 7px;
+        }
     }
 
 }

@@ -31,7 +31,10 @@ label {
 
 button {
     outline: none;
-    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid #d5d5d5;
+    margin: 3px;
     appearance: none;
 }
 
