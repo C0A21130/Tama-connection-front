@@ -1,4 +1,5 @@
 import * as React from "react";
+import UniversityLogo from "./../static/images/UniversityLogo.png"
 
 const Footer: React.FC = () => {
     const [count, setCount] = React.useState(0);
@@ -13,9 +14,12 @@ const Footer: React.FC = () => {
         <div className="footer">
         <footer>
             <div className="link-block">
-                <h3>リンク</h3>
+                <h3>関連サイト</h3>
+                <a href="https://www.teu.ac.jp/">
+                    <div className="university-logo"><img src={UniversityLogo} alt="東京工科大学のロゴ"></img></div>
+                </a>
                 <a href="https://sites.google.com/d/1FqlL4lFenh7EqO03_cBpDhnI1eUZ_L14/p/1ztR1fQ4chkE8zqWthh7TGH51bjHd2aZV/edit">
-                    <p>ホームページ</p>
+                    <p>公式ホームページ</p>
                 </a>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSeT0MGdGbpRLZp7F63V9n_bZsjm72PS0GcY0cMME92Z1VC9eA/viewform?usp=sf_link">
                     <p>アンケートフォーム</p>
