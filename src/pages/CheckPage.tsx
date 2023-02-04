@@ -11,6 +11,7 @@ interface Page {
     tag: string,
     text: string,
     user: number,
+    location_name: string,
     location: {
         x: number,
         y: number
@@ -48,7 +49,7 @@ const CheckPage: React.FC = () => {
     return (
         <div className="check-page">
             {pages?.map((page, index) =>
-                <CheckPageBlock page_id={page.page_id} title={page.title} image={page.image} tag={page.tag} text={page.text} key={index} />
+                <CheckPageBlock page_id={page.page_id} title={page.title} image={page.image} tag={page.tag} text={page.text} location_name={page.location_name} key={index} />
             )}
         </div>
     )

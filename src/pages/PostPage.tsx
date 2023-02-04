@@ -12,6 +12,7 @@ interface sendBody {
     title: string,
     tag: string,
     text: string,
+    location_name: string,
     location: {
         x: number,
         y: number
@@ -24,7 +25,8 @@ const postPage: React.FC = () => {
     const [title, setTitle] = React.useState<string>("");
     const [tag, setTag] = React.useState<string>("kankou");
     const [text, setText] = React.useState<string>("");
-    const [pic, setPic] = React.useState<string>("")
+    const [pic, setPic] = React.useState<string>("");
+    const [locationName, setLocationName] = React.useState<string>("");
     const [status, setStatus] = React.useState<"送信"|"送信中"|"成功"|"失敗">("送信");
 
     // 現在地を保存する
@@ -44,6 +46,7 @@ const postPage: React.FC = () => {
         title: title,
         tag: tag,
         text: text,
+        location_name: locationName,
         location: {
             x: myx,
             y: myy
@@ -67,7 +70,7 @@ const postPage: React.FC = () => {
 
         // 画像の圧縮
         new Compressor(file, {
-            quality: 0.4,
+            quality: 0.3,
             // 圧縮成功時の処理
             success(result) {
                 // base64変換後の処理
@@ -105,19 +108,22 @@ const postPage: React.FC = () => {
                     <div className="image"><Imagae /></div>
                     <label>写真を選択<input id="picture" type="file" accept="image/*" onChange={() => submitPage(false)} /></label>
                 </div>
-                <div className="picture-box"><img src={pic}></img></div>
+                <div className="picture-box" style={{display: pic == "" ? "none" : "block"}}><img src={pic} alt="選択した写真を表示"></img></div>
             </div>
             <div className="title-block">
-                <div><input type="text" value={title} placeholder="タイトル" onChange={(event) => setTitle(event.target.value)}></input></div>
+                <input type="text" value={title} placeholder="タイトル" onChange={(event) => setTitle(event.target.value)}></input>
             </div>
             <div className="select-tag-block">
                 <label>タグを選択</label>
-                <select value={tag} onChange={(event) => setTag(event.target.value)}>
+                <select value={tag} title="タグを選択" onChange={(event) => setTag(event.target.value)}>
                     <option value="kankou">たまファーム</option>
                     <option value="gurume">グルメ</option>
                     <option value="tamasanpo">たまさんぽ</option>
                     <option value="omiyage">お土産</option>
                 </select>
+            </div>
+            <div className="location-name-block">
+                <input type="text" value={locationName} placeholder="撮影場所" onChange={(event) => setLocationName(event.target.value)}></input>
             </div>
             <div className="text-block">
                 <textarea value={text} cols={20} rows={5} placeholder="文章" onChange={(event) => setText(event.target.value)}></textarea>

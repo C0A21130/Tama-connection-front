@@ -56,12 +56,12 @@
             }
         }
 
-        .text-blok {
+        .text-box, .location-name-box {
             width: 80%;
             margin: 10px auto;
 
             p {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
                 overflow-wrap: break-word;
             }
         }

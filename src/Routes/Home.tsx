@@ -22,6 +22,7 @@ interface PageData {
     tag: string,
     text: string,
     user: number,
+    location_name: string,
     location: {
         x: number,
         y: number

@@ -23,6 +23,7 @@ interface Page {
     tag: "kankou" | "gurume" | "tamasanpo" | "omiyage",
     text: string,
     user: number,
+    location_name: string,
     location: {
         x: number,
         y: number,
@@ -66,6 +67,7 @@ const Map: React.FC = () => {
                         <div className="page-block" key={index}>
                             <Link to={`/gaid/${page.page_id}`}>
                                 <h2>{index + 1}番：{page.title}</h2>
+                                <p>{page.location_name}</p>
                                 <div className="pic"><img src={ page.image } alt={page.title}></img></div>
                             </Link>
                             <button onClick={() => { window.open(`https://maps.google.co.jp/maps?ll=${page.location.x},${page.location.y}`)}}>Google MAPで開く</button>

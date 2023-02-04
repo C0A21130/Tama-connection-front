@@ -13,6 +13,7 @@ interface ResponsPage{
     tag: string,
     text: string,
     user: number,
+    location_name: string,
     location: {
         x: number,
         y: number
@@ -26,6 +27,7 @@ const testPage: ResponsPage = {
     tag: "kankou",
     text: "ネットワークと接続してください",
     user: 1,
+    location_name: "",
     location: {
         x: 120,
         y: 200
@@ -62,6 +64,11 @@ const GetPage: React.FC = () => {
                 <div className="title-box">
                     <div className="tag"></div>
                     <h2>{page?.title}</h2>
+                </div>
+            </div>
+            <div className="location-name-bloc">
+                <div className="location-name-box" style={{display: !page?.location_name || page?.location_name=="" ? "none" : "block"}}>
+                    <p>撮影場所：{page?.location_name}</p>
                 </div>
             </div>
             <div className="text-blok">

@@ -8,11 +8,12 @@ interface PageProps {
     title: string,
     image: string,
     tag: string,
-    text: string
+    text: string,
+    location_name: string
 }
 
 const CheckPageBlock: React.FC<PageProps> = (props) => {
-    const { page_id, title, image, tag, text } = props;
+    const { page_id, title, image, tag, text, location_name } = props;
 
     const [result, setResult] = React.useState<string>("");
     const [confirmation, setConfirmation] = React.useState<boolean>(false);
@@ -57,6 +58,7 @@ const CheckPageBlock: React.FC<PageProps> = (props) => {
             <p>{result}</p>
             <div className="pic"><img alt={title} src={image}></img></div>
             <p>タグ：{tagName}</p>
+            <p style={{display: !location_name || location_name=="" ? "none" : "block" }}>撮影場所：{location_name}</p>
             <p>文章：{text}</p>
         </div>
     )
