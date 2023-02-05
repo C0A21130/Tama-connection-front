@@ -4,8 +4,8 @@ import { constant } from "./../constant"
 import checkShop from "./../lib/checkShop";
 
 import GoldMedal from "./../static/images/library/medal/gold_medal.svg";
-import SilverMedal from "./../static/images/Library/medal/silver_medal.svg";
-import BronzeMedal from "./../static/images/Library/medal/bronze_medal.svg";
+import SilverMedal from "./../static/images/library/medal/silver_medal.svg";
+import BronzeMedal from "./../static/images/library/medal/bronze_medal.svg";
 
 // 自身が投稿したページ
 interface Page {
