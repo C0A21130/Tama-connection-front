@@ -2,13 +2,14 @@ import * as React from "react";
 import axios, { AxiosRequestConfig } from "axios";
 import CheckPageBlock from "../components/CheckPageBlock";
 import { constant } from "./../constant";
+import Load from "./../static/images/load.gif";
 
 const ROOT_URL = constant.ROOT_URL;
 
 interface Page {
     page_id: number,
     title: string,
-    tag: string,
+    tag: "kankou" | "gurume" | "tamasanpo" | "omiyage",
     text: string,
     user: number,
     location_name: string,
@@ -19,10 +20,10 @@ interface Page {
     image: string
 }
 
-interface Data {
+interface ResponseBody {
     name: string,
     checked: number[],
-    files: Page[]
+    files: Page[] | null
 }
 
 const CheckPage: React.FC = () => {
@@ -37,17 +38,18 @@ const CheckPage: React.FC = () => {
     }
 
     React.useEffect(() => {
-        axios.get<Data>(`${ROOT_URL}/user`, config)
+        axios.get<ResponseBody>(`${ROOT_URL}/user`, config)
         .then((response) => {
             setPages(response.data.files.reverse())
         })
-        .catch(()=>{
-            setPages([])
+        .catch(() => {
+            setPages([{page_id: -1, title: "ネットエラー", tag: "kankou", text: "ネットに接続してください", user: -1, location_name: "", location: {x: -1, y: -1}, image: ""}])
         })
     }, [])
 
     return (
         <div className="check-page">
+            <div className="load" style={{display: pages ? "none" : "block"}}><img src={Load} alt="ロード中"/></div>
             {pages?.map((page, index) =>
                 <CheckPageBlock page_id={page.page_id} title={page.title} image={page.image} tag={page.tag} text={page.text} location_name={page.location_name} key={index} />
             )}
