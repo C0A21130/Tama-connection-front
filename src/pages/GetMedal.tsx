@@ -43,7 +43,7 @@ const GetMedal: React.FC = () => {
     }
 
     return (
-        <div className="medal-block">
+        <div className="get-medal">
             <div className="get-medal-block">
                 <h2>店舗コードを入力しよう!!</h2>
                 <div className="input-number-box">
