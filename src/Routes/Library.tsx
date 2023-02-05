@@ -12,10 +12,10 @@ const Library: React.FC = () =>{
             <div className="library-block">
             <ul>
                 <li>
-                    <Link to="/library/get">
+                    <a href="https://palanar.app/v2/ar_contents/79f4934a308d2fea">
                         <div className="picture"><Restaurant /></div>
-                        <p>メダルを獲得</p>
-                    </Link>
+                        <p>AR撮影</p>
+                    </a>
                 </li>
                 <li>
                     <Link to="/library/check">

@@ -204,35 +204,16 @@
 /*!**************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/static/css/map.scss ***!
   \**************************************************************************************************************************************************************************/
+.map {
+  width: 300px;
+  margin: 0 auto;
+}
 .map #svg {
   transform: matrix(1, 0, 0, -1, 0, 0);
   -webkit-transform: matrix(1, 0, 0, -1, 0, 0);
-  overflow: hidden;
-  border: 1px solid black;
-}
-.map text {
-  display: inline-block;
-  transform-origin: center center 0;
-}
-.map .page-block {
-  width: 90%;
-  background-color: #F5F5F5;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 20px auto;
-  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
-}
-.map .page-block .pic {
-  width: 90%;
-  height: 150px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-.map .page-block .pic img {
-  height: 100%;
 }
 /*!******************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/static/css/library.scss ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/static/css/Library.scss ***!
   \******************************************************************************************************************************************************************************/
 .library li {
   background-color: #F5F5F5;
@@ -244,27 +225,29 @@
 }
 
 @media screen and (min-width: 481px) {
-  .library ul {
+  .library .library-block ul {
     width: 400px;
     margin: 0 auto;
   }
-  .library ul li {
+  .library .library-block ul li {
     width: 200px;
     height: 180px;
+    background-color: #F5F5F5;
     margin: 0 10px;
     border-radius: 30px;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
   }
-  .library ul li .picture {
+  .library .library-block ul li .picture {
     width: 120px;
     height: 90px;
     margin: 10px auto;
   }
-  .library ul li .picture svg {
+  .library .library-block ul li .picture svg {
     width: 100%;
     height: 100%;
   }
-  .library ul li p {
-    font-size: 1.5rem;
+  .library .library-block ul li p {
+    font-size: 1.6rem;
     text-align: center;
   }
   .medal-block {
@@ -306,16 +289,6 @@
   }
   .medal-block .input-number-box input {
     font-size: 1.5rem;
-  }
-  .medal-block .display-medal-block .medal-box {
-    display: flex;
-    margin: 0 10px;
-  }
-  .medal-block .display-medal-block .medal-box .medal {
-    width: 20%;
-  }
-  .medal-block .display-medal-block .medal-box .text-block {
-    margin: auto 15px;
   }
 }
 /*!*******************************************************************************************************************************************************************************!*\

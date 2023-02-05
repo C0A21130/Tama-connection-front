@@ -18,9 +18,9 @@ import GetMedal from "./pages/GetMedal";
 import CheckMedal from "./pages/CheckMedal";
 import PostPage from "./pages/PostPage";
 import CheckPage from "./pages/CheckPage";
-import Signup from "./pages/signup";
+import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import Success from "./pages/success";
+import Success from "./pages/Success";
 
 const App: React.FC = () =>{
     const loc = useLocation();
