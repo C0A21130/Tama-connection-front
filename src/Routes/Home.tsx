@@ -174,7 +174,7 @@ const Home: React.FC = () => {
                 <img src={Load} alt="ロード中" style={{ display: load ? "block" : "none" }}></img>
                 <p style={{ display: neterror ? "block" : "none"}}>ネットワークエラー</p>
             </div>
-            <div className="pictures-blck">
+            <div className="pictures-block">
                 <ul>
                     <li><img alt="" src={picBox[0]}></img></li>
                     <li><img alt="" src={picBox[1]}></img></li>
