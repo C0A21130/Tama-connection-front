@@ -1,4 +1,5 @@
 .post {
+    // 投稿ページのメニュー
     .post-block {
         ul {
             width: 100%;
@@ -19,6 +20,7 @@
         }  
     }
 
+    // 投稿するページ
     .post-page {
         background-color: #f5f5f5;
         filter: drop-shadow(0 4px 4px #00000033);
@@ -30,16 +32,62 @@
         input, select, textarea {
             font-size: 1.3rem;
         }
+
+        .picture-block {
+            .input-picture {
+                display: flex;
+                background-color: #f0f0f0;
+                border: 1px solid black;
+                
+                .image {
+                    width: 25%;
+                    margin: auto 10px auto 0;
+                }
+
+                label {
+                    font-size: 0.9rem;
+                    margin: auto 0;
+                    input {
+                        display: none;
+                    }
+                }
+            }
+
+            .input-picture:active {
+                background-color: #b6b6b6;
+            }
+            
+            .picture-box img {
+                width: 100%;
+            }
+        }
+
+        .submit-button {
+            display: flex;
+            background-color: #f5f5f5;
+            border: 1.5px solid #000;
+            margin: 0 auto;
+
+            svg {
+                stroke-width: 1.5px;
+                stroke: #000;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+        }
+
+        .submit-button:active {
+            background-color: #b6b6b6;
+        }
     }
 
+    // 投稿されたページを確認
     .check-page {
         .load {
             width: 60%;
             margin: 0 auto;
-
-            img {
-                width: 100%;
-            }
         }
 
         .check-page-block {
@@ -101,47 +149,50 @@
             }
         }
 
+        // 投稿するページ
         .post-page {
-            width: 400px;
+            width: 450px;
             margin: 20px auto;
             padding: 20px;
             border-radius: 30px;
 
             .picture-block {
-                input {
-                    display: none;
-                }
+                margin: 0 100px;
                 .input-picture {
-                    width: 100px;
-                    height: 30px;
-                    background-color: #f0f0f0;
-                    border: 1px solid black;
+                    width: 170px;
                     border-radius: 5px;
-                    padding: 5px 20px;
+                    padding: 5px 10px;
                     margin: 10px 0;
-                    label {
-                        font-size: 1.1rem;
+                    .image {
+                        width: 20px;
                     }
                 }
+                .picture-box {
+                    width: 60%;
+                    margin: 15px 2px;
+                }
             }
+
+            .title-block, .select-tag-block, .location-name-block, .text-block {
+                margin: 25px 100px;
+            }
+
             .submit-button {
-                display: flex;
-                flex-direction: column;
-                padding: 10px 15px;
-                font-size: 1.2rem;
-            
-                button {
-                    width: 120px;
-                    font-size: 1.1rem;
-                    margin: 0 auto;
-                    padding: 5px;
-                    border-radius: 10px;
+                width: 150px;
+                padding: 0 15px;
+                border-radius: 10px;
+                
+                .upload {
+                    width: 40px;
+                    margin: 5px 15px;
                 }
             }
         }
 
+        // 投稿されたページを確認
         .check-page {
         .check-page-block {
+            width: 500px;
             padding: 20px 40px;
 
             .delete-block {
@@ -161,8 +212,8 @@
 
 // スマホ表示
 @media screen and (max-width: 480px) {
-    // 投稿ページのメニュー
     .post {
+        // 投稿ページのメニュー
         .post-block {
             ul {
 
@@ -194,36 +245,13 @@
                 .input-picture {
                     display: flex;
                     width: 45%;
-                    background-color: #f0f0f0;
                     padding: 5px 10px;
                     border-radius: 5px;
-                    border: 1px solid black;
-
-                    .image {
-                        width: 25%;
-                        margin: auto 10px auto 0;
-                    }
-                    
-                    label {
-                        font-size: 1rem;
-                        margin: auto 0;
-                        input {
-                            display: none;
-                        }
-                    }
-                }
-
-                .input-picture:active {
-                    background-color: #b6b6b6;
                 }
 
                 .picture-box {
                     width: 80%;
                     margin: 15px 0;
-
-                    img {
-                        width: 100%;
-                    }
                 }
 
             }
@@ -262,34 +290,18 @@
             }
 
             .submit-button {
-                display: flex;
                 width: 40%;
                 border-radius: 8px;
-                margin: auto;
-                background-color: #f5f5f5;
-                border: 1.5px solid #000;
-                appearance: none;
-                outline: none;
 
                 .upload {
                     width: 30%;
                     margin: 3px 0 3px 10px;
-                    svg {
-                        stroke-width: 1.5px;
-                        stroke: #000;
-                    }
                 }
 
                 p {
                     width: 70%;
-                    font-size: 1.1rem;
-                    color: #000;
                     margin: auto 7px auto 0;
                 }
-            }
-            
-            .submit-button:active {
-                background-color: #b6b6b6;
             }
         }
 
