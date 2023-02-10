@@ -5,10 +5,8 @@ const head: React.FC = () =>{
     return(
         <div className="header">
         <header>
-            <div className="header-block">
-                <div className="icon"><Icon /></div>
-                <h1>たまこねくしょん</h1>
-            </div>
+            <div className="icon"><Icon /></div>
+            <h1>たまこねくしょん</h1>
         </header>
         </div>
     )
