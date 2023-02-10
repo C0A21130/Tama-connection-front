@@ -87,6 +87,22 @@ img {
     }
 }
 
+// フッター
+.footer {
+    background-color: #f5f5f5;
+    margin-top: 20px;
+
+    h3 {
+        margin: 20px 0 5px 0;
+        font-size: 1.1rem;
+    }
+
+    p {
+        margin: 5px;
+        font-size: 1rem;
+    }
+
+}
 
 // パソコン表示
 @media screen and (min-width: 481px) {
@@ -115,6 +131,24 @@ img {
                     }
                 }
             }
+        }
+    }
+
+    // フッター
+    .footer {
+        padding: 10px 40px;
+
+        h3 {
+            margin: 30px 0 10px 0;
+        }
+
+        p {
+            margin: 10px 25px
+        }
+
+        .university-logo img {
+            width: 130px;
+            margin: 0 25px;
         }
     }
 }
@@ -153,18 +187,17 @@ img {
 
     // フッター
     .footer {
-        background-color: #f5f5f5;
         padding: 10px;
         margin-top: 20px;
+
         h3 {
             margin: 20px 0 5px 0 ;
-            font-size: 1.1rem;
         }
+
         p {
-            color: black;
             margin: 5px;
-            font-size: 1rem;
         }
+
         .university-logo img {
             width: 35%;
             margin: 5px;
