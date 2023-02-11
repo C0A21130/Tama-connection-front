@@ -23,7 +23,7 @@ const TabMenu: React.FC = () =>{
                     <Link to="/">
                         <div className="item">
                             <div className="pic"><Guide /></div>
-                            <p>ガイド</p>
+                            <p>ホーム</p>
                         </div>
                     </Link>
                 </li>

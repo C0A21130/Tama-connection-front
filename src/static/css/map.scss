@@ -1,6 +1,10 @@
 .map {
-    width: 600px;
     margin: 0 auto;
+
+    .load {
+        width: 60%;
+        margin: 0 auto;
+    }
 
     .page-block {
         width: 90%;
@@ -26,8 +30,15 @@
 }
 
 // パソコン対応
+@media screen and (min-width: 481px) {
+    .map {
+        width: 600px;
+    }
+}
+
+// スマホ対応
 @media screen and (max-width: 480px) {
-    map {
+    .map {
         width: 300px;
     }
 }

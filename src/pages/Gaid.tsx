@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios, { AxiosResponse } from "axios";
 import { constant } from "./../constant";
 
-import "./../static/css/page.scss"
+import "./../static/css/gaid.scss"
 
 const ROOT_URL = constant.ROOT_URL;
 
@@ -35,7 +35,7 @@ const testPage: ResponsPage = {
     image: ""
 }
 
-const GetPage: React.FC = () => {
+const Gaid: React.FC = () => {
     const {pageId} = useParams();
     const [page, setPage] = React.useState<ResponsPage>();
 
@@ -55,24 +55,18 @@ const GetPage: React.FC = () => {
         <div id={page?.tag}>
             <div className="picture-block">
                 <div className="picture-box">
-                    <div className="picture">
-                        <img src={page?.image}></img>
-                    </div>
+                    <img src={page?.image}></img>
                 </div>
             </div>
-            <div className="title-block">
-                <div className="title-box">
+            <div className="text-block">
+                <div className="title-block">
                     <div className="tag"></div>
                     <h2>{page?.title}</h2>
                 </div>
-            </div>
-            <div className="location-name-bloc">
-                <div className="location-name-box" style={{display: !page?.location_name || page?.location_name=="" ? "none" : "block"}}>
+                <div className="location-name-block" style={{ display: !page?.location_name || page?.location_name == "" ? "none" : "block" }}>
                     <p>撮影場所：{page?.location_name}</p>
                 </div>
-            </div>
-            <div className="text-blok">
-                <div className="text-box">
+                <div className="text-block">
                     <p>{page?.text}</p>
                 </div>
             </div>
@@ -81,4 +75,4 @@ const GetPage: React.FC = () => {
     )
 }
 
-export default GetPage;
+export default Gaid;
