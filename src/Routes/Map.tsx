@@ -2,8 +2,8 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { constant } from "./../constant";
-// import drawMap from "./../lib/drawMap";
 
+import Load from "./../static/images/load.gif";
 import "./../static/css/map.scss";
 
 const ROOT_URL = constant.ROOT_URL;
@@ -41,6 +41,7 @@ interface ResponseData {
 
 const Map: React.FC = () => {
     const [data, setData] = React.useState<ResponseData>({page_count: 0, locations: [], pages: []});
+    const [status, setStatus] = React.useState<boolean>(false);
     let [myx, setMyx] = React.useState<number>(139);
     let [myy, setMyy] = React.useState<number>(35);
 
@@ -56,11 +57,18 @@ const Map: React.FC = () => {
         .then((response) => {
             setData(response.data);
         })
+        .catch(() => {
+            setStatus(true);
+        })
     }, [myy])
 
     return (
         <div className="map">
             <h1>マップ</h1>
+            <div className="load">
+                <img alt="load" src={Load} style={{display: data.locations.length || status ? "none" : "block"}}></img>
+                <p style={{display: status ? "block" : "none"}}>ネットワークエラー</p>
+            </div>
             <div>
                 {data.pages?.map((page, index) => {
                     return (
