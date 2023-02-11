@@ -13,7 +13,7 @@ import Post from "./Routes/Post";
 import Account from "./Routes/Account";
 import Eroor from "./Routes/Eroor";
 
-import GetPage from "./pages/GetPage";
+import Gaid from "./pages/Gaid";
 import GetMedal from "./pages/GetMedal";
 import CheckMedal from "./pages/CheckMedal";
 import PostPage from "./pages/PostPage";
@@ -41,7 +41,7 @@ const App: React.FC = () =>{
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/gaid">
-                    <Route path=":pageId" element={<GetPage />} />
+                    <Route path=":pageId" element={<Gaid />} />
                 </Route>
                 <Route path="/map" element={<Map />} />
                 <Route path="/library" element={checkAccount() ?<Library />:<Navigate to="/account/signup" />}>

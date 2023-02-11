@@ -1,0 +1,177 @@
+.page {
+    .picture-block {
+        .picture-box {
+            width: 85%;
+            margin: 0 auto;
+        }
+    
+        .picture-box::before {
+            content: "";
+            position: relative;
+            display: inline-block;
+            width: 30%;
+            left: 35%;
+        }
+    }
+
+    .title-block {
+        display: flex;
+        transform: rotate(-1.5deg);
+
+        .tag {
+            width: 20%;
+        }
+
+        h2 {
+            width: 80%;
+            overflow-wrap: break-word;
+        }
+    }
+
+    .text-block, .location-name-block {
+        p {
+            font-size: 1.3rem;
+            overflow-wrap: break-word;
+        }
+    }
+
+    #kankou {
+        .picture-block {
+            background-color: #fffeed;
+        }
+
+        .picture-box::before {
+            background-color: #ff99004d;
+        }
+
+        .title-block {
+            background-color: #fffdd0;
+
+            .tag {
+                background-color: #fcff74;
+            }
+        }
+    }
+
+    #gurume {
+        .picture-block {
+            background-color: #feedff;
+        }
+
+        .picture-box::before {
+            background-color: #ff007a4d;
+        }
+
+        .title-block {
+            background-color: #fbcfff;
+
+            .tag {
+                background-color: #f477ff;
+            }
+        }
+    }
+
+    #tamasanpo {
+        .picture-block {
+            background-color: #efffed;
+        }
+
+        .picture-box::before {
+            background-color: #80ff004d;
+        }
+
+        .title-block {
+            background-color: #d7ffc5;
+
+            .tag {
+                background-color: #bcfe9d;
+            }
+        }
+    }
+
+    #omiyage {
+        .picture-block {
+            background-color: #edfffe;
+        }
+
+        .picture-box::before {
+            background-color: #0085ff4d;
+        }
+
+        .title-block {
+            background-color: #c5fbff;
+
+            .tag {
+                background-color: #9decfe;
+            }
+        }
+    }
+}
+
+// パソコン表示
+@media screen and (min-width: 481px) {
+    .page {
+        #kankou, #tamasanpo, #gurume, #omiyage {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .picture-block {
+            width: 500px;
+            margin-right: 20px;
+
+            .picture-box {
+                padding: 5px 0 20px 0;
+            }
+
+            .picture-box::before {
+                height: 35px;
+                bottom: 20px;
+            }
+        }
+
+        .text-block {
+            width: 250px;
+            .title-block {
+                h2 {
+                    margin: 20px;
+                }
+            }
+        }
+    }
+}
+
+// スマホ表示
+@media screen and (max-width: 480px) {
+    .page {
+        .picture-block {
+            width: 90%;
+            margin: 20px auto;
+
+            .picture-box {
+                padding: 5px 0 25px 0;
+            }
+
+            .picture-box::before {
+                height: 30px;
+                bottom: 20px;
+            }
+        }
+
+        .title-block {
+            width: 80%;
+            margin: 0 auto;
+            height: 90px;
+
+            h2 {
+                margin: auto 20px;
+            }
+        }
+
+        .text-block, .location-name-block {
+            width: 80%;
+            margin: 10px auto;
+        }
+    }
+}
