@@ -34,8 +34,10 @@ const App: React.FC = () =>{
     
     return(
         <div className="app">
-            <Header />
-            <TabMenu />
+            <div className="main-header">
+                <Header />
+                <TabMenu />
+            </div>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/gaid">

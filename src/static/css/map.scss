@@ -1,17 +1,6 @@
 .map {
-    width: 300px;
+    width: 600px;
     margin: 0 auto;
-    #svg {
-        transform: matrix(1,0, 0, -1, 0, 0);
-        -webkit-transform: matrix(1,0, 0, -1, 0, 0);
-    }
-
-    text {
-        display: inline-block;
-        transform-origin: center center 0;
-        // transform: matrix(1, 0, 0, -1, 0, 0);    
-        // transform: rotateX(180deg);
-    }
 
     .page-block {
         width: 90%;
@@ -33,5 +22,12 @@
             border-radius: 10px;
             padding: 7px;
         }
+    }
+}
+
+// パソコン対応
+@media screen and (max-width: 480px) {
+    map {
+        width: 300px;
     }
 }
