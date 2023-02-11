@@ -58,7 +58,7 @@ const Gaid: React.FC = () => {
                     <img src={page?.image}></img>
                 </div>
             </div>
-            <div className="text-block">
+            <div className="text-box">
                 <div className="title-block">
                     <div className="tag"></div>
                     <h2>{page?.title}</h2>
