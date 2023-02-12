@@ -5,11 +5,6 @@ import { constant } from "./../constant";
 
 const ROOT_URL = constant.ROOT_URL;
 
-interface User {
-    name: string,
-    password: string
-}
-
 interface ResposBody {
     token: string
 }
@@ -18,14 +13,10 @@ const Login: React.FC = () => {
     const [name, setName] = React.useState<string>("");
     const [password, setPassword] = React.useState<string>("");
     const navigate = useNavigate();
-    const body: User = {
-        name: name,
-        password: password
-    }
 
     // 登録されているユーザーのIDを取得する
     const submit_user = async () => {
-        await axios.post<ResposBody>(`${ROOT_URL}/login`, body)
+        await axios.post<ResposBody>(`${ROOT_URL}/login`, {name: name, password: password})
         .then((response) => {
             localStorage.setItem("token", response.data.token)
             navigate("/account/success", { state: { s: true } })
@@ -47,7 +38,7 @@ const Login: React.FC = () => {
             <div className="pass-input">
                 <label>パスワード</label><input type="password" value={password} onChange={(event) => setPassword(event.target.value)}></input>
             </div>
-            <div>
+            <div className="submit-button">
                 <button type="submit" onClick={() => submit_user()}>ログイン</button>
             </div>
         </div>
