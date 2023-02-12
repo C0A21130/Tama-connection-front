@@ -1,14 +1,9 @@
 import * as React from "react";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { constant } from "./../constant";
 
 const ROOT_URL = constant.ROOT_URL;
-
-interface User {
-    name: string,
-    password: string
-}
 
 interface ResposBody {
     token: string
@@ -19,10 +14,6 @@ const Signup: React.FC = () => {
     const [password, setPassword] = React.useState<string>("");
     const [status, setStatus] = React.useState<string>("");
     const navigate = useNavigate();
-    const body: User = {
-        name: name,
-        password: password
-    }
 
     // ユーザーを作成してユーザーIDを保存
     const submit_user = async () =>  {
@@ -33,7 +24,7 @@ const Signup: React.FC = () => {
         }
 
         // ユーザーを作成する
-        await axios.post<ResposBody>(`${ROOT_URL}/regist`, body)
+        await axios.post<ResposBody>(`${ROOT_URL}/regist`, {name: name, password: password})
         .then((response) => {
             // 既に名前が存在する際にもう一度名前の入力を求める
             if (response.data.token == "exist name") {
@@ -42,6 +33,9 @@ const Signup: React.FC = () => {
             }
             localStorage.setItem("token", response.data.token);
             navigate("/account/success", { state: { s: true } });
+        })
+        .catch(() => {
+            setStatus("ネットワークエラー");
         })
     }
 

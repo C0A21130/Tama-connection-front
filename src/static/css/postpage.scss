@@ -74,6 +74,7 @@
             }
 
             p {
+                color: #5e5e5e;
                 font-size: 1.1rem;
             }
         }
@@ -86,7 +87,10 @@
     // 投稿されたページを確認
     .check-page {
         .load {
-            width: 60%;
+            margin: 0 auto;
+        }
+
+        .user-name {
             margin: 0 auto;
         }
 
@@ -164,7 +168,7 @@
                     padding: 5px 10px;
                     margin: 10px 0;
                     .image {
-                        width: 20px;
+                        width: 25px;
                     }
                 }
                 .picture-box {
@@ -183,25 +187,31 @@
                 border-radius: 10px;
                 
                 .upload {
-                    width: 40px;
-                    margin: 5px 15px;
+                    width: 25px;
+                    margin: 12px 15px;
                 }
             }
         }
 
         // 投稿されたページを確認
         .check-page {
-        .check-page-block {
-            width: 500px;
-            padding: 20px 40px;
+            .load {
+                width: 300px;
+            }
 
-            .delete-block {
+            .user-name {
+                width: 450px;
+            }
+
+            .check-page-block {
+                width: 400px;
+                padding: 20px 40px;
+
                 .delete-button {
                     width: 50px;
                     height: 50px;
                 }
             }
-        }
         }
     }
 }
@@ -303,16 +313,22 @@
 
         // 投稿されたページを確認
         .check-page {
-        .check-page-block {
-            padding: 20px;
+            .load {
+                width: 60%;
+            }
 
-            .delete-block {
+            .user-name {
+                width: 300px;
+            }
+
+            .check-page-block {
+                padding: 20px;
+
                 .delete-button {
                     width: 40px;
                     height: 40px;
                 }
             }
-        }
         }
     }
 }

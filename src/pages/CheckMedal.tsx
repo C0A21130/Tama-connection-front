@@ -48,10 +48,21 @@ const CheckMedal: React.FC = () => {
         })
     },[])
 
-    // 投稿数に応じてメダルを表示(3個以上：銅メダル、5個以上：銀メダル、10個以上：金メダル)
+    // 投稿数に応じてメダルを表示(1個以上：銅メダル、5個以上：銀メダル、10個以上：金メダル)
     const displayMedal = () => {
-        // ネットエラーの場合の対応
-        if (responseBody?.files === null) {
+        // 投稿数を取得
+        const postCount: number = responseBody.files?.length;
+
+        // 投稿状態を取得できていないとき
+        if (responseBody?.name == "") { // 受信前の場合
+            return (
+                <div className="medal-block">
+                    <div className="text-block">
+                        <p>投稿数確認中...</p>
+                    </div>
+                </div>
+            )
+        } else if (responseBody?.files === null) { // ネットエラーの場合
             return (
                 <div className="medal-block">
                     <div className="text-block">
@@ -61,9 +72,9 @@ const CheckMedal: React.FC = () => {
                 </div>
             )
         }
-        // 投稿数を取得
-        const postCount: number = responseBody.files?.length;
-        if(postCount > 9) {
+
+        // 投稿数によってメダルを表示
+        if (postCount >= 10) { // 投稿数が10個以上のとき
             return (
                 <div className="medal-block">
                     <div className="text-block">
@@ -73,7 +84,7 @@ const CheckMedal: React.FC = () => {
                     <div className="pic"><GoldMedal /></div>
                 </div>
             )
-        } else if (postCount > 4) {
+        } else if (postCount >= 5) { // 投稿数が5~9個のとき
             return (
                 <div className="medal-block">
                     <div className="text-block">
@@ -83,7 +94,7 @@ const CheckMedal: React.FC = () => {
                     <div className="pic"><SilverMedal /></div>
                 </div>
             )
-        } else if(postCount > 2) {
+        } else if (postCount >= 1) { // 投稿数が1~4個のとき
             return (
                 <div className="medal-block">
                     <div className="text-block">
@@ -93,7 +104,7 @@ const CheckMedal: React.FC = () => {
                     <div className="pic"><BronzeMedal /></div>
                 </div>
             )
-        } else {
+        } else { // 投稿数が0個のとき
             return (
                 <div className="medal-block">
                     <div className="text-block">
