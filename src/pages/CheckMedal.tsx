@@ -119,7 +119,7 @@ const CheckMedal: React.FC = () => {
 
     return (
         <div className="check-medal">
-            <h2>メダルを確認する</h2>
+            <h2>メダルを確認:{responseBody.name}</h2>
             {displayMedal()}
         </div>
     )

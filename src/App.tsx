@@ -27,8 +27,8 @@ const App: React.FC = () =>{
     
     React.useEffect(()=>{
         // azureの場合リダイレクトするように変更
-        if (location.hostname == "lemon-bush-0663dd310.1.azurestaticapps.net") {
-            location.href = "http://tk2-123-61896.vs.sakura.ne.jp/";
+        if (location.hostname == "lemon-bush-0663dd310.1.azurestaticapps.net" || location.hostname == "tk2-123-61896.vs.sakura.ne.jp") {
+            location.href = "https://tama-connect.com";
         }
     }, [loc])
     
