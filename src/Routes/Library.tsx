@@ -14,7 +14,7 @@ const Library: React.FC = () =>{
                 <li>
                     <a href="https://palanar.app/v2/ar_contents/79f4934a308d2fea">
                         <div className="picture"><Restaurant /></div>
-                        <p>AR撮影</p>
+                        <p>なしのすけと撮影</p>
                     </a>
                 </li>
                 <li>
