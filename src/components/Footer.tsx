@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
                     <p>公式ホームページ</p>
                 </a>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSeT0MGdGbpRLZp7F63V9n_bZsjm72PS0GcY0cMME92Z1VC9eA/viewform?usp=sf_link">
-                    <p>アンケートフォーム</p>
+                    <p>問い合わせフォーム</p>
                 </a>
             </div>
             <div className="tag-block">

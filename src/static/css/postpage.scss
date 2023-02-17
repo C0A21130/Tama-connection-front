@@ -116,7 +116,6 @@
         }
 
         .check-page-block {
-            width: 80%;
             background-color: #f5f5f5;
             margin: 20px auto;
             border-radius: 10px;
@@ -176,13 +175,13 @@
 
         // 投稿するページ
         .post-page {
-            width: 450px;
+            width: 490px;
             margin: 20px auto;
             padding: 20px;
             border-radius: 30px;
 
             .picture-block {
-                margin: 0 100px;
+                margin: 0 130px;
                 .input-picture {
                     width: 170px;
                     border-radius: 5px;
@@ -199,7 +198,7 @@
             }
 
             .title-block, .select-tag-block, .location-name-block, .text-block {
-                margin: 25px 100px;
+                margin: 25px 130px;
             }
 
             .submit-button {
@@ -229,7 +228,7 @@
             }
 
             .check-page-block {
-                width: 400px;
+                width: 450px;
                 padding: 20px 40px;
 
                 .delete-button {
@@ -265,7 +264,7 @@
 
         // 投稿するページ
         .post-page {
-            width: 88%;
+            width: 300px;
             border-radius: 10px;
             padding: 10px 5px;
             margin: 15px auto;
@@ -343,7 +342,7 @@
             }
 
             .check-medal {
-                width: 85%;
+                width: 300px;
                 border-radius: 10px;
                 padding: 15px 5px;
                 margin: 15px auto;
@@ -354,6 +353,7 @@
             }
 
             .check-page-block {
+                width: 270px;
                 padding: 20px;
 
                 .delete-button {

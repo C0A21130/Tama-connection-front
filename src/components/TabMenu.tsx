@@ -39,7 +39,7 @@ const TabMenu: React.FC = () =>{
                     <a href="https://palanar.app/v2/ar_contents/79f4934a308d2fea">
                         <div className="item">
                             <div className="pic"><Library /></div>
-                            <p>ライブラリ</p>
+                            <p>カメラ</p>
                         </div>
                     </a>
                 </li>
