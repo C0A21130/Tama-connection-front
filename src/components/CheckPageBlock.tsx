@@ -43,7 +43,7 @@ const CheckPageBlock: React.FC<PageProps> = (props) => {
     }
 
     return (
-        <div className="check-page-block">
+        <div className="check-page-block" style={{display: page_id == 0 || page_id == -1 ? "none" : "block"}}>
             <div className="delete-block">
                 <div style={{ display: confirmation ? "block" : "none" }} className="confilrm">
                     <p>本当に削除してもいいですか？</p>

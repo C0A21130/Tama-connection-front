@@ -132,6 +132,7 @@ const postPage: React.FC = () => {
                 <div className="upload"><Upload /></div>
                 <p>{status}</p>
             </button>
+            <p>投稿された写真は後日ポスターカードとしてアプリ外でも掲示される可能性があります</p>
         </div>
     )
 }
