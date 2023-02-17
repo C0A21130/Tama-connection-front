@@ -8,14 +8,11 @@ import Footer from "./components/Footer";
 
 import Home from "./Routes/Home";
 import Map from "./Routes/Map";
-import Library from "./Routes/Library";
 import Post from "./Routes/Post";
 import Account from "./Routes/Account";
 import Eroor from "./Routes/Eroor";
 
 import Gaid from "./pages/Gaid";
-import GetMedal from "./pages/GetMedal";
-import CheckMedal from "./pages/CheckMedal";
 import PostPage from "./pages/PostPage";
 import CheckPage from "./pages/CheckPage";
 import Signup from "./pages/Signup";
@@ -44,10 +41,6 @@ const App: React.FC = () =>{
                     <Route path=":pageId" element={<Gaid />} />
                 </Route>
                 <Route path="/map" element={<Map />} />
-                <Route path="/library" element={checkAccount() ?<Library />:<Navigate to="/account/signup" />}>
-                    <Route path="get" element={<GetMedal />}/>
-                    <Route path="check" element={<CheckMedal />} />
-                </Route>
                 <Route path="/post" element={checkAccount() ?<Post />:<Navigate to="/account/signup"/>}>
                     <Route path="page" element={<PostPage />} />
                     <Route path="check" element={<CheckPage />} />

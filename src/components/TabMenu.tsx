@@ -36,12 +36,12 @@ const TabMenu: React.FC = () =>{
                     </Link>
                 </li>
                 <li className="tab-item" onClick={() => change_tab("library")} id={tab == "library" ? "active" : "noactive"}>
-                    <Link to="/library">
+                    <a href="https://palanar.app/v2/ar_contents/79f4934a308d2fea">
                         <div className="item">
                             <div className="pic"><Library /></div>
                             <p>ライブラリ</p>
                         </div>
-                    </Link>
+                    </a>
                 </li>
                 <li className="tab-item" onClick={() => change_tab("postPage")} id={tab == "postPage" ? "active" : "noactive"}>
                     <Link to="/post">
