@@ -24,6 +24,9 @@ const Footer: React.FC = () => {
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSeT0MGdGbpRLZp7F63V9n_bZsjm72PS0GcY0cMME92Z1VC9eA/viewform?usp=sf_link">
                     <p>アンケートフォーム</p>
                 </a>
+                <a href="https://twitter.com/tama_connection">
+                    <p>公式ツイッター</p>
+                </a>
             </div>
             <div className="tag-block">
                 <h3>タグの説明</h3>
