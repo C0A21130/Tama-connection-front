@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
                 <a href="https://twitter.com/tama_connection">
                     <p>公式ツイッター</p>
                 </a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeT0MGdGbpRLZp7F63V9n_bZsjm72PS0GcY0cMME92Z1VC9eA/viewform?usp=sf_link">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfPcB6TaxnUPoIzznsr9SYtlNBHxMS9IJyktFwfen5dU8WySg/viewform?usp=sf_link">
                     <p>問い合わせフォーム</p>
                 </a>
             </div>
