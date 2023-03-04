@@ -66,7 +66,7 @@ const Map: React.FC = () => {
         <div className="map">
             <h1>マップ</h1>
             <div className="load">
-                <video autoPlay muted loop ref={React.useRef<HTMLVideoElement>(null)} style={{ display: data.locations.length || status ? "none" : "block" }}>
+                <video playsInline autoPlay muted loop ref={React.useRef<HTMLVideoElement>(null)} style={{ display: data.locations.length || status ? "none" : "block" }}>
                     <source src={Load} type="video/webm" />
                 </video>
                 <p style={{display: status ? "block" : "none"}}>ネットワークエラー</p>

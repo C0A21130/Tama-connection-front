@@ -113,7 +113,7 @@ const CheckPage: React.FC = () => {
     return (
         <div className="check-page">
             <div className="load" style={{display: responseBody.files[0].page_id == 0 ? "block" : "none"}}>
-                <video autoPlay muted loop ref={React.useRef<HTMLVideoElement>(null)}>
+                <video playsInline autoPlay muted loop ref={React.useRef<HTMLVideoElement>(null)}>
                     <source src={Load} type="video/webm" />
                 </video>
             </div>
