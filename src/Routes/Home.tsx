@@ -171,7 +171,7 @@ const Home: React.FC = () => {
                 </ul>
             </div>
             <div className="load" style={{ display: load ? "block" : "none" }}>
-                <video autoPlay muted loop ref={React.useRef<HTMLVideoElement>(null)}>
+                <video playsInline autoPlay muted loop ref={React.useRef<HTMLVideoElement>(null)}>
                     <source src={Load} type="video/webm" />
                 </video>
                 <p style={{ display: neterror ? "block" : "none"}}>ネットワークエラー</p>
