@@ -9,6 +9,7 @@ import Gourmet from "./../static/images/tag_menu/gourmet.svg";
 import Walking from "./../static/images/tag_menu/walking.svg";
 import Souvenir from "./../static/images/tag_menu/souvenir.svg";
 import Load from "./../static/images/load.webm";
+import LoadSub from "./../static/images/load.mp4";
  
 import "./../static/css/home.scss";
 
@@ -173,6 +174,7 @@ const Home: React.FC = () => {
             <div className="load" style={{ display: load ? "block" : "none" }}>
                 <video playsInline autoPlay muted loop ref={React.useRef<HTMLVideoElement>(null)}>
                     <source src={Load} type="video/webm" />
+                    <source src={LoadSub} type="video/mp4" />
                 </video>
                 <p style={{ display: neterror ? "block" : "none"}}>ネットワークエラー</p>
             </div>
