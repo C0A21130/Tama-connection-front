@@ -8,7 +8,7 @@ import Sightseeing from "./../static/images/tag_menu/sightseeing.svg";
 import Gourmet from "./../static/images/tag_menu/gourmet.svg";
 import Walking from "./../static/images/tag_menu/walking.svg";
 import Souvenir from "./../static/images/tag_menu/souvenir.svg";
-import Load from "./../static/images/load.gif";
+import Load from "./../static/images/load.webm";
  
 import "./../static/css/home.scss";
 
@@ -170,8 +170,10 @@ const Home: React.FC = () => {
                     <li onClick={() => dispath({tag: "omiyage", pageNum: 0})} className={state.tag == "omiyage" ? "active" : "noactive"}><div className="icon"><Souvenir /></div><p>お土産</p></li>
                 </ul>
             </div>
-            <div className="load">
-                <img src={Load} alt="ロード中" style={{ display: load ? "block" : "none" }}></img>
+            <div className="load" style={{ display: load ? "block" : "none" }}>
+                <video autoPlay muted loop ref={React.useRef<HTMLVideoElement>(null)}>
+                    <source src={Load} type="video/webm" />
+                </video>
                 <p style={{ display: neterror ? "block" : "none"}}>ネットワークエラー</p>
             </div>
             <div className="pictures-block">
@@ -180,7 +182,7 @@ const Home: React.FC = () => {
                     <li><img alt="" src={picBox[1]}></img></li>
                 </ul>
             </div>
-            <div className="pages-block">
+            <div className="pages-block" style={{display: load ? "none" : "block"}}>
                 {displayPage?.map((page, index) =>
                     <PageEntry page={page.page_id} title={page.title} text={page.text} image={page.image} key={index} />
                 )}

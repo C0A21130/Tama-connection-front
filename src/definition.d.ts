@@ -13,7 +13,7 @@ declare module '*.svg' {
     export default content;
 }
 
-declare module '*.gif' {
+declare module '*.webm' {
     const content: any;
     export default content;
 }

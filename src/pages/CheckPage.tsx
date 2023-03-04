@@ -6,7 +6,7 @@ import { constant } from "./../constant";
 import GoldMedal from "./../static/images/library/medal/gold_medal.svg";
 import SilverMedal from "./../static/images/library/medal/silver_medal.svg";
 import BronzeMedal from "./../static/images/library/medal/bronze_medal.svg";
-import Load from "./../static/images/load.gif";
+import Load from "./../static/images/load.webm";
 
 const ROOT_URL = constant.ROOT_URL;
 
@@ -112,7 +112,11 @@ const CheckPage: React.FC = () => {
 
     return (
         <div className="check-page">
-            <div className="load" style={{display: responseBody.files[0].page_id == 0 ? "block" : "none"}}><img src={Load} alt="ロード中"/></div>
+            <div className="load" style={{display: responseBody.files[0].page_id == 0 ? "block" : "none"}}>
+                <video autoPlay muted loop ref={React.useRef<HTMLVideoElement>(null)}>
+                    <source src={Load} type="video/webm" />
+                </video>
+            </div>
             <div className="check-medal" style={{ display: responseBody.files[0].page_id ? "block" : "none" }}>
                 <h2>メダルを確認:{responseBody.name}</h2>
                 {displayMedal()}

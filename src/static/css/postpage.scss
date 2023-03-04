@@ -88,6 +88,9 @@
     .check-page {
         .load {
             margin: 0 auto;
+            video {
+                width: 100%;
+            }
         }
 
         .check-medal {

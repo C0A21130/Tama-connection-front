@@ -14,7 +14,8 @@
     }
 
     .load {
-        img {
+        video {
+            display: block;
             margin: 0 auto;
         }
         p {
@@ -93,9 +94,10 @@
         }
 
         .load {
-            img {
-                width: 300px;
-                height: 200px;
+            width: 28%;
+            video {
+                width: 50%;
+                margin: 20px auto;
             }
         }
 
@@ -181,10 +183,8 @@
         }
 
         .load {
-            width: 70%;
-            margin: 0 auto;
-            img {
-                width: 70%;
+            video {
+                width: 50%;
             }
         }
 

@@ -39,7 +39,7 @@ module.exports = {
                 loader: "react-svg-loader"
             },
             {
-                test: /\.(png|jpg|gif)$/,
+                test: /\.(png|jpg|webm)$/,
                 type: "asset/resource"
             }
         ]
