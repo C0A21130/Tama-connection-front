@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
             <div className="link-block">
                 <h3>関連サイト</h3>
                 <a href="https://www.teu.ac.jp/">
-                    <div className="university-logo"><img src={UniversityLogo} alt="東京工科大学のロゴ"></img></div>
+                    <div className="university-logo"><img src={UniversityLogo} width="119" height="25" alt="東京工科大学のロゴ"></img></div>
                 </a>
                 <a href="https://sites.google.com/d/1FqlL4lFenh7EqO03_cBpDhnI1eUZ_L14/p/1ztR1fQ4chkE8zqWthh7TGH51bjHd2aZV/edit">
                     <p>公式ホームページ</p>
