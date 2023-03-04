@@ -4,6 +4,7 @@ import axios from "axios";
 import { constant } from "./../constant";
 
 import Load from "./../static/images/load.webm";
+import LoadSub from "./../static/images/load.mp4";
 import "./../static/css/map.scss";
 
 const ROOT_URL = constant.ROOT_URL;
@@ -68,6 +69,7 @@ const Map: React.FC = () => {
             <div className="load">
                 <video playsInline autoPlay muted loop ref={React.useRef<HTMLVideoElement>(null)} style={{ display: data.locations.length || status ? "none" : "block" }}>
                     <source src={Load} type="video/webm" />
+                    <source src={LoadSub} type="video/mp4" />
                 </video>
                 <p style={{display: status ? "block" : "none"}}>ネットワークエラー</p>
             </div>

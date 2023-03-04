@@ -7,6 +7,7 @@ import GoldMedal from "./../static/images/library/medal/gold_medal.svg";
 import SilverMedal from "./../static/images/library/medal/silver_medal.svg";
 import BronzeMedal from "./../static/images/library/medal/bronze_medal.svg";
 import Load from "./../static/images/load.webm";
+import LoadSub from "./../static/images/load.mp4";
 
 const ROOT_URL = constant.ROOT_URL;
 
@@ -115,6 +116,7 @@ const CheckPage: React.FC = () => {
             <div className="load" style={{display: responseBody.files[0].page_id == 0 ? "block" : "none"}}>
                 <video playsInline autoPlay muted loop ref={React.useRef<HTMLVideoElement>(null)}>
                     <source src={Load} type="video/webm" />
+                    <source src={LoadSub} type="video/mp4" />
                 </video>
             </div>
             <div className="check-medal" style={{ display: responseBody.files[0].page_id ? "block" : "none" }}>
