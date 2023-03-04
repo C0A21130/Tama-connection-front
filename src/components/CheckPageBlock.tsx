@@ -47,10 +47,10 @@ const CheckPageBlock: React.FC<PageProps> = (props) => {
             <div className="delete-block">
                 <div style={{ display: confirmation ? "block" : "none" }} className="confilrm">
                     <p>本当に削除してもいいですか？</p>
-                    <button onClick={() => deletePage()}>はい</button>
-                    <button onClick={() => setConfirmation(false)}>いいえ</button>
+                    <button onClick={() => deletePage()} title="写真削除本確認ボタン">はい</button>
+                    <button onClick={() => setConfirmation(false)} title="写真削除取り消しボタン">いいえ</button>
                 </div>
-                <button className="delete-button" onClick={() => setConfirmation(true)}>
+                <button className="delete-button" onClick={() => setConfirmation(true)} title="写真削除ボタン">
                     <div className="icon"><Delete /></div>
                 </button>
             </div>

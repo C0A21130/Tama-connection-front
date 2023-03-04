@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { constant } from "./../constant";
 
-import Load from "./../static/images/load.gif";
+import Load from "./../static/images/load.webm";
 import "./../static/css/map.scss";
 
 const ROOT_URL = constant.ROOT_URL;
@@ -66,7 +66,9 @@ const Map: React.FC = () => {
         <div className="map">
             <h1>マップ</h1>
             <div className="load">
-                <img alt="load" src={Load} style={{display: data.locations.length || status ? "none" : "block"}}></img>
+                <video autoPlay muted loop ref={React.useRef<HTMLVideoElement>(null)} style={{ display: data.locations.length || status ? "none" : "block" }}>
+                    <source src={Load} type="video/webm" />
+                </video>
                 <p style={{display: status ? "block" : "none"}}>ネットワークエラー</p>
             </div>
             <div>

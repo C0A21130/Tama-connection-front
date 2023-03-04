@@ -70,7 +70,7 @@ const postPage: React.FC = () => {
 
         // 画像の圧縮
         new Compressor(file, {
-            quality: 0.3,
+            quality: 0.8,
             // 圧縮成功時の処理
             success(result) {
                 // base64変換後の処理
@@ -95,9 +95,9 @@ const postPage: React.FC = () => {
                 // Blobをbase64に変換
                 render.readAsDataURL(result);
             },
-            maxWidth: 1000,
-            maxHeight: 1000,
-            mimeType: "image/png"
+            maxWidth: 800,
+            maxHeight: 800,
+            mimeType: "image/png",
         })
     }
 

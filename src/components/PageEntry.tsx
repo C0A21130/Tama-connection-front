@@ -17,7 +17,7 @@ const PageEntty: React.FC<PageProps> = (props)=>{
     return(
         <div className="page-entry">
             <Link to={`/gaid/${page}`}>
-                <div id="image"><img alt={title} src={image} /></div>
+                <div id="image"><img width="124" height="100" alt={title} src={image} /></div>
                 <div id="text">
                     <h2>{reTitle}</h2>
                     <p>{reText}</p>
