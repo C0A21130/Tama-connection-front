@@ -79,19 +79,22 @@ const Map: React.FC = () => {
                 }
                 // 表示を変更
                 return (
-                    <div className="page-block">
-                        <div className="button-block">
+                    <div className="district-block">
+                        <div className="district-buttons">
+                            <p>地区名を選択</p>
                             <button onClick={() => setDistrict("稲城")}>稲城市</button>
                             <button onClick={() => setDistrict("八王子")}>八王子市</button>
                             <button onClick={() => setDistrict("東大和")}>東大和市</button>
                         </div>
-                        <Link to={`/gaid/${dist?.page_id}`}>
-                            <h2>{dist?.title}</h2>
-                            <p>{dist?.location_name}</p>
-                            <div className="pic"><img src={dist?.image}></img></div>
-                            <p>{dist?.text}</p>
-                        </Link>
-                        <button onClick={() => window.open(`https://maps.google.co.jp/maps?ll=${dist.location.x},${dist.location.y}`)}>Google MAPで開く</button>
+                        <div className="page-block">
+                            <Link to={`/gaid/${dist?.page_id}`}>
+                                <h2>{dist?.title}</h2>
+                                <p>{dist?.location_name}</p>
+                                <div className="pic"><img src={dist?.image}></img></div>
+                                <p>{dist?.text}</p>
+                            </Link>
+                            <button onClick={() => window.open(`https://maps.google.co.jp/maps?ll=${dist.location.x},${dist.location.y}`)}>Google MAPで開く</button>
+                        </div>
                     </div>
                 )
             case "nearby":
@@ -143,9 +146,9 @@ const Map: React.FC = () => {
                 </video>
                 <p style={{display: status == "Error" ? "block" : "none"}}>ネットワークエラー</p>
             </div>
-            <div>
+            <div className="mode-button">
                 <button onClick={() => setStatus("district")}>地区名検索</button>
-                <button onClick={() => setStatus("nearby")}>近場検索</button>
+                <button onClick={() => setStatus("nearby")}>近場表示</button>
             </div>
             <div>
                 {generateResponse()}
