@@ -1,11 +1,11 @@
-# Tama-connection-front
+# たまこねくしょん(フロントエンドアプリ)：Tama-connection-front
 ![package](https://img.shields.io/github/stars/C0A21130/Tama-connection-front?style=social)  
 ![package](https://img.shields.io/github/repo-size/C0A21130/Tama-connection-front)
 ![package](https://img.shields.io/github/languages/top/C0A21130/Tama-connection-front)
 ![package](https://img.shields.io/github/package-json/dependency-version/C0A21130/Tama-connection-front/react)  
 "tama-connection-front"はたまこねくしょんアプリのフロントエンドアプリのリポジトリです。[アプリはこちらのリンク](https://tama-connect.com)からご利用できます。
 [バックエンドのレポジトリ](https://github.com/C0A21130/tama-connection)はこちらです。  
-![サムネイル](https://user-images.githubusercontent.com/85671824/221559900-26dbf6be-469d-4d31-ac87-fd3ab46e428b.png)
+![サムネイル](https://user-images.githubusercontent.com/85671824/225310148-336a8c4c-87a3-43ec-ba97-315d016dc773.png)
 
 ## 概要説明
 たまこねくしょんアプリとは多摩地域の魅力を外部に発信するための農観連携アプリです。私たちたまこねくしょんは地域住民が見つけた新たな魅力を写真から共有することで地域活性化を目指します。
@@ -20,7 +20,7 @@
 - たまさんぽタグ：お散歩中に見つけた新しい発見を投稿
 - お土産タグ：多摩地域で購入したお土産を投稿
 
-## 開発者向け情報
+## リポジトリの説明
 ### ブランチ
 - main：本番環境用
 - Develop：開発環境用、変更を確認後問題がなければmainブランチにマージする
@@ -38,7 +38,7 @@
     - ts-loader：TypeScriptのビルドを行う
     - react-svg-loader：SVGファイルをコンポーネント化する
 ### ディレクトリ構成
-``` txt
+``` shell
 Tama-connection-front
 ├─.github：githubの設定ファイル
 ├─dist：ビルド後のファイルが保存される
@@ -70,18 +70,40 @@ Tama-connection-front
 ├─tsconfig.json：TypeScriptのトランスパイル設定を記載
 └─webpack.config.js：Webpackの設定を記載
 ```
-### 使い方
-#### テスト方法
+
+## 使い方
+### テスト方法
+ダウンロードする
 ``` shell
 $ git clone https://github.com/C0A21130/Tama-connection-front.git
 $ cd Tama-connection-front
 $ npm install
+```
+バックエンドの接続先を指定するsrc/constant.tsを修正する
+``` TypeScript
+export namespace constant {
+    export const ROOT_URL = "<練習環境用のURL>";
+}
+```
+開発用サーバーを起動する
+``` shell
 $ npm run start
 ```
-#### ビルド方法
+### ビルド方法
 ``` shell
 $ git clone https://github.com/C0A21130/Tama-connection-front.git
 $ cd Tama-connection-front
 $ npm install
 $ npm run build
 ```
+バックエンドのAPIサーバーの接続先を指定するsrc/constant.tsを修正する
+``` TypeScript
+export namespace constant {
+    export const ROOT_URL = "<本番環境用のURL>";
+}
+```
+本番用にビルドする
+``` shell
+$ npm run build
+```
+/distにビルドした結果のファイルが作成される
