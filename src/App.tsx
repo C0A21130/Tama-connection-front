@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 
 import Home from "./Routes/Home";
 import Map from "./Routes/Map";
+import Camera from "./Routes/Camera";
 import Post from "./Routes/Post";
 import Account from "./Routes/Account";
 import Eroor from "./Routes/Eroor";
@@ -41,6 +42,7 @@ const App: React.FC = () =>{
                     <Route path=":pageId" element={<Gaid />} />
                 </Route>
                 <Route path="/map" element={<Map />} />
+                <Route path="/camera" element={<Camera />} />
                 <Route path="/post" element={checkAccount() ?<Post />:<Navigate to="/account/signup"/>}>
                     <Route path="page" element={<PostPage />} />
                     <Route path="check" element={<CheckPage />} />
