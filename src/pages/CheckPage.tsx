@@ -46,11 +46,11 @@ const CheckPage: React.FC = () => {
         const postCount: number = responseBody.files?.length;
 
         // ネットエラーの場合
-        if (responseBody.files[0].page_id == -1) { 
+        if ((postCount == 1) && (responseBody.files[0].page_id == -1)) { 
             return (
                 <div className="medal-block">
                     <div className="text-block">
-                        <p>ネットエラー</p>
+                        <p>ネットワークエラー</p>
                         <p>ネットに接続してください</p>
                     </div>
                 </div>
@@ -78,7 +78,7 @@ const CheckPage: React.FC = () => {
                     <div className="pic"><SilverMedal /></div>
                 </div>
             )
-        } else if (postCount >= 1) { // 投稿数が1~4個のとき
+        } else if ((postCount >= 1) && (responseBody.files[0].page_id != 0)) { // 投稿数が1~4個のとき
             return (
                 <div className="medal-block">
                     <div className="text-block">
@@ -88,7 +88,7 @@ const CheckPage: React.FC = () => {
                     <div className="pic"><BronzeMedal /></div>
                 </div>
             )
-        } else { // 投稿数が0個のとき
+        } else if(!postCount) { // 投稿数が0個のとき
             return (
                 <div className="medal-block">
                     <div className="text-block">
@@ -113,13 +113,13 @@ const CheckPage: React.FC = () => {
 
     return (
         <div className="check-page">
-            <div className="load" style={{display: responseBody.files[0].page_id == 0 ? "block" : "none"}}>
+            <div className="load" style={{display: responseBody.files[0]?.page_id == 0 ? "block" : "none"}}>
                 <video playsInline autoPlay muted loop ref={React.useRef<HTMLVideoElement>(null)}>
                     <source src={Load} type="video/webm" />
                     <source src={LoadSub} type="video/mp4" />
                 </video>
             </div>
-            <div className="check-medal" style={{ display: responseBody.files[0].page_id ? "block" : "none" }}>
+            <div className="check-medal">
                 <h2>メダルを確認:{responseBody.name}</h2>
                 {displayMedal()}
             </div>

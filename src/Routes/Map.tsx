@@ -44,6 +44,7 @@ interface ResponseDistrictData {
     district_list: string[],
     稲城: Page,
     八王子: Page,
+    西東京: Page,
     東大和: Page
 }
 
@@ -52,7 +53,7 @@ const Map: React.FC = () => {
     const [districtData, setDistrictData] = React.useState<ResponseDistrictData>();
     const [load, setLoad] = React.useState<boolean>(true);
     const [status, setStatus] = React.useState<"nearby" | "district" | "Error">("district");
-    const [district, setDistrict] = React.useState<"稲城" | "八王子" | "東大和">("稲城");
+    const [district, setDistrict] = React.useState<"稲城" | "八王子" | "西東京" | "東大和">("稲城");
     let [myx, setMyx] = React.useState<number>(139);
     let [myy, setMyy] = React.useState<number>(35);
 
@@ -75,7 +76,8 @@ const Map: React.FC = () => {
                 switch (district) {
                     case "稲城": dist = districtData?.稲城; break;
                     case "八王子": dist = districtData?.八王子; break;
-                    case "東大和": dist = districtData?.東大和; break;
+                    case "西東京": dist = districtData?.西東京; break;
+                    case "東大和": dist = districtData?.東大和; break; 
                 }
                 // 表示を変更
                 return (
@@ -84,6 +86,7 @@ const Map: React.FC = () => {
                             <p>地区名を選択</p>
                             <button onClick={() => setDistrict("稲城")}>稲城市</button>
                             <button onClick={() => setDistrict("八王子")}>八王子市</button>
+                            <button onClick={() => setDistrict("西東京")}>西東京市</button>
                             <button onClick={() => setDistrict("東大和")}>東大和市</button>
                         </div>
                         <div className="page-block">
