@@ -35,6 +35,17 @@
         }
     }
 
+    .point-block {
+        div {
+            display: flex;
+
+            .img {
+                width: 45px;
+                margin: 0;
+            }
+        }
+    }
+
     #kankou {
         .picture-block {
             background-color: #fffeed;
@@ -169,7 +180,7 @@
             }
         }
 
-        .text-block, .location-name-block {
+        .text-block, .location-name-block, .point-block {
             width: 80%;
             margin: 10px auto;
         }
