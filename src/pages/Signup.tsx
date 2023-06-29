@@ -41,7 +41,7 @@ const Signup: React.FC = () => {
 
     return (
         <div className="signup">
-            <h2>たまなびへようこそ!</h2>
+            <h2>たまこねくしょんへようこそ!</h2>
             <h3>アカウントを作成して開始しよう</h3>
             <div>
                 <Link to="/account/login"><p>アカウントを持っている場合は<span>ログイン</span>しよう</p></Link>
