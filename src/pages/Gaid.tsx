@@ -61,7 +61,7 @@ const Gaid: React.FC = () => {
     const isToken = () => {
         const token = localStorage.getItem("token");
         if(token == null) {
-            return "null";
+            return null;
         }
         return token;
     }
@@ -69,7 +69,7 @@ const Gaid: React.FC = () => {
     // いいねを押したときの関数
     const submitPoint = async (status: ("good" | "go" | "went"), isUpdate: ("post" | "put")) => {
         // JWTがないときはいいねを押せないようにする
-        if (isToken() == "null") {
+        if (isToken() == undefined) {
             return
         }
 
@@ -115,11 +115,10 @@ const Gaid: React.FC = () => {
     }
 
     React.useEffect(()=>{
-        axios.get(`${ROOT_URL}/page/${pageId}`, {headers: {token: isToken()}})
+        axios.get(`${ROOT_URL}/page/${pageId}`, {headers: isToken() ? {token: isToken()} : {}})
         .then((respons: AxiosResponse<ResponsPage>)=>{
-            const {data} = respons;
-            setPage(data);
-            data.user_status.map((status) => {
+            setPage(respons.data);
+            respons.data.user_status.map((status) => {
                 switch(status) {
                     case "good":
                         setGood(true); break;
