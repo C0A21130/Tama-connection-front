@@ -1,13 +1,12 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import { constant } from "./../constant";
+import displayDistrict from "./../lib/displayDistrict";
+import displayNearby from "../lib/displayNearby";
 
 import Load from "./../static/images/load.webm";
 import LoadSub from "./../static/images/load.mp4";
 import "./../static/css/map.scss";
-
-const ROOT_URL = constant.ROOT_URL;
 
 interface Location {
     location: {
@@ -16,21 +15,6 @@ interface Location {
         distance: number 
     },
     page_id: number
-}
-
-interface Page {
-    page_id: number,
-    title: string,
-    tag: "kankou" | "gurume" | "tamasanpo" | "omiyage",
-    text: string,
-    user: number,
-    location_name: string,
-    location: {
-        x: number,
-        y: number,
-        distance: number
-    },
-    image: string
 }
 
 // 受け取るデータの型
@@ -60,10 +44,9 @@ const Map: React.FC = () => {
     const generateResponse = () => {
         switch (status) {
             case "district":
-                let dist: Page;
                 // 地区名の検索をしたことがないときはデータを受信する
                 if (!districtData) {
-                    axios.get<ResponseDistrictData>(`${ROOT_URL}/map?myx=0&myy=0&request=district`)
+                    axios.get<ResponseDistrictData>(`${constant.ROOT_URL}/map?myx=0&myy=0&request=district`)
                     .then((response) => {
                         setDistrictData(response.data);
                         setLoad(false);
@@ -72,38 +55,12 @@ const Map: React.FC = () => {
                         setStatus("Error");
                     })
                 }
-                // 選択している地区名で表示を変更
-                switch (district) {
-                    case "稲城": dist = districtData?.稲城; break;
-                    case "八王子": dist = districtData?.八王子; break;
-                    case "西東京": dist = districtData?.西東京; break;
-                    case "東大和": dist = districtData?.東大和; break; 
-                }
-                // 表示を変更
-                return (
-                    <div className="district-block">
-                        <div className="district-buttons">
-                            <p>地区名を選択</p>
-                            <button onClick={() => setDistrict("稲城")}>稲城市</button>
-                            <button onClick={() => setDistrict("八王子")}>八王子市</button>
-                            <button onClick={() => setDistrict("西東京")}>西東京市</button>
-                            <button onClick={() => setDistrict("東大和")}>東大和市</button>
-                        </div>
-                        <div className="page-block">
-                            <Link to={`/gaid/${dist?.page_id}`}>
-                                <h2>{dist?.title}</h2>
-                                <p>{dist?.location_name}</p>
-                                <div className="pic"><img src={dist?.image}></img></div>
-                                <p>{dist?.text}</p>
-                            </Link>
-                            <button onClick={() => window.open(`https://maps.google.co.jp/maps?ll=${dist.location.x},${dist.location.y}`)}>Google MAPで開く</button>
-                        </div>
-                    </div>
-                )
+
+                return displayDistrict(district, districtData, setDistrict);
             case "nearby":
                 // 現在地から情報をAPIサーバから取得して地図を描画
-                if(!nearbyData.page_count) {
-                    axios.get<ResponseNearbyData>(`${ROOT_URL}/map?myx=${myx}&myy=${myy}`)
+                if (!nearbyData.page_count) {
+                    axios.get<ResponseNearbyData>(`${constant.ROOT_URL}/map?myx=${myx}&myy=${myy}`)
                     .then((response) => {
                         setNearbyData(response.data);
                         setLoad(false);
@@ -112,24 +69,8 @@ const Map: React.FC = () => {
                         setStatus("Error");
                     })
                 }
-
-                return (
-                    nearbyData.pages?.map((page, index) => {
-                        return (
-                            <div className="page-block" key={index}>
-                                <Link to={`/gaid/${page.page_id}`}>
-                                    <h2>{index + 1}番：{page.title}</h2>
-                                    <p>{page.location_name}</p>
-                                    <div className="pic"><img src={page.image} alt={page.title}></img></div>
-                                    <p>{page.text}</p>
-                                </Link>
-                                <button onClick={() => { window.open(`https://maps.google.co.jp/maps?ll=${page.location.x},${page.location.y}`) }}>Google MAPで開く</button>
-                            </div>
-                        )
-                    })
-                )
-            default:
-                return <div>ネットワークエラー</div>
+                
+                return displayNearby(nearbyData);
         }
     }
 

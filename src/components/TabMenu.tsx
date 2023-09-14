@@ -12,14 +12,10 @@ const TabMenu: React.FC = () =>{
 
     const [tab, setTab] = React.useState<Tab>("guide");
 
-    const change_tab = (tab_name:Tab) => {
-        setTab(tab_name);
-    };
-
     return(
         <div className="tab-menu">
             <ul className="tab">
-                <li className="tab-item" onClick={() => change_tab("guide")} id={tab == "guide" ? "active" : "noactive"}>
+                <li className="tab-item" onClick={() => setTab("guide")} id={tab == "guide" ? "active" : "noactive"}>
                     <Link to="/">
                         <div className="item">
                             <div className="pic"><Guide /></div>
@@ -27,7 +23,7 @@ const TabMenu: React.FC = () =>{
                         </div>
                     </Link>
                 </li>
-                <li className="tab-item" onClick={() => change_tab("map")} id={tab == "map" ? "active" : "noactive"}>
+                <li className="tab-item" onClick={() => setTab("map")} id={tab == "map" ? "active" : "noactive"}>
                     <Link to="/map">
                         <div className="item">
                             <div className="pic"><Map /></div>
@@ -35,7 +31,7 @@ const TabMenu: React.FC = () =>{
                         </div>
                     </Link>
                 </li>
-                <li className="tab-item" onClick={() => change_tab("library")} id={tab == "library" ? "active" : "noactive"}>
+                <li className="tab-item" onClick={() => setTab("library")} id={tab == "library" ? "active" : "noactive"}>
                     <Link to="/camera">
                         <div className="item">
                             <div className="pic"><Library /></div>
@@ -43,7 +39,7 @@ const TabMenu: React.FC = () =>{
                         </div>
                     </Link>
                 </li>
-                <li className="tab-item" onClick={() => change_tab("postPage")} id={tab == "postPage" ? "active" : "noactive"}>
+                <li className="tab-item" onClick={() => setTab("postPage")} id={tab == "postPage" ? "active" : "noactive"}>
                     <Link to="/post">
                         <div className="item">
                             <div className="pic"><Ranking /></div>

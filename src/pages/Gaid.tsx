@@ -12,31 +12,11 @@ import PushWent from "./../static/images/point/push_went.svg";
 
 import "./../static/css/gaid.scss"
 
-const ROOT_URL = constant.ROOT_URL;
-
-interface ResponsPage{
-    page_id: number,
-    title: string,
-    tag: string,
-    text: string,
-    user: number,
-    location_name: string,
-    location: {
-        x: number,
-        y: number
-    },
-    image: string,
-    good: number,
-    go: number,
-    went: number,
-    user_status: string[]
-}
-
-const testPage: ResponsPage = {
-    page_id: 1,
-    title: "ネットワークエラー",
+const testPage: Page = {
+    page_id: -1,
+    title: "人気の投稿",
     tag: "kankou",
-    text: "ネットワークと接続してください",
+    text: "",
     user: 1,
     location_name: "",
     location: {
@@ -55,7 +35,7 @@ const Gaid: React.FC = () => {
     const [good, setGood] = React.useState(false);
     const [go, setGo] = React.useState(false);
     const [went, setWent] = React.useState(false);
-    const [page, setPage] = React.useState<ResponsPage>();
+    const [page, setPage] = React.useState<Page>();
 
     // JWTを取得する
     const isToken = () => {
@@ -74,9 +54,9 @@ const Gaid: React.FC = () => {
         }
 
         if (isUpdate == "post") { // 追加する
-            await axios.post(`${ROOT_URL}/point?page_id=${pageId}&status=${status}`, {}, {headers: {token: localStorage.getItem("token")}})
+            await axios.post(`${constant.ROOT_URL}/point?page_id=${pageId}&status=${status}`, {}, {headers: {token: localStorage.getItem("token")}})
         } else if(isUpdate == "put") { // 取り消す
-            await axios.put(`${ROOT_URL}/point?page_id=${pageId}&status=${status}`, {}, {headers: {token: localStorage.getItem("token")}})
+            await axios.put(`${constant.ROOT_URL}/point?page_id=${pageId}&status=${status}`, {}, {headers: {token: localStorage.getItem("token")}})
         }
 
         // 画像を切替える
@@ -115,8 +95,8 @@ const Gaid: React.FC = () => {
     }
 
     React.useEffect(()=>{
-        axios.get(`${ROOT_URL}/page/${pageId}`, {headers: isToken() ? {token: isToken()} : {}})
-        .then((respons: AxiosResponse<ResponsPage>)=>{
+        axios.get(`${constant.ROOT_URL}/page/${pageId}`, {headers: isToken() ? {token: isToken()} : {}})
+        .then((respons: AxiosResponse<Page>)=>{
             setPage(respons.data);
             respons.data.user_status.map((status) => {
                 switch(status) {
