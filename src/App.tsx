@@ -1,6 +1,5 @@
 import * as React from "react";
 import {Routes, Route, Navigate, useLocation} from "react-router-dom";
-import checkAccount from "./lib/checkAccount";
 
 import Header from "./components/Header";
 import TabMenu from "./components/TabMenu";
@@ -43,7 +42,7 @@ const App: React.FC = () =>{
                 </Route>
                 <Route path="/map" element={<Map />} />
                 <Route path="/camera" element={<Camera />} />
-                <Route path="/post" element={checkAccount() ?<Post />:<Navigate to="/account/signup"/>}>
+                <Route path="/post" element={localStorage.getItem("token")!=null ?<Post />:<Navigate to="/account/signup"/>}>
                     <Route path="page" element={<PostPage />} />
                     <Route path="check" element={<CheckPage />} />
                 </Route>
