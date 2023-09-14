@@ -9,22 +9,6 @@ import BronzeMedal from "./../static/images/library/medal/bronze_medal.svg";
 import Load from "./../static/images/load.webm";
 import LoadSub from "./../static/images/load.mp4";
 
-const ROOT_URL = constant.ROOT_URL;
-
-interface Page {
-    page_id: number,
-    title: string,
-    tag: "kankou" | "gurume" | "tamasanpo" | "omiyage",
-    text: string,
-    user: number,
-    location_name: string,
-    location: {
-        x: number,
-        y: number
-    },
-    image: string
-}
-
 interface ResponseBody {
     name: string,
     checked: number[],
@@ -33,7 +17,7 @@ interface ResponseBody {
 
 const CheckPage: React.FC = () => {
     // ユーザーが投稿したページを保存する変数
-    const [responseBody, setResponseBody] = React.useState<ResponseBody>({name: "", checked: [], files: [{page_id: 0, title: "確認中", tag: "kankou", text: "投稿確認中", user: 1,  location: {x: 0, y:0}, location_name: "", image: ""}]});
+    const [responseBody, setResponseBody] = React.useState<ResponseBody>({name: "", checked: [], files: [{page_id: 0, title: "確認中", tag: "kankou", text: "投稿確認中", user: 1,  location: {x: 0, y:0}, location_name: "", image: "", good: 0, go: 0, went: 0, user_status: []}]});
     // ヘッダーにJWTを設定
     const config: AxiosRequestConfig = {
         headers: {
@@ -102,12 +86,12 @@ const CheckPage: React.FC = () => {
     }
 
     React.useEffect(() => {
-        axios.get<ResponseBody>(`${ROOT_URL}/user`, config)
+        axios.get<ResponseBody>(`${constant.ROOT_URL}/user`, config)
         .then((response) => {
             setResponseBody(response.data);
         })
         .catch(() => {
-            setResponseBody({ name: "", checked: [], files: [{page_id: -1, title: "ネットエラー", tag: "kankou", text: "ネットに接続してください", user: -1, location_name: "", location: {x: -1, y: -1}, image: ""}]});
+            setResponseBody({ name: "", checked: [], files: [{page_id: -1, title: "ネットエラー", tag: "kankou", text: "ネットに接続してください", user: -1, location_name: "", location: {x: -1, y: -1}, image: "", good: 0, go: 0, went: 0, user_status: []}]});
         })
     }, [])
 

@@ -6,8 +6,6 @@ import { constant } from "./../constant";
 import Imagae from "./../static/images/post/image.svg";
 import Upload from "./../static/images/post/upload.svg"
 
-const ROOT_URL = constant.ROOT_URL;
-
 interface sendBody {
     title: string,
     tag: string,
@@ -86,7 +84,7 @@ const postPage: React.FC = () => {
                     // 送信ボタンを押しタイトルを入力していればデータを投稿する
                     if (submit && title != "") {
                         setStatus("送信中");
-                        axios.post(`${ROOT_URL}/page`, body, config)
+                        axios.post(`${constant.ROOT_URL}/page`, body, config)
                         .then(() => {
                             setStatus("成功");
                         })

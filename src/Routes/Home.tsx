@@ -13,26 +13,7 @@ import LoadSub from "./../static/images/load.mp4";
  
 import "./../static/css/home.scss";
 
-const ROOT_URL = constant.ROOT_URL;
 const PER_PAGE = 3;
-
-// 投稿されたページ情報の型
-interface PageData {
-    page_id: number,
-    title: string,
-    tag: string,
-    text: string,
-    user: number,
-    location_name: string,
-    location: {
-        x: number,
-        y: number
-    }
-    image: string
-}
-
-// タグ情報の型
-type Tag = "kankou" | "gurume" | "tamasanpo" | "omiyage";
 
 // 現在のタグとページの番号を保存する型
 interface State {
@@ -41,20 +22,20 @@ interface State {
 }
 
 interface Max {
-    "kankou" : number,
-    "gurume" : number,
-    "tamasanpo" : number,
-    "omiyage" : number
+    "kankou": number,
+    "gurume": number,
+    "tamasanpo": number,
+    "omiyage": number
 }
 
 // axiosで受け取るデータの型
-interface ResponsePageData {
-    result: PageData[],
+interface ResponseBody {
+    result: Page[],
     max : Max
 }
 
 // 記事の配列から2つの画像を取り出す
-const makeRandomPage = (pages:PageData[][]) :string[] => {
+const makeRandomPage = (pages:Page[][]) :string[] => {
     let result: string[] = [];
     // 保存されているデータから２個ランダムで画像を取り出して配列に追加する
     for (let i=0; i<2; i++) {
@@ -73,19 +54,19 @@ const init: State = {
 
 const Home: React.FC = () => {
     // タグごとのページ情報を管理する変数
-    const [kankouData, setKankouData] = React.useState<PageData[][]>([]);
-    const [gurumeData, setGurumeData] = React.useState<PageData[][]>([]);
-    const [tamasanpoData, setTamasanpoData] = React.useState<PageData[][]>([]);
-    const [omiyageData, setOmiyageData] = React.useState<PageData[][]>([]);
+    const [kankouData, setKankouData] = React.useState<Page[][]>([]);
+    const [gurumeData, setGurumeData] = React.useState<Page[][]>([]);
+    const [tamasanpoData, setTamasanpoData] = React.useState<Page[][]>([]);
+    const [omiyageData, setOmiyageData] = React.useState<Page[][]>([]);
 
     // 表示するページと写真ボックスの変数
-    const [displayPage, setDisplayPage] = React.useState<PageData[]>();
+    const [displayPage, setDisplayPage] = React.useState<Page[]>();
     const [maxPageNums, setMaxPageNum] = React.useState<Max>({"kankou":0, "gurume":0, "tamasanpo":0, "omiyage":0});
     const [picBox, setPicBox] = React.useState<string[]>(["", ""]);
     const [load, setLoad] = React.useState<boolean>(true);
     const [neterror, setNeterror] = React.useState<boolean>(false);
     // 表示するページを変える関数
-    const changePage = (action:State, pages: PageData[][], setPages: React.Dispatch<React.SetStateAction<PageData[][]>>)=> {
+    const changePage = (action:State, pages: Page[][], setPages: React.Dispatch<React.SetStateAction<Page[][]>>)=> {
         // ページが保存されている場合にはそのまま利用する
         try {
             // 投稿ページが配列に保存されていなければ例外処理へジャンプする
@@ -96,7 +77,7 @@ const Home: React.FC = () => {
             setPicBox(makeRandomPage(pages))
         // ページが配列に保存されていない場合はAPIサーバから投稿ページを取得する
         } catch(e) {
-            axios.get<ResponsePageData>(`${ROOT_URL}/pages?tag=${action.tag}&pageNum=${action.pageNum}`)
+            axios.get<ResponseBody>(`${constant.ROOT_URL}/pages?tag=${action.tag}&pageNum=${action.pageNum}`)
             .then((response) => {
                 setDisplayPage(response.data.result);
                 setPages([...pages, response.data.result]);

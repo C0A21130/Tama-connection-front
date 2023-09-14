@@ -7,8 +7,6 @@ import Load from "./../static/images/load.webm";
 import LoadSub from "./../static/images/load.mp4";
 import "./../static/css/map.scss";
 
-const ROOT_URL = constant.ROOT_URL;
-
 interface Location {
     location: {
         x: number,
@@ -16,21 +14,6 @@ interface Location {
         distance: number 
     },
     page_id: number
-}
-
-interface Page {
-    page_id: number,
-    title: string,
-    tag: "kankou" | "gurume" | "tamasanpo" | "omiyage",
-    text: string,
-    user: number,
-    location_name: string,
-    location: {
-        x: number,
-        y: number,
-        distance: number
-    },
-    image: string
 }
 
 // 受け取るデータの型
@@ -63,7 +46,7 @@ const Map: React.FC = () => {
                 let dist: Page;
                 // 地区名の検索をしたことがないときはデータを受信する
                 if (!districtData) {
-                    axios.get<ResponseDistrictData>(`${ROOT_URL}/map?myx=0&myy=0&request=district`)
+                    axios.get<ResponseDistrictData>(`${constant.ROOT_URL}/map?myx=0&myy=0&request=district`)
                     .then((response) => {
                         setDistrictData(response.data);
                         setLoad(false);
@@ -103,7 +86,7 @@ const Map: React.FC = () => {
             case "nearby":
                 // 現在地から情報をAPIサーバから取得して地図を描画
                 if(!nearbyData.page_count) {
-                    axios.get<ResponseNearbyData>(`${ROOT_URL}/map?myx=${myx}&myy=${myy}`)
+                    axios.get<ResponseNearbyData>(`${constant.ROOT_URL}/map?myx=${myx}&myy=${myy}`)
                     .then((response) => {
                         setNearbyData(response.data);
                         setLoad(false);

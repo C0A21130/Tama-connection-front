@@ -3,8 +3,6 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { constant } from "./../constant";
 
-const ROOT_URL = constant.ROOT_URL;
-
 interface ResposBody {
     token: string
 }
@@ -16,7 +14,7 @@ const Login: React.FC = () => {
 
     // 登録されているユーザーのIDを取得する
     const submit_user = async () => {
-        await axios.post<ResposBody>(`${ROOT_URL}/login`, {name: name, password: password})
+        await axios.post<ResposBody>(`${constant.ROOT_URL}/login`, {name: name, password: password})
         .then((response) => {
             localStorage.setItem("token", response.data.token)
             navigate("/account/success", { state: { s: true } })

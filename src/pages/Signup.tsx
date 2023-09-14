@@ -3,8 +3,6 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { constant } from "./../constant";
 
-const ROOT_URL = constant.ROOT_URL;
-
 interface ResposBody {
     token: string
 }
@@ -24,7 +22,7 @@ const Signup: React.FC = () => {
         }
 
         // ユーザーを作成する
-        await axios.post<ResposBody>(`${ROOT_URL}/regist`, {name: name, password: password})
+        await axios.post<ResposBody>(`${constant.ROOT_URL}/regist`, {name: name, password: password})
         .then((response) => {
             // 既に名前が存在する際にもう一度名前の入力を求める
             if (response.data.token == "exist name") {
