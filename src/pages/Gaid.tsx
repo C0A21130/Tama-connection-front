@@ -13,10 +13,10 @@ import PushWent from "./../static/images/point/push_went.svg";
 import "./../static/css/gaid.scss"
 
 const testPage: Page = {
-    page_id: 1,
-    title: "ネットワークエラー",
+    page_id: -1,
+    title: "人気の投稿",
     tag: "kankou",
-    text: "ネットワークと接続してください",
+    text: "",
     user: 1,
     location_name: "",
     location: {

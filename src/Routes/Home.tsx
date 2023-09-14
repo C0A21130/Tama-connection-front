@@ -1,7 +1,7 @@
 import * as React from "react";
 import axios from "axios";
 import { constant } from "./../constant";
-
+import select from "./../lib/select";
 import PageEntry from "./../components/PageEntry";
 
 import Sightseeing from "./../static/images/tag_menu/sightseeing.svg";
@@ -65,6 +65,7 @@ const Home: React.FC = () => {
     const [picBox, setPicBox] = React.useState<string[]>(["", ""]);
     const [load, setLoad] = React.useState<boolean>(true);
     const [neterror, setNeterror] = React.useState<boolean>(false);
+    
     // 表示するページを変える関数
     const changePage = (action:State, pages: Page[][], setPages: React.Dispatch<React.SetStateAction<Page[][]>>)=> {
         // ページが保存されている場合にはそのまま利用する
@@ -95,44 +96,20 @@ const Home: React.FC = () => {
 
     // タグと番号を同時変更するreducer変数
     const reduser = (state: State, action: State) => {
-        // ページの上限に達していないか確認する変数
-        let flag: boolean;
-
         switch(action.tag){
+            // 上限に達していなければページを更新する
             case "kankou":
-                flag = (-1 < action.pageNum) && (Math.ceil(maxPageNums.kankou / PER_PAGE) > action.pageNum);
-                // 上限に達していなければページを更新する
-                if (flag) {
-                    changePage(action, kankouData, setKankouData);
-                    return action
-                }
+                if (select(action, kankouData, setKankouData, maxPageNums.kankou, changePage)) {return action}
                 break;
             case "gurume":
-                flag = (-1 < action.pageNum) && (Math.ceil(maxPageNums.gurume / PER_PAGE) > action.pageNum);
-                // 上限に達していなければページを更新する
-                if (flag) {
-                    changePage(action, gurumeData, setGurumeData);
-                    return action
-                }
+                if (select(action, gurumeData, setGurumeData, maxPageNums.gurume, changePage)) {return action}
                 break;
             case "tamasanpo":
-                flag = (-1 < action.pageNum) && (Math.ceil(maxPageNums.tamasanpo / PER_PAGE) > action.pageNum);
-                // 上限に達していなければページを更新する
-                if (flag) {
-                    changePage(action, tamasanpoData, setTamasanpoData);
-                    return action  
-                }
+                if (select(action, tamasanpoData, setTamasanpoData, maxPageNums.tamasanpo, changePage)) {return action}
                 break;
             case "omiyage":
-                flag = (-1 < action.pageNum) && (Math.ceil(maxPageNums.omiyage / PER_PAGE) > action.pageNum);
-                // 上限に達していなければページを更新する
-                if (flag) {
-                    changePage(action, omiyageData, setOmiyageData);
-                    return action
-                }
+                if (select(action, omiyageData, setOmiyageData, maxPageNums.omiyage, changePage)) {return action}
                 break;
-            default:
-                return state;
         }
         return state
     }
