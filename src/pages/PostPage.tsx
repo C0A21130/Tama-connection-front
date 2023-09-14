@@ -60,13 +60,20 @@ const postPage: React.FC = () => {
         setMyy(position.coords.latitude);
     })
 
+    // 送信内容の確認
+    const isStatus = (file: File): boolean => {
+        const canFile = file == undefined;
+        const canStatus = status != "送信";
+        return (canFile || canStatus) ;
+    }
+
     // 送信ボタンを押したときの処理
     const submitPage = (submit: boolean) => {
         const pictuer = document.querySelector<HTMLInputElement>("#picture");
         const file = pictuer.files[0];
 
         // 写真とタイトルが選択されいないか送信中の場合は処理を抜ける
-        if (file == undefined || status == "送信中") { return }
+        if (isStatus(file)) { return }
 
         // 画像の圧縮
         new Compressor(file, {
